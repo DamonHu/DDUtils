@@ -79,6 +79,20 @@ public extension HDNameSpace where T == String {
         return string
     }
     
+    //aes256解密
+    func aes256Decrypt(password: String) -> String {
+        guard let data = Data(base64Encoded: object) else { return "" }
+        let encryptData = self.p_crypt(data: data, password: password, option: CCOperation(kCCDecrypt))
+        return String(data: encryptData, encoding: String.Encoding.utf8) ?? ""
+    }
+    
+    //aes256加密
+    func aes256Encrypt(password: String) -> String {
+        guard let data = object.data(using:String.Encoding.utf8) else { return "" }
+        let encryptData = self.p_crypt(data: data, password: password, option: CCOperation(kCCEncrypt))
+        return encryptData.base64EncodedString()
+    }
+    
     //MARK: 加密
     func encryptString(encryType: HDEncryType, lowercase: Bool = true) -> String {
         let data: Data = object.data(using: String.Encoding.utf8) ?? Data()
@@ -160,5 +174,37 @@ public extension HDNameSpace where T == String {
             return String(output).uppercased()
         }
         return String(output)
+    }
+    
+    private func p_crypt(data: Data, password: String, option: CCOperation) -> Data {
+        let ivString = "abcdefghijklmnop"
+        
+        guard let iv = ivString.data(using:String.Encoding.utf8) else { return Data() }
+        guard let key = password.data(using:String.Encoding.utf8) else { return Data() }
+        
+        let cryptLength = data.count + kCCBlockSizeAES128
+        var cryptData   = Data(count: cryptLength)
+        
+        let keyLength = kCCKeySizeAES256
+        let options   = CCOptions(kCCOptionPKCS7Padding)
+        
+        var bytesLength = Int(0)
+        
+        let status = cryptData.withUnsafeMutableBytes { cryptBytes in
+            data.withUnsafeBytes { dataBytes in
+                iv.withUnsafeBytes { ivBytes in
+                    key.withUnsafeBytes { keyBytes in
+                        CCCrypt(option, CCAlgorithm(kCCAlgorithmAES), options, keyBytes.baseAddress, keyLength, ivBytes.baseAddress, dataBytes.baseAddress, data.count, cryptBytes.baseAddress, cryptLength, &bytesLength)
+                    }
+                }
+            }
+        }
+        
+        guard UInt32(status) == UInt32(kCCSuccess) else {
+            return Data()
+        }
+        
+        cryptData.removeSubrange(bytesLength..<cryptData.count)
+        return cryptData
     }
 }

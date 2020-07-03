@@ -13,12 +13,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //角度渐变图片
-//        UIImage().hd.sssss()
-        UIImage.hd
-        UIImage.hd.getImageWithColor(color: UIColor.clear)
-//        let image = HDCommonTools.shared.getRadialGradientImage(colors: [UIColor.red, UIColor.black, UIColor.blue], raduis: 45)
+        let image = HDCommonTools.shared.getRadialGradientImage(colors: [UIColor.red, UIColor.black, UIColor.blue], raduis: 45)
 //        //线性渐变图片
-//        let image2 = HDCommonTools.shared.getLinearGradientImage(colors:  [UIColor.red, UIColor.black, UIColor.blue], directionType: .level)
+        let image2 = HDCommonTools.shared.getLinearGradientImage(colors:  [UIColor.red, UIColor.black, UIColor.blue], directionType: .level)
         //16进制颜色转为UIColor
         let color = UIColorWithHexValue(hexValue: 0xffffff)
         //16进制字符串转为UIColor
