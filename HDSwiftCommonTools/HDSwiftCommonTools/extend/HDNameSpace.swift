@@ -10,10 +10,13 @@ import Foundation
 
 public struct HDNameSpace <T> {
     let object: T
+    static let hd: T.Type
     
     init(object: T) {
         self.object = object
     }
+    
+    
 }
 
 

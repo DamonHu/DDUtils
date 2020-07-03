@@ -8,16 +8,6 @@
 
 import Foundation
 
-
-
-
 public extension HDCommonTools {
-    
-
-    
-    
-    
-    
-    
     
 }
