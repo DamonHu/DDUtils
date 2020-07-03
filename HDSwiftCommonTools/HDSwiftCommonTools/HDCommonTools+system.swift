@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 import AdSupport
+import StoreKit
+
+public enum HDOpenAppStoreType {
+    case app        //应用内打开，ios10.3以下无反应
+    case appStore   //跳转到App Store
+    case auto       //ios10.3以上应用内打开，以下跳转到App Store打开
+}
 
 public extension HDCommonTools {
     //获取软件版本
@@ -66,5 +73,67 @@ public extension HDCommonTools {
         } else {
             return UIDevice.current.identifierForVendor?.uuidString ?? ""
         }
+    }
+    
+    //打开系统设置
+    func openSystemSetting() -> Void {
+        let url = URL(string: UIApplication.openSettingsURLString)!
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
+    //打开软件对应的App Store页面
+    func openAppStorePage(openType: HDOpenAppStoreType, appleID: String) -> Void {
+        switch openType {
+        case .app:
+            let storeProductVC = SKStoreProductViewController()
+            storeProductVC.delegate = self
+            storeProductVC.loadProduct(withParameters: [SKStoreProductParameterITunesItemIdentifier : appleID]) { (success, error) in
+                if success {
+                    self.getCurrentVC()?.present(storeProductVC, animated: true, completion: nil)
+                }
+            }
+        case .appStore:
+            let url = URL(string: "https://itunes.apple.com/app/id\(appleID)")!
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        case .auto:
+            let storeProductVC = SKStoreProductViewController()
+            storeProductVC.delegate = self
+            storeProductVC.loadProduct(withParameters: [SKStoreProductParameterITunesItemIdentifier : appleID]) { (success, error) in
+                if success {
+                    self.getCurrentVC()?.present(storeProductVC, animated: true, completion: nil)
+                } else {
+                    let url = URL(string: "https://itunes.apple.com/app/id\(appleID)")!
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
+        }
+    }
+    
+    //打开软件对应的评分页面
+    func openAppStoreReviewPage(openType: HDOpenAppStoreType, appleID: String = "") -> Void {
+        switch openType {
+        case .app:
+            if #available(iOS 10.3, *) {
+                SKStoreReviewController.requestReview()
+            } else {
+                
+            };
+        case .appStore:
+            let url = URL(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=\(appleID)")!
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        case .auto:
+            if #available(iOS 10.3, *) {
+                SKStoreReviewController.requestReview()
+            } else {
+                let url = URL(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=\(appleID)")!
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+    }
+}
+
+extension HDCommonTools : SKStoreProductViewControllerDelegate {
+    public func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        viewController.dismiss(animated: true, completion: nil)
     }
 }

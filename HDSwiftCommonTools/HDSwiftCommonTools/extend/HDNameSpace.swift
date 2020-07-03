@@ -1,5 +1,5 @@
 //
-//  HDCommonTools+encode.swift
+//  HDNameSpace.swift
 //  HDSwiftCommonTools
 //
 //  Created by Damon on 2020/7/3.
@@ -8,16 +8,12 @@
 
 import Foundation
 
-
-
-
-public extension HDCommonTools {
+public struct HDNameSpace <T> {
+    let object: T
     
-
-    
-    
-    
-    
-    
-    
+    init(object: T) {
+        self.object = object
+    }
 }
+
+

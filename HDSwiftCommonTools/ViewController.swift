@@ -25,18 +25,18 @@ class ViewController: UIViewController {
         
         
         //md5加密
-        HDCommonTools.shared.encryptString("哈哈是电话费", encryType: HDEncryType.md5)
+        "哈哈是电话费".hd.encryptString(encryType: HDEncryType.md5)
         //sha加密
-        HDCommonTools.shared.encryptString("sha1加密", encryType: HDEncryType.sha1)
-        HDCommonTools.shared.encryptString("哈哈是电话费", encryType: HDEncryType.sha256)
+        "sha1加密".hd.encryptString(encryType: HDEncryType.sha1)
+        "哈哈是电话费".hd.encryptString(encryType: HDEncryType.sha256)
         //base64加密
-        HDCommonTools.shared.encryptString("哈哈是电话费", encryType: HDEncryType.base64)
+        "哈哈是电话费".hd.encryptString(encryType: HDEncryType.base64)
         //base64解码
-        HDCommonTools.shared.base64Decode(base64String: "5ZOI5ZOI5piv55S16K+d6LS5")
+        "5ZOI5ZOI5piv55S16K+d6LS5".hd.base64Decode()
         //字符串转unicode
-        HDCommonTools.shared.unicodeEncode(string: "哈哈哈")
+        "哈哈是电话费".hd.unicodeEncode()
         //unicode转中文
-        HDCommonTools.shared.unicodeDecode(unicodeString: "\\u54c8\\u54c8\\u54c8")
+        "\\u54c8\\u54c8\\u54c8".hd.unicodeDecode()
         
         //软件版本
         HDCommonTools.shared.getAppVersionString()
@@ -44,6 +44,15 @@ class ViewController: UIViewController {
         HDCommonTools.shared.getAppBuildVersionString()
         //获取唯一标识
         HDCommonTools.shared.getIDFAString()
+        //打开系统设置
+        HDCommonTools.shared.openSystemSetting()
+        
+        //比较时间
+        Date().hd.compare(anotherDate: Date(timeIntervalSince1970: 1000), ignoreTime: true)
+        
+        let string = "截取字符串"
+        print(string.hd.subString(rang: NSRange(location: 2, length: 5)))
+
     }
 
 }
