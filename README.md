@@ -19,7 +19,7 @@ pod 'HDSwiftCommonTools'
 为了操作方便，基本上大部分`发起操作`都可以通过`单例`完成调用，针对系统已有数据类型的操作则提供了`hd`的点语法，举个例子
 
 ```
-// 可以通过单例进行调用
+/** 可以通过单例进行调用 */
 
 //打开系统设置
 HDCommonTools.shared.openSystemSetting()
@@ -27,7 +27,7 @@ HDCommonTools.shared.openSystemSetting()
 HDCommonTools.shared.getAppBuildVersionString()
 
 
-//对已有数据类型的函数的功能扩充可以使用hd的链式调用
+/** 对已有数据类型的函数的功能扩充可以使用hd的链式调用 */
 
 //字符串的md5加密
 "哈哈是电话费".hd.encryptString(encryType: HDEncryType.md5)
