@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import AdSupport
+import SystemConfiguration.CaptiveNetwork
 import StoreKit
 
 public enum HDOpenAppStoreType {
@@ -18,35 +19,35 @@ public enum HDOpenAppStoreType {
 }
 
 public extension HDCommonTools {
-    //获取软件版本
+    ///获取软件版本
     func getAppVersionString() -> String {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         return version ?? ""
     }
     
-    //获取软件构建版本
+    ///获取软件构建版本
     func getAppBuildVersionString() -> String {
         let version = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
         return version ?? ""
     }
     
-    //获取系统的iOS版本
+    ///获取系统的iOS版本
     func getIOSVersionString() -> String {
         return UIDevice.current.systemVersion
     }
     
-    //获取系统语言
+    ///获取系统语言
     func getIOSLanguageStr() -> String {
         let language = Bundle.main.preferredLocalizations.first
         return language ?? ""
     }
     
-    //获取软件Bundle Identifier
+    ///获取软件Bundle Identifier
     func getBundleIdentifier() -> String {
         return Bundle.main.bundleIdentifier ?? ""
     }
     
-    //获取本机机型标识
+    ///获取本机机型标识
     func getSystemHardware() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)
@@ -58,7 +59,7 @@ public extension HDCommonTools {
         return identifier
     }
     
-    //获取本机上次重启时间
+    ///获取本机上次重启时间
     func getSystemUpTime() -> TimeInterval {
         let timeInterval = ProcessInfo.processInfo.systemUptime
         return Date().timeIntervalSince1970 - timeInterval
@@ -75,13 +76,28 @@ public extension HDCommonTools {
         }
     }
     
-    //打开系统设置
+    ///获取手机WIFI的MAC地址，需要开启Access WiFi information
+    func getMacAddress() -> (ssid: String?, mac: String?) {
+        let interfaces:NSArray = CNCopySupportedInterfaces()!
+        var ssid: String?
+        var mac: String?
+        for sub in interfaces {
+            if let dict = CFBridgingRetain(CNCopyCurrentNetworkInfo(sub as! CFString)) {
+                ssid = dict["SSID"] as? String
+                mac = dict["BSSID"] as? String
+                break
+            }
+        }
+        return (ssid: ssid, mac: mac)
+    }
+    
+    ///打开系统设置
     func openSystemSetting() -> Void {
         let url = URL(string: UIApplication.openSettingsURLString)!
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
-    //打开软件对应的App Store页面
+    ///打开软件对应的App Store页面
     func openAppStorePage(openType: HDOpenAppStoreType, appleID: String) -> Void {
         switch openType {
         case .app:
@@ -109,7 +125,7 @@ public extension HDCommonTools {
         }
     }
     
-    //打开软件对应的评分页面
+    ///打开软件对应的评分页面
     func openAppStoreReviewPage(openType: HDOpenAppStoreType, appleID: String = "") -> Void {
         switch openType {
         case .app:

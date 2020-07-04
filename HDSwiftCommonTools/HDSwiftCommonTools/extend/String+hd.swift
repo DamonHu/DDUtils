@@ -26,7 +26,7 @@ public extension String {
 }
 
 public extension HDNameSpace where T == String {
-    //截取字符串
+    ///截取字符串
     func subString(rang: NSRange) -> String {
         var string = String()
         var subRange = rang
@@ -44,7 +44,7 @@ public extension HDNameSpace where T == String {
         return string
     }
     
-    //unicode转中文
+    ///unicode转中文
     func unicodeDecode() -> String {
         let tempStr1 = object.replacingOccurrences(of: "\\u", with: "\\U")
         let tempStr2 = tempStr1.replacingOccurrences(of: "\"", with: "\\\"")
@@ -59,14 +59,14 @@ public extension HDNameSpace where T == String {
         return returnStr.replacingOccurrences(of: "\\r\\n", with: "\n")
     }
     
-    //字符串转unicode
+    ///字符串转unicode
     func unicodeEncode() -> String {
         let dataEncode = object.data(using: String.Encoding.nonLossyASCII)
         let unicodeStr = String(data: dataEncode!, encoding: String.Encoding.utf8)
         return unicodeStr!
     }
     
-    //base64解码
+    ///base64解码
     func base64Decode(lowercase: Bool = true) -> String {
         let decodeData:Data? = Data(base64Encoded: object)
         guard let utf8Data = decodeData else{
@@ -79,14 +79,14 @@ public extension HDNameSpace where T == String {
         return string
     }
     
-    //aes256解密
+    ///aes256解密
     func aes256Decrypt(password: String) -> String {
         guard let data = Data(base64Encoded: object) else { return "" }
         let encryptData = self.p_crypt(data: data, password: password, option: CCOperation(kCCDecrypt))
         return String(data: encryptData, encoding: String.Encoding.utf8) ?? ""
     }
     
-    //aes256加密
+    ///aes256加密
     func aes256Encrypt(password: String) -> String {
         guard let data = object.data(using:String.Encoding.utf8) else { return "" }
         let encryptData = self.p_crypt(data: data, password: password, option: CCOperation(kCCEncrypt))

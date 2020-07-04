@@ -22,7 +22,7 @@ public enum HDGradientDirection {
 //      C         D
 
 public extension HDCommonTools {
-    //通过十六进制字符串获取颜色
+    ///通过十六进制字符串获取颜色
     func getColorWithHexString(hexString: String, alpha: CGFloat = 1.0) -> UIColor {
         var hex = ""
         if hexString.hasPrefix("#") {
@@ -55,7 +55,7 @@ public extension HDCommonTools {
         return UIColor(displayP3Red: CGFloat(red)/255.0, green: CGFloat(green)/255.0, blue: CGFloat(blue)/255.0, alpha: alpha)
     }
     
-    //获取当前的normalwindow
+    ///获取当前的normalwindow
     func getCurrentNormalWindow() -> UIWindow? {
         var window = UIApplication.shared.keyWindow
         if window == nil || window?.windowLevel != UIWindow.Level.normal {
@@ -69,7 +69,7 @@ public extension HDCommonTools {
         return window
     }
     
-    //获取当前显示的vc
+    ///获取当前显示的vc
     func getCurrentVC() -> UIViewController? {
         let currentWindow = self.getCurrentNormalWindow()
         guard let window = currentWindow else { return nil }
@@ -98,7 +98,7 @@ public extension HDCommonTools {
         return vc
     }
     
-    //通过颜色获取纯色图片
+    ///通过颜色获取纯色图片
     func getImageWithColor(color: UIColor) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         var image: UIImage?
@@ -114,7 +114,7 @@ public extension HDCommonTools {
         return image ?? UIImage()
     }
     
-    //线性渐变
+    ///线性渐变
     func getLinearGradientImage(colors: [UIColor], directionType: HDGradientDirection, size: CGSize = CGSize(width: 100, height: 100)) -> UIImage {
         if (colors.count == 0) {
             return UIImage()
@@ -161,7 +161,7 @@ public extension HDCommonTools {
         return gradientImage ?? UIImage()
     }
     
-    //角度渐变
+    ///角度渐变
     func getRadialGradientImage(colors: [UIColor], raduis: CGFloat, size: CGSize = CGSize(width: 100, height: 100)) -> UIImage {
         if (colors.count == 0) {
             return UIImage()
@@ -213,7 +213,7 @@ public extension HDCommonTools {
     
 }
 
-//16进制颜色转为UIColor 0xffffff
+///16进制颜色转为UIColor 0xffffff
 public func UIColorWithHexValue(hexValue: Int, darkHexValue: Int = 0x333333, alpha: Float = 1.0, darkAlpha: Float = 1.0) -> UIColor {
     if #available(iOS 10.0, *) {
         if #available(iOS 13.0, *) {
@@ -233,7 +233,7 @@ public func UIColorWithHexValue(hexValue: Int, darkHexValue: Int = 0x333333, alp
     };
 }
 
-//16进制字符串转为UIColor #ffffff
+///16进制字符串转为UIColor #ffffff
 public func UIColorWithHexString(hexString: String, darkHexValue: String = "0x333333", alpha: CGFloat = 1.0, darkAlpha: CGFloat = 1.0) -> UIColor {
     if #available(iOS 13.0, *) {
         let dyColor = UIColor { (traitCollection) -> UIColor in
@@ -253,10 +253,10 @@ public func UIColorWithHexString(hexString: String, darkHexValue: String = "0x33
 public let UIScreenWidth = UIScreen.main.bounds.size.width
 public let UIScreenHeight = UIScreen.main.bounds.size.height
 
-//状态栏高度
+///状态栏高度
 public let HD_StatusBar_Height = UIApplication.shared.statusBarFrame.size.height
 
-//导航栏高度
+///导航栏高度
 public func HD_Default_NavigationBar_Height(vc: UIViewController? = nil) -> CGFloat {
     if let navigationController = vc?.navigationController {
         return navigationController.navigationBar.frame.size.height
@@ -265,7 +265,7 @@ public func HD_Default_NavigationBar_Height(vc: UIViewController? = nil) -> CGFl
     }
 }
 
-//tabbar高度
+///tabbar高度
 public func HD_Default_Tabbar_Height(vc: UIViewController? = nil) -> CGFloat {
     if let tabbarViewController = vc?.tabBarController {
         return tabbarViewController.tabBar.frame.size.height
@@ -274,7 +274,7 @@ public func HD_Default_Tabbar_Height(vc: UIViewController? = nil) -> CGFloat {
     }
 }
 
-//状态栏和导航栏总高度
+///状态栏和导航栏总高度
 public func HD_Default_Nav_And_Status_Height(vc: UIViewController? = nil) -> CGFloat {
     return HD_Default_NavigationBar_Height(vc: vc) + HD_StatusBar_Height
 }

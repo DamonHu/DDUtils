@@ -11,7 +11,7 @@ import AVFoundation
 import Photos
 import UserNotifications
 
-enum HDPermissionType {
+public enum HDPermissionType {
     case audio          //麦克风权限
     case video          //相机权限
     case photoLibrary   //相册权限
@@ -19,15 +19,15 @@ enum HDPermissionType {
     case notification   //通知权限
 }
 
-enum HDPermissionStatus {
+public enum HDPermissionStatus {
     case authorized     //用户允许
     case restricted     //被限制修改不了状态,比如家长控制选项等
     case denied         //用户拒绝
     case notDetermined  //用户尚未选择
 }
 
-extension HDCommonTools {
-    //请求权限
+public extension HDCommonTools {
+    ///请求权限
     func requestPermission(permissionType: HDPermissionType, complete: @escaping ((HDPermissionStatus) -> Void)) -> Void {
         switch permissionType {
         case .audio:
@@ -57,6 +57,8 @@ extension HDCommonTools {
                     complete(.denied)
                 case .authorized:
                     complete(.authorized)
+                @unknown default:
+                    complete(.authorized)
                 }
             }
         case .GPS:
@@ -76,6 +78,7 @@ extension HDCommonTools {
         }
     }
     
+    ///检测权限
     func checkPermission(permissionType: HDPermissionType, complete: @escaping ((HDPermissionStatus) -> Void)) -> Void {
         switch permissionType {
         case .audio:
@@ -89,6 +92,8 @@ extension HDCommonTools {
                 complete(.denied)
             case .authorized:
                 complete(.authorized)
+            @unknown default:
+                complete(.authorized)
             }
         case .video:
             let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
@@ -101,6 +106,8 @@ extension HDCommonTools {
                 complete(.denied)
             case .authorized:
                 complete(.authorized)
+            @unknown default:
+                complete(.authorized)
             }
         case .photoLibrary:
             let status = PHPhotoLibrary.authorizationStatus()
@@ -112,6 +119,8 @@ extension HDCommonTools {
             case .denied:
                 complete(.denied)
             case .authorized:
+                complete(.authorized)
+            @unknown default:
                 complete(.authorized)
             }
         case .GPS:
@@ -135,6 +144,8 @@ extension HDCommonTools {
                     complete(.authorized)
                 case .provisional:
                     complete (.authorized)
+                @unknown default:
+                    complete(.authorized)
                 }
             }
         }

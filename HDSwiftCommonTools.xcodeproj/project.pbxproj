@@ -19,6 +19,11 @@
 		E4C3CDA224AF2954007D7A07 /* String+hd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C3CDA124AF2954007D7A07 /* String+hd.swift */; };
 		E4C3CDA424AF30C0007D7A07 /* Date+hd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C3CDA324AF30C0007D7A07 /* Date+hd.swift */; };
 		E4FE596F24AF714100352695 /* HDCommonTools+permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE596E24AF714100352695 /* HDCommonTools+permission.swift */; };
+		E4FE597124AF8DA300352695 /* HDCommonTools+media.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE597024AF8DA300352695 /* HDCommonTools+media.swift */; };
+		E4FE597324B00E5E00352695 /* HDCommonTools+file.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE597224B00E5E00352695 /* HDCommonTools+file.swift */; };
+		E4FE597524B0603E00352695 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E4FE597424B0603E00352695 /* music.mp3 */; };
+		E4FE597724B0605300352695 /* click.caf in Resources */ = {isa = PBXBuildFile; fileRef = E4FE597624B0605300352695 /* click.caf */; };
+		E4FE597924B0647500352695 /* 空谷.wav in Resources */ = {isa = PBXBuildFile; fileRef = E4FE597824B0647500352695 /* 空谷.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		E4C3CDA124AF2954007D7A07 /* String+hd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+hd.swift"; sourceTree = "<group>"; };
 		E4C3CDA324AF30C0007D7A07 /* Date+hd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+hd.swift"; sourceTree = "<group>"; };
 		E4FE596E24AF714100352695 /* HDCommonTools+permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HDCommonTools+permission.swift"; sourceTree = "<group>"; };
+		E4FE597024AF8DA300352695 /* HDCommonTools+media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HDCommonTools+media.swift"; sourceTree = "<group>"; };
+		E4FE597224B00E5E00352695 /* HDCommonTools+file.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HDCommonTools+file.swift"; sourceTree = "<group>"; };
+		E4FE597424B0603E00352695 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
+		E4FE597624B0605300352695 /* click.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = click.caf; sourceTree = "<group>"; };
+		E4FE597824B0647500352695 /* 空谷.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "空谷.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +81,9 @@
 				E46E088324AD7A6200843DE2 /* HDSwiftCommonTools */,
 				E46E086F24AD7A5200843DE2 /* AppDelegate.swift */,
 				E46E087324AD7A5200843DE2 /* ViewController.swift */,
+				E4FE597424B0603E00352695 /* music.mp3 */,
+				E4FE597824B0647500352695 /* 空谷.wav */,
+				E4FE597624B0605300352695 /* click.caf */,
 				E46E087524AD7A5200843DE2 /* Main.storyboard */,
 				E46E087824AD7A5400843DE2 /* Assets.xcassets */,
 				E46E087A24AD7A5400843DE2 /* LaunchScreen.storyboard */,
@@ -87,6 +100,8 @@
 				E46E088624AD7C2300843DE2 /* HDCommonTools+UI.swift */,
 				E4C3CD9C24AF158D007D7A07 /* HDCommonTools+system.swift */,
 				E4FE596E24AF714100352695 /* HDCommonTools+permission.swift */,
+				E4FE597024AF8DA300352695 /* HDCommonTools+media.swift */,
+				E4FE597224B00E5E00352695 /* HDCommonTools+file.swift */,
 			);
 			path = HDSwiftCommonTools;
 			sourceTree = "<group>";
@@ -159,9 +174,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4FE597524B0603E00352695 /* music.mp3 in Resources */,
+				E4FE597924B0647500352695 /* 空谷.wav in Resources */,
 				E46E087C24AD7A5400843DE2 /* LaunchScreen.storyboard in Resources */,
 				E46E087924AD7A5400843DE2 /* Assets.xcassets in Resources */,
 				E46E087724AD7A5200843DE2 /* Main.storyboard in Resources */,
+				E4FE597724B0605300352695 /* click.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,8 +193,10 @@
 				E4C3CDA224AF2954007D7A07 /* String+hd.swift in Sources */,
 				E46E088524AD7A8300843DE2 /* HDCommonTools.swift in Sources */,
 				E4C3CD9D24AF158D007D7A07 /* HDCommonTools+system.swift in Sources */,
+				E4FE597324B00E5E00352695 /* HDCommonTools+file.swift in Sources */,
 				E4C3CDA424AF30C0007D7A07 /* Date+hd.swift in Sources */,
 				E46E088724AD7C2300843DE2 /* HDCommonTools+UI.swift in Sources */,
+				E4FE597124AF8DA300352695 /* HDCommonTools+media.swift in Sources */,
 				E4C3CDA024AF2812007D7A07 /* HDNameSpace.swift in Sources */,
 				E4FE596F24AF714100352695 /* HDCommonTools+permission.swift in Sources */,
 				E46E087424AD7A5200843DE2 /* ViewController.swift in Sources */,
@@ -324,7 +344,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5M4924XW7Y;
 				INFOPLIST_FILE = HDSwiftCommonTools/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -333,6 +355,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lazypig.HDSwiftCommonTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -342,7 +365,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5M4924XW7Y;
 				INFOPLIST_FILE = HDSwiftCommonTools/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -351,6 +376,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lazypig.HDSwiftCommonTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -15,7 +15,7 @@ public extension Date {
 }
 
 public extension HDNameSpace where T == Date {
-    //比较日期，设置是否忽略时间
+    ///比较日期，设置是否忽略时间
     func compare(anotherDate: Date, ignoreTime: Bool = false) -> ComparisonResult {
         if !ignoreTime {
             return object.compare(anotherDate)
