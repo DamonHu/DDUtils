@@ -9,7 +9,7 @@
 import UIKit
 
 open class HDCommonTools: NSObject {
-    static let shared: HDCommonTools = {
+    public static let shared: HDCommonTools = {
         let tShared = HDCommonTools()
         return tShared
     }()
