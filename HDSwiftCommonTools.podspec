@@ -10,6 +10,6 @@ s.source = { :git => "https://github.com/DamonHu/HDSwiftCommonTools.git", :tag =
 s.requires_arc = true
 s.ios.deployment_target = '10.0'
 s.source_files = "HDSwiftCommonTools/HDSwiftCommonTools/**/*.swift","HDSwiftCommonTools/HDSwiftCommonTools/*.swift"
-s.frameworks = 'UIKit'
+# s.frameworks = 'UIKit'
 s.documentation_url = 'http://www.hudongdong.com/ios/796.html'
 end
