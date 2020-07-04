@@ -41,9 +41,9 @@ public extension HDCommonTools {
         
         audioPlayer = try? AVAudioPlayer(contentsOf: url, fileTypeHint: nil)
         if repeated {
-            audioPlayer?.numberOfLoops = LONG_MAX
+            audioPlayer?.numberOfLoops = -1
         } else {
-            audioPlayer?.numberOfLoops = 1
+            audioPlayer?.numberOfLoops = 0
         }
         audioPlayer?.play()
     }
