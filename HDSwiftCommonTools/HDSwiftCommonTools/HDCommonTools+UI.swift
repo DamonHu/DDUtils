@@ -134,16 +134,16 @@ public extension HDCommonTools {
         gradientLayer.colors = cgColors
         gradientLayer.locations = locations
         
-        if (directionType == .level) {
+        if (directionType == .leftToRight) {
             gradientLayer.startPoint = CGPoint(x: 0, y: 0)
             gradientLayer.endPoint = CGPoint(x: 1, y: 0)
-        } else if (directionType == .vertical){
+        } else if (directionType == .topToBottom){
             gradientLayer.startPoint = CGPoint(x: 0, y: 0)
             gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        } else if (directionType == .upwardDiagonalLine){
+        } else if (directionType == .leftTopToRightBottom){
             gradientLayer.startPoint = CGPoint(x: 0, y: 0)
             gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-        } else if (directionType == .downDiagonalLine){
+        } else if (directionType == .leftBottomToRightTop){
             gradientLayer.startPoint = CGPoint(x: 0, y: 1)
             gradientLayer.endPoint = CGPoint(x: 1, y: 0)
         }
