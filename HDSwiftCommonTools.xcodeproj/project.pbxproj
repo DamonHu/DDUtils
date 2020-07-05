@@ -24,6 +24,7 @@
 		E4FE597524B0603E00352695 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E4FE597424B0603E00352695 /* music.mp3 */; };
 		E4FE597724B0605300352695 /* click.caf in Resources */ = {isa = PBXBuildFile; fileRef = E4FE597624B0605300352695 /* click.caf */; };
 		E4FE597924B0647500352695 /* 空谷.wav in Resources */ = {isa = PBXBuildFile; fileRef = E4FE597824B0647500352695 /* 空谷.wav */; };
+		E4FE598624B1CEA300352695 /* UIView+hd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE598524B1CEA300352695 /* UIView+hd.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		E4FE597424B0603E00352695 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		E4FE597624B0605300352695 /* click.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = click.caf; sourceTree = "<group>"; };
 		E4FE597824B0647500352695 /* 空谷.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "空谷.wav"; sourceTree = "<group>"; };
+		E4FE598524B1CEA300352695 /* UIView+hd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+hd.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				E4C3CD9F24AF2812007D7A07 /* HDNameSpace.swift */,
 				E4C3CDA124AF2954007D7A07 /* String+hd.swift */,
 				E4C3CDA324AF30C0007D7A07 /* Date+hd.swift */,
+				E4FE598524B1CEA300352695 /* UIView+hd.swift */,
 			);
 			path = extend;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				E4C3CDA024AF2812007D7A07 /* HDNameSpace.swift in Sources */,
 				E4FE596F24AF714100352695 /* HDCommonTools+permission.swift in Sources */,
 				E46E087424AD7A5200843DE2 /* ViewController.swift in Sources */,
+				E4FE598624B1CEA300352695 /* UIView+hd.swift in Sources */,
 				E46E087024AD7A5200843DE2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

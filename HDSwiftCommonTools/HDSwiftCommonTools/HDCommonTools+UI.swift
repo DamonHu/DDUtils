@@ -209,8 +209,6 @@ public extension HDCommonTools {
         UIGraphicsEndImageContext();
         return img ?? UIImage()
     }
-    
-    
 }
 
 ///16进制颜色转为UIColor 0xffffff
@@ -234,7 +232,7 @@ public func UIColorWithHexValue(hexValue: Int, darkHexValue: Int = 0x333333, alp
 }
 
 ///16进制字符串转为UIColor #ffffff
-public func UIColorWithHexString(hexString: String, darkHexValue: String = "0x333333", alpha: CGFloat = 1.0, darkAlpha: CGFloat = 1.0) -> UIColor {
+public func UIColorWithHexString(hexString: String, darkHexValue: String = "#333333", alpha: CGFloat = 1.0, darkAlpha: CGFloat = 1.0) -> UIColor {
     if #available(iOS 13.0, *) {
         let dyColor = UIColor { (traitCollection) -> UIColor in
             if traitCollection.userInterfaceStyle == .light {
