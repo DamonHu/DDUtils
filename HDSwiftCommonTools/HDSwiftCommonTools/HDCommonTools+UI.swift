@@ -9,10 +9,10 @@
 import UIKit
 
 public enum HDGradientDirection {
-    case level              //AC - BD
-    case vertical           //AB - CD
-    case upwardDiagonalLine //A - D
-    case downDiagonalLine   //C - B
+    case leftToRight            //AC - BD
+    case topToBottom            //AB - CD
+    case leftTopToRightBottom   //A - D
+    case leftBottomToRightTop   //C - B
 }
 //      A         B
 //       _________
