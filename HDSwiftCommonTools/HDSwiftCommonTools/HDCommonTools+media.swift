@@ -31,15 +31,15 @@ public extension HDCommonTools {
     }
     
     ///播放音乐
-    func playMusic(musicURL: URL?, repeated: Bool = false, audioSessionCategory: AVAudioSession.Category = AVAudioSession.Category.playback) -> Void {
-        guard let url = musicURL else { return  }
+    func playMusic(url: URL?, repeated: Bool = false, audioSessionCategory: AVAudioSession.Category = AVAudioSession.Category.playback) -> Void {
+        guard let musicURL = url else { return  }
         audioPlayer?.stop()
         
         let audioSession = AVAudioSession.sharedInstance()
         try? audioSession.setCategory(audioSessionCategory)
         try? audioSession.setActive(true, options: AVAudioSession.SetActiveOptions.init())
         
-        audioPlayer = try? AVAudioPlayer(contentsOf: url, fileTypeHint: nil)
+        audioPlayer = try? AVAudioPlayer(contentsOf: musicURL, fileTypeHint: nil)
         if repeated {
             audioPlayer?.numberOfLoops = -1
         } else {
@@ -58,10 +58,10 @@ public extension HDCommonTools {
     /// - Parameters:
     ///   - effectURL: 音效文件地址
     ///   - vibrate: 是否震动
-    func playEffect(effectURL: URL?, vibrate: Bool = false) -> Void {
+    func playEffect(url: URL?, vibrate: Bool = false) -> Void {
         var soundID = SystemSoundID()
         
-        if let effect = effectURL {
+        if let effect = url {
             AudioServicesCreateSystemSoundID(effect as CFURL, &soundID)
         } else if vibrate {
             soundID = kSystemSoundID_Vibrate

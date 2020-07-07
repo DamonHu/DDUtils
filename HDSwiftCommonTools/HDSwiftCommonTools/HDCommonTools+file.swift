@@ -17,9 +17,9 @@ public enum HDFileDirectoryType {
 
 public extension HDCommonTools {
     ///获取文件夹路径
-    func getFileDirectory(fileDirectoryType: HDFileDirectoryType) -> URL {
+    func getFileDirectory(type: HDFileDirectoryType) -> URL {
         let homePath = NSHomeDirectory()
-        switch fileDirectoryType {
+        switch type {
         case .home:
             return URL(fileURLWithPath: homePath)
         case .documents:
@@ -33,12 +33,12 @@ public extension HDCommonTools {
     
     /// 在指定文件夹中创建文件夹
     /// - Parameters:
-    ///   - fileDirectoryType: 浮层文件夹类型
+    ///   - type: 浮层文件夹类型
     ///   - directoryName: 文件夹名称
     /// - Returns: 创建的文件夹路径
-    func createFileDirectory(in fileDirectoryType: HDFileDirectoryType, directoryName: String) -> URL {
+    func createFileDirectory(in type: HDFileDirectoryType, directoryName: String) -> URL {
         let manager = FileManager.default
-        let superDirectory = self.getFileDirectory(fileDirectoryType: fileDirectoryType)
+        let superDirectory = self.getFileDirectory(type: type)
     
         let newFolder = superDirectory.appendingPathComponent(directoryName, isDirectory: true)
 

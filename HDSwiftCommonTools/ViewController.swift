@@ -17,9 +17,10 @@ class ViewController: UIViewController {
 //        //线性渐变图片
         _ = HDCommonTools.shared.getLinearGradientImage(colors:  [UIColor.red, UIColor.black, UIColor.blue], directionType: .leftToRight)
         //16进制颜色转为UIColor
-        _ = UIColorWithHexValue(hexValue: 0xffffff)
+        _ =  UIColor(with: 0xffffff)
         //16进制字符串转为UIColor
-        _ = UIColorWithHexString(hexString: "#ffffff")
+        
+        _ = UIColor(with: "#ffffff")
         //获取导航栏高度
         _ = HD_Default_NavigationBar_Height(vc: self)
         
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
         let string = "截取字符串"
         print(string.hd.subString(rang: NSRange(location: 2, length: 5)))
         
-        print(HDCommonTools.shared.getFileDirectory(fileDirectoryType: .home).absoluteString)
+        print(HDCommonTools.shared.getFileDirectory(type: .home).absoluteString)
         
         HDCommonTools.shared.startVibrate(repeated: true)
 
@@ -82,13 +83,13 @@ class ViewController: UIViewController {
     
     @objc func click() {
         let url = Bundle.main.url(forResource: "click", withExtension: "caf")
-        HDCommonTools.shared.playEffect(effectURL: url, vibrate: true)
+        HDCommonTools.shared.playEffect(url: url, vibrate: true)
     }
     
 
     @objc func playMusic() {
         let url = Bundle.main.url(forResource: "空谷", withExtension: "wav")
-        HDCommonTools.shared.playMusic(musicURL: url, repeated: false)
+        HDCommonTools.shared.playMusic(url: url, repeated: false)
     }
 }
 

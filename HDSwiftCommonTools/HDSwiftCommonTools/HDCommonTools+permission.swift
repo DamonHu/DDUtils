@@ -28,8 +28,8 @@ public enum HDPermissionStatus {
 
 public extension HDCommonTools {
     ///请求权限
-    func requestPermission(permissionType: HDPermissionType, complete: @escaping ((HDPermissionStatus) -> Void)) -> Void {
-        switch permissionType {
+    func requestPermission(type: HDPermissionType, complete: @escaping ((HDPermissionStatus) -> Void)) -> Void {
+        switch type {
         case .audio:
             AVCaptureDevice.requestAccess(for: .audio) { (granted) in
                 if granted {
@@ -65,7 +65,7 @@ public extension HDCommonTools {
             CLLocationManager().requestWhenInUseAuthorization()
             CLLocationManager().requestAlwaysAuthorization()
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.checkPermission(permissionType: HDPermissionType.GPS, complete: complete)
+                self.checkPermission(type: HDPermissionType.GPS, complete: complete)
             }
         case .notification:
             UNUserNotificationCenter.current().requestAuthorization(options: UNAuthorizationOptions(rawValue: UNAuthorizationOptions.alert.rawValue | UNAuthorizationOptions.sound.rawValue | UNAuthorizationOptions.badge.rawValue)) { (granted, error) in
@@ -79,8 +79,8 @@ public extension HDCommonTools {
     }
     
     ///检测权限
-    func checkPermission(permissionType: HDPermissionType, complete: @escaping ((HDPermissionStatus) -> Void)) -> Void {
-        switch permissionType {
+    func checkPermission(type: HDPermissionType, complete: @escaping ((HDPermissionStatus) -> Void)) -> Void {
+        switch type {
         case .audio:
             let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.audio)
             switch status {
