@@ -8,10 +8,8 @@
 
 import UIKit
 
-public extension UIView {
-    var hd :HDNameSpace<UIView> {
-        return HDNameSpace(object: self)
-    }
+extension UIView: HDNameSpaceWrappable {
+
 }
 
 public extension HDNameSpace where T == UIView {

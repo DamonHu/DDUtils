@@ -8,10 +8,8 @@
 
 import Foundation
 
-public extension Date {
-    var hd :HDNameSpace<Date> {
-        return HDNameSpace(object: self)
-    }
+extension Date: HDNameSpaceWrappable {
+
 }
 
 public extension HDNameSpace where T == Date {

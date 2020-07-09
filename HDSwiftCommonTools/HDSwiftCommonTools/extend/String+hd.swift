@@ -19,10 +19,8 @@ public enum HDEncryType {
     case base64
 }
 
-public extension String {
-    var hd :HDNameSpace<String> {
-        return HDNameSpace(object: self)
-    }
+extension String: HDNameSpaceWrappable {
+    
 }
 
 public extension HDNameSpace where T == String {

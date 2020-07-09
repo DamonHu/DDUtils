@@ -14,6 +14,7 @@
 		E46E087C24AD7A5400843DE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46E087A24AD7A5400843DE2 /* LaunchScreen.storyboard */; };
 		E46E088524AD7A8300843DE2 /* HDCommonTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E088424AD7A8300843DE2 /* HDCommonTools.swift */; };
 		E46E088724AD7C2300843DE2 /* HDCommonTools+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E088624AD7C2300843DE2 /* HDCommonTools+UI.swift */; };
+		E478199324B6E6A300FA416C /* UIColor+hd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E478199224B6E6A300FA416C /* UIColor+hd.swift */; };
 		E4C3CD9D24AF158D007D7A07 /* HDCommonTools+system.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C3CD9C24AF158D007D7A07 /* HDCommonTools+system.swift */; };
 		E4C3CDA024AF2812007D7A07 /* HDNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C3CD9F24AF2812007D7A07 /* HDNameSpace.swift */; };
 		E4C3CDA224AF2954007D7A07 /* String+hd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C3CDA124AF2954007D7A07 /* String+hd.swift */; };
@@ -37,6 +38,7 @@
 		E46E087D24AD7A5400843DE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E46E088424AD7A8300843DE2 /* HDCommonTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDCommonTools.swift; sourceTree = "<group>"; };
 		E46E088624AD7C2300843DE2 /* HDCommonTools+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HDCommonTools+UI.swift"; sourceTree = "<group>"; };
+		E478199224B6E6A300FA416C /* UIColor+hd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hd.swift"; sourceTree = "<group>"; };
 		E4C3CD9C24AF158D007D7A07 /* HDCommonTools+system.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HDCommonTools+system.swift"; sourceTree = "<group>"; };
 		E4C3CD9F24AF2812007D7A07 /* HDNameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDNameSpace.swift; sourceTree = "<group>"; };
 		E4C3CDA124AF2954007D7A07 /* String+hd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+hd.swift"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				E4C3CDA124AF2954007D7A07 /* String+hd.swift */,
 				E4C3CDA324AF30C0007D7A07 /* Date+hd.swift */,
 				E4FE598524B1CEA300352695 /* UIView+hd.swift */,
+				E478199224B6E6A300FA416C /* UIColor+hd.swift */,
 			);
 			path = extend;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				E4FE596F24AF714100352695 /* HDCommonTools+permission.swift in Sources */,
 				E46E087424AD7A5200843DE2 /* ViewController.swift in Sources */,
 				E4FE598624B1CEA300352695 /* UIView+hd.swift in Sources */,
+				E478199324B6E6A300FA416C /* UIColor+hd.swift in Sources */,
 				E46E087024AD7A5200843DE2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
