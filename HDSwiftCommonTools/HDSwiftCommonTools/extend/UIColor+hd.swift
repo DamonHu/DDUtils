@@ -12,7 +12,7 @@ extension UIColor: HDNameSpaceWrappable {
 
 }
 
-public extension HDNameSpace where T == UIColor {
+public extension HDNameSpace where T : UIColor {
     ///16进制颜色转为UIColor 0xffffff
     static func color(with hexValue: Int, darkHexValue: Int = 0x333333, alpha: Float = 1.0, darkAlpha: Float = 1.0) -> UIColor {
         return UIColor(with: hexValue, darkHexValue: darkHexValue, alpha: alpha, darkAlpha: darkAlpha)

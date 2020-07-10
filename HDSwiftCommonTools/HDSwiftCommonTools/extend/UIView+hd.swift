@@ -12,7 +12,7 @@ extension UIView: HDNameSpaceWrappable {
 
 }
 
-public extension HDNameSpace where T == UIView {
+public extension HDNameSpace where T : UIView {
     ///添加阴影
     func addLayerShadow(color: UIColor, offset: CGSize, radius: CGFloat, cornerRadius: CGFloat? = nil) -> Void {
         object.layer.shadowColor = color.cgColor
