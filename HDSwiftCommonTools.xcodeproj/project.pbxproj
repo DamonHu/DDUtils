@@ -19,6 +19,8 @@
 		E4C3CDA024AF2812007D7A07 /* HDNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C3CD9F24AF2812007D7A07 /* HDNameSpace.swift */; };
 		E4C3CDA224AF2954007D7A07 /* String+hd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C3CDA124AF2954007D7A07 /* String+hd.swift */; };
 		E4C3CDA424AF30C0007D7A07 /* Date+hd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C3CDA324AF30C0007D7A07 /* Date+hd.swift */; };
+		E4EF66BD24B9D43500EBB408 /* UIImage+hd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EF66BC24B9D43500EBB408 /* UIImage+hd.swift */; };
+		E4EF66BF24B9E05400EBB408 /* 1594468497552.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E4EF66BE24B9E05400EBB408 /* 1594468497552.mp4 */; };
 		E4FE596F24AF714100352695 /* HDCommonTools+permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE596E24AF714100352695 /* HDCommonTools+permission.swift */; };
 		E4FE597124AF8DA300352695 /* HDCommonTools+media.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE597024AF8DA300352695 /* HDCommonTools+media.swift */; };
 		E4FE597324B00E5E00352695 /* HDCommonTools+file.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE597224B00E5E00352695 /* HDCommonTools+file.swift */; };
@@ -43,6 +45,8 @@
 		E4C3CD9F24AF2812007D7A07 /* HDNameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDNameSpace.swift; sourceTree = "<group>"; };
 		E4C3CDA124AF2954007D7A07 /* String+hd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+hd.swift"; sourceTree = "<group>"; };
 		E4C3CDA324AF30C0007D7A07 /* Date+hd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+hd.swift"; sourceTree = "<group>"; };
+		E4EF66BC24B9D43500EBB408 /* UIImage+hd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+hd.swift"; sourceTree = "<group>"; };
+		E4EF66BE24B9E05400EBB408 /* 1594468497552.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1594468497552.mp4; sourceTree = "<group>"; };
 		E4FE596E24AF714100352695 /* HDCommonTools+permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HDCommonTools+permission.swift"; sourceTree = "<group>"; };
 		E4FE597024AF8DA300352695 /* HDCommonTools+media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HDCommonTools+media.swift"; sourceTree = "<group>"; };
 		E4FE597224B00E5E00352695 /* HDCommonTools+file.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HDCommonTools+file.swift"; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 				E46E086F24AD7A5200843DE2 /* AppDelegate.swift */,
 				E46E087324AD7A5200843DE2 /* ViewController.swift */,
 				E4FE597424B0603E00352695 /* music.mp3 */,
+				E4EF66BE24B9E05400EBB408 /* 1594468497552.mp4 */,
 				E4FE597824B0647500352695 /* 空谷.wav */,
 				E4FE597624B0605300352695 /* click.caf */,
 				E46E087524AD7A5200843DE2 /* Main.storyboard */,
@@ -118,6 +123,7 @@
 				E4C3CDA324AF30C0007D7A07 /* Date+hd.swift */,
 				E4FE598524B1CEA300352695 /* UIView+hd.swift */,
 				E478199224B6E6A300FA416C /* UIColor+hd.swift */,
+				E4EF66BC24B9D43500EBB408 /* UIImage+hd.swift */,
 			);
 			path = extend;
 			sourceTree = "<group>";
@@ -185,6 +191,7 @@
 				E46E087C24AD7A5400843DE2 /* LaunchScreen.storyboard in Resources */,
 				E46E087924AD7A5400843DE2 /* Assets.xcassets in Resources */,
 				E46E087724AD7A5200843DE2 /* Main.storyboard in Resources */,
+				E4EF66BF24B9E05400EBB408 /* 1594468497552.mp4 in Resources */,
 				E4FE597724B0605300352695 /* click.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +210,7 @@
 				E4C3CDA424AF30C0007D7A07 /* Date+hd.swift in Sources */,
 				E46E088724AD7C2300843DE2 /* HDCommonTools+UI.swift in Sources */,
 				E4FE597124AF8DA300352695 /* HDCommonTools+media.swift in Sources */,
+				E4EF66BD24B9D43500EBB408 /* UIImage+hd.swift in Sources */,
 				E4C3CDA024AF2812007D7A07 /* HDNameSpace.swift in Sources */,
 				E4FE596F24AF714100352695 /* HDCommonTools+permission.swift in Sources */,
 				E46E087424AD7A5200843DE2 /* ViewController.swift in Sources */,

@@ -12,6 +12,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        //        HDCommonTools.shared.openAppStoreReviewPage(openType: .app)
+        
+        let filePath = Bundle.main.path(forResource: "1594468497552.mp4", ofType: "")
+        if let path = filePath {
+            let duration = HDCommonTools.shared.getVideoDuration(videoURL: URL(fileURLWithPath: path))
+            print("时间: ", duration)
+            
+            let size = HDCommonTools.shared.getVideoSize(videoURL: URL(fileURLWithPath: path))
+            print("size: ", size)
+            
+        }
         
         /** 可以通过单例进行调用 */
         
@@ -99,6 +111,8 @@ class ViewController: UIViewController {
     @objc func playMusic() {
         let url = Bundle.main.url(forResource: "空谷", withExtension: "wav")
         HDCommonTools.shared.playMusic(url: url, repeated: false)
+        
+        
     }
 }
 

@@ -78,16 +78,16 @@ public extension HDNameSpace where T == String {
     }
     
     ///aes256解密
-    func aes256Decrypt(password: String) -> String {
+    func aes256Decrypt(password: String, ivString: String = "abcdefghijklmnop") -> String {
         guard let data = Data(base64Encoded: object) else { return "" }
-        let encryptData = self.p_crypt(data: data, password: password, option: CCOperation(kCCDecrypt))
+        let encryptData = self.p_crypt(data: data, password: password, ivString: ivString, option: CCOperation(kCCDecrypt))
         return String(data: encryptData, encoding: String.Encoding.utf8) ?? ""
     }
     
     ///aes256加密
-    func aes256Encrypt(password: String) -> String {
+    func aes256Encrypt(password: String, ivString: String = "abcdefghijklmnop") -> String {
         guard let data = object.data(using:String.Encoding.utf8) else { return "" }
-        let encryptData = self.p_crypt(data: data, password: password, option: CCOperation(kCCEncrypt))
+        let encryptData = self.p_crypt(data: data, password: password, ivString: ivString, option: CCOperation(kCCEncrypt))
         return encryptData.base64EncodedString()
     }
     
@@ -174,9 +174,7 @@ public extension HDNameSpace where T == String {
         return String(output)
     }
     
-    private func p_crypt(data: Data, password: String, option: CCOperation) -> Data {
-        let ivString = "abcdefghijklmnop"
-        
+    private func p_crypt(data: Data, password: String, ivString: String, option: CCOperation) -> Data {
         guard let iv = ivString.data(using:String.Encoding.utf8) else { return Data() }
         guard let key = password.data(using:String.Encoding.utf8) else { return Data() }
         
