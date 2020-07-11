@@ -11,5 +11,5 @@ s.requires_arc = true
 s.ios.deployment_target = '10.0'
 s.source_files = "HDSwiftCommonTools/HDSwiftCommonTools/**/*.swift","HDSwiftCommonTools/HDSwiftCommonTools/*.swift"
 # s.frameworks = 'UIKit'
-s.documentation_url = 'http://www.hudongdong.com/ios/796.html'
+s.documentation_url = 'http://blog.hudongdong.com/swift/1079.html'
 end
