@@ -30,7 +30,11 @@ public extension HDCommonTools {
         }
     }
     
-    ///播放音乐
+    /// 播放音乐
+    /// - Parameters:
+    ///   - url: 文件地址
+    ///   - repeated: 是否重复播放
+    ///   - audioSessionCategory: 播放模式 .playback 扬声器播放，.playAndRecord听筒模式
     func playMusic(url: URL?, repeated: Bool = false, audioSessionCategory: AVAudioSession.Category = AVAudioSession.Category.playback) -> Void {
         guard let musicURL = url else { return  }
         audioPlayer?.stop()
