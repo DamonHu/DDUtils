@@ -81,6 +81,9 @@ class ViewController: UIViewController {
             HDCommonTools.shared.stopVibrate()
         }
         
+        //播放音乐
+        HDCommonTools.shared.playMusic(url: URL(string: "https://file-fat.shinningmorning.com/voice/voice_xiongdi.m4a"), repeated: true)
+        
         self.createUI()
     }
     

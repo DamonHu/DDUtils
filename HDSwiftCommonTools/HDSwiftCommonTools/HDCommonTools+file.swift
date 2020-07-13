@@ -49,7 +49,6 @@ public extension HDCommonTools {
                 try manager.createDirectory(at: newFolder, withIntermediateDirectories: true, attributes: nil)
             } catch {
                 print("创建失败")
-                return superDirectory
             }
         }
         return newFolder

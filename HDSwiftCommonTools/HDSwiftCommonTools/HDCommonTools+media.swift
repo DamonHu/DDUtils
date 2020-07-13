@@ -36,12 +36,21 @@ public extension HDCommonTools {
     ///   - repeated: 是否重复播放
     ///   - audioSessionCategory: 播放模式 .playback 扬声器播放，.playAndRecord听筒模式
     func playMusic(url: URL?, repeated: Bool = false, audioSessionCategory: AVAudioSession.Category = AVAudioSession.Category.playback) -> Void {
-        guard let musicURL = url else { return  }
+        guard var musicURL = url else { return  }
         audioPlayer?.stop()
         
         let audioSession = AVAudioSession.sharedInstance()
         try? audioSession.setCategory(audioSessionCategory)
         try? audioSession.setActive(true, options: AVAudioSession.SetActiveOptions.init())
+        
+        
+        if musicURL.absoluteString.hasPrefix("http://") || musicURL.absoluteString.hasPrefix("https://") {
+            let name = musicURL.path.hd.encryptString(encryType: .md5)
+            let path = HDCommonTools.shared.createFileDirectory(in: .caches, directoryName: "music").appendingPathComponent(name, isDirectory: false)
+            let audioData = try? Data(contentsOf: musicURL)
+            try? audioData?.write(to: path)
+            musicURL = path
+        }
         
         audioPlayer = try? AVAudioPlayer(contentsOf: musicURL, fileTypeHint: nil)
         if repeated {
