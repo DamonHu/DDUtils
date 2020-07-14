@@ -218,7 +218,7 @@ public func UIColor(with hexValue: Int, darkHexValue: Int = 0x333333, alpha: Flo
         if #available(iOS 13.0, *) {
             let dyColor = UIColor { (traitCollection) -> UIColor in
                 if traitCollection.userInterfaceStyle == .light {
-                    return UIColor(displayP3Red: CGFloat(((Float)((hexValue & 0xFF0000) >> 16))/255.0), green: CGFloat(((Float)((hexValue & 0xFF00) >> 8))/255.0), blue: CGFloat(((Float)((hexValue & 0xFF) >> 8))/255.0), alpha: CGFloat(alpha))
+                    return UIColor(displayP3Red: CGFloat(((Float)((hexValue & 0xFF0000) >> 16))/255.0), green: CGFloat(((Float)((hexValue & 0xFF00) >> 8))/255.0), blue: CGFloat(((Float)(hexValue & 0xFF))/255.0), alpha: CGFloat(alpha))
                 } else {
                     return UIColor(displayP3Red: CGFloat(((Float)((darkHexValue & 0xFF0000) >> 16))/255.0), green: CGFloat(((Float)((darkHexValue & 0xFF00) >> 8))/255.0), blue: CGFloat(((Float)(darkHexValue & 0xFF))/255.0), alpha: CGFloat(darkAlpha))
                 }
