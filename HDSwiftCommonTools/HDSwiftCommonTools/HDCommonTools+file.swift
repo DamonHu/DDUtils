@@ -44,7 +44,7 @@ public extension HDCommonTools {
 
         var isDirectory: ObjCBool = false
         let isDirExist = manager.fileExists(atPath: newFolder.path, isDirectory: &isDirectory)
-        if !isDirectory.boolValue || isDirExist {
+        if !isDirectory.boolValue || !isDirExist {
             do {
                 try manager.createDirectory(at: newFolder, withIntermediateDirectories: true, attributes: nil)
             } catch {
