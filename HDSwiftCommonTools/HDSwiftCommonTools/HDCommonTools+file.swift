@@ -12,7 +12,7 @@ public enum HDFileDirectoryType {
     case home       //程序主目录
     case documents  //应用中用户数据可以放在这里，iTunes备份和恢复的时候会包括此目录
     case tmp        //存放临时文件，iTunes不会备份和恢复此目录，此目录下文件可能会在应用退出后删除
-    case caches     //存放缓存文件，iTunes不会备份此目录，此目录下文件不会在应用退出删除
+    case caches     //存放缓存文件，iTunes不会备份此目录，此目录下文件不会在应用退出删除，硬盘资源紧张时会被删除
 }
 
 public extension HDCommonTools {
@@ -23,11 +23,11 @@ public extension HDCommonTools {
         case .home:
             return URL(fileURLWithPath: homePath)
         case .documents:
-            return URL(fileURLWithPath: homePath.appendingFormat("%@/Documents", homePath))
+            return URL(fileURLWithPath: homePath.appending("/Documents"))
         case .tmp:
-            return URL(fileURLWithPath: homePath.appendingFormat("%@/tmp", homePath))
+            return URL(fileURLWithPath: homePath.appending("/tmp"))
         case .caches:
-            return URL(fileURLWithPath: homePath.appendingFormat("%@/Library/Caches", homePath))
+            return URL(fileURLWithPath: homePath.appending("/Library/Caches"))
         }
     }
     
