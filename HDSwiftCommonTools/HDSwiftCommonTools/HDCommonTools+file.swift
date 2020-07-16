@@ -48,7 +48,8 @@ public extension HDCommonTools {
             do {
                 try manager.createDirectory(at: newFolder, withIntermediateDirectories: true, attributes: nil)
             } catch {
-                print("创建失败")
+                print("创建目录失败\(error)")
+                return newFolder
             }
         }
         return newFolder
