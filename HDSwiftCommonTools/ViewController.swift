@@ -32,16 +32,16 @@ class ViewController: UIViewController {
         //线性渐变图片
         _ = HDCommonTools.shared.getLinearGradientImage(colors:  [UIColor.red, UIColor.black, UIColor.blue], directionType: .leftToRight)
         //16进制颜色转为UIColor
-        _ =  UIColor(with: 0xffffff)
+        _ =  UIColor(hexValue: 0xffffff)
         //16进制字符串转为UIColor
-        _ = UIColor(with: "#ffffff")
+        _ = UIColor(hexString: "#FFFFFF")
         //获取导航栏高度
         _ = HD_Default_NavigationBar_Height(vc: self)
         
         /** 对部分数据类型的函数的功能扩充可以使用hd的链式调用 */
         
         //16进制颜色转为UIColor
-        _ = UIColor.hd.color(with: 0xffffff)
+        _ = UIColor.hd.color(hexValue: 0xffffff)
         //md5加密
         _ = "哈哈是电话费".hd.encryptString(encryType: HDEncryType.md5)
         //sha加密
