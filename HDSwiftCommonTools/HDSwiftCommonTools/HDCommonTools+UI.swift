@@ -58,7 +58,21 @@ public extension HDCommonTools {
     
     ///获取当前的normalwindow
     func getCurrentNormalWindow() -> UIWindow? {
-        var window = UIApplication.shared.keyWindow
+        var window:UIWindow? = UIApplication.shared.keyWindow
+        if #available(iOS 13.0, *) {
+            for windowScene:UIWindowScene in ((UIApplication.shared.connectedScenes as? Set<UIWindowScene>)!) {
+                if windowScene.activationState == .foregroundActive {
+                    window = windowScene.windows.first
+                    for tmpWin in windowScene.windows {
+                        if tmpWin.windowLevel == .normal {
+                            window = tmpWin
+                            break
+                        }
+                    }
+                    break
+                }
+            }
+        }
         if window == nil || window?.windowLevel != UIWindow.Level.normal {
             for tmpWin in UIApplication.shared.windows {
                 if tmpWin.windowLevel == UIWindow.Level.normal {
