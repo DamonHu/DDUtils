@@ -105,6 +105,8 @@ public extension HDCommonTools {
                 let tabBarController = currentVC as! UITabBarController
                 vc = tabBarController.selectedViewController
             }
+        }
+        if let currentVC = vc {
             if currentVC is UINavigationController {
                 let navigationController = currentVC as! UINavigationController
                 vc = navigationController.visibleViewController
