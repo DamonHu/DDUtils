@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  HDSwiftCommonTools
+//  HDCommonToolsSwift
 //
 //  Created by Damon on 2020/7/2.
 //  Copyright © 2020 Damon. All rights reserved.
@@ -13,14 +13,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //        HDCommonTools.shared.openAppStoreReviewPage(openType: .app)
+        //        HDCommonToolsSwift.shared.openAppStoreReviewPage(openType: .app)
         
         let filePath = Bundle.main.path(forResource: "1594468497552.mp4", ofType: "")
         if let path = filePath {
-            let duration = HDCommonTools.shared.getVideoDuration(videoURL: URL(fileURLWithPath: path))
+            let duration = HDCommonToolsSwift.shared.getVideoDuration(videoURL: URL(fileURLWithPath: path))
             print("时间: ", duration)
             
-            let size = HDCommonTools.shared.getVideoSize(videoURL: URL(fileURLWithPath: path))
+            let size = HDCommonToolsSwift.shared.getVideoSize(videoURL: URL(fileURLWithPath: path))
             print("size: ", size)
             
         }
@@ -28,9 +28,9 @@ class ViewController: UIViewController {
         /** 可以通过单例进行调用 */
         
         //角度渐变图片
-        _ = HDCommonTools.shared.getRadialGradientImage(colors: [UIColor.red, UIColor.black, UIColor.blue], raduis: 45)
+        _ = HDCommonToolsSwift.shared.getRadialGradientImage(colors: [UIColor.red, UIColor.black, UIColor.blue], raduis: 45)
         //线性渐变图片
-        _ = HDCommonTools.shared.getLinearGradientImage(colors:  [UIColor.red, UIColor.black, UIColor.blue], directionType: .leftToRight)
+        _ = HDCommonToolsSwift.shared.getLinearGradientImage(colors:  [UIColor.red, UIColor.black, UIColor.blue], directionType: .leftToRight)
         //16进制颜色转为UIColor
         _ =  UIColor(hexValue: 0xffffff)
         //16进制字符串转为UIColor
@@ -57,11 +57,11 @@ class ViewController: UIViewController {
         _ = "\\u54c8\\u54c8\\u54c8".hd.unicodeDecode()
         
         //软件版本
-        _ = HDCommonTools.shared.getAppVersionString()
+        _ = HDCommonToolsSwift.shared.getAppVersionString()
         //软件构建版本
-        _ = HDCommonTools.shared.getAppBuildVersionString()
+        _ = HDCommonToolsSwift.shared.getAppBuildVersionString()
         //获取唯一标识
-        _ = HDCommonTools.shared.getIDFAString()
+        _ = HDCommonToolsSwift.shared.getIDFAString()
         
         //比较时间
         _ = Date().hd.compare(anotherDate: Date(timeIntervalSince1970: 1000), ignoreTime: true)
@@ -71,25 +71,25 @@ class ViewController: UIViewController {
         print(string.hd.subString(rang: NSRange(location: 2, length: 5)))
         
         //获取文件路径
-        print(HDCommonTools.shared.getFileDirectory(type: .home).absoluteString)
+        print(HDCommonToolsSwift.shared.getFileDirectory(type: .home).absoluteString)
         
         //手机震动
-        HDCommonTools.shared.startVibrate(repeated: true)
+        HDCommonToolsSwift.shared.startVibrate(repeated: true)
         
         //五秒之后结束震动
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            HDCommonTools.shared.stopVibrate()
+            HDCommonToolsSwift.shared.stopVibrate()
         }
         
         //播放音乐
-        HDCommonTools.shared.playMusic(url: URL(string: "https://file-fat.shinningmorning.com/voice/voice_xiongdi.m4a"), repeated: true)
+        HDCommonToolsSwift.shared.playMusic(url: URL(string: "https://file-fat.shinningmorning.com/voice/voice_xiongdi.m4a"), repeated: true)
         
         self.createUI()
     }
     
     func createUI() {
         let button = UIButton(type: .custom)
-        let image = HDCommonTools.shared.getLinearGradientImage(colors:  [UIColor.red, UIColor.black, UIColor.blue], directionType: .leftToRight)
+        let image = HDCommonToolsSwift.shared.getLinearGradientImage(colors:  [UIColor.red, UIColor.black, UIColor.blue], directionType: .leftToRight)
         button.setImage(image, for: .normal)
         self.view.addSubview(button)
         button.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
@@ -97,7 +97,7 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(click), for: UIControl.Event.touchUpInside)
         
         let button2 = UIButton(type: .custom)
-        let image2 = HDCommonTools.shared.getRadialGradientImage(colors: [UIColor.red, UIColor.black, UIColor.blue], raduis: 45)
+        let image2 = HDCommonToolsSwift.shared.getRadialGradientImage(colors: [UIColor.red, UIColor.black, UIColor.blue], raduis: 45)
         button2.setImage(image2, for: .normal)
         self.view.addSubview(button2)
         button2.frame = CGRect(x: 100, y: 300, width: 100, height: 100)
@@ -107,13 +107,13 @@ class ViewController: UIViewController {
     
     @objc func click() {
         let url = Bundle.main.url(forResource: "click", withExtension: "caf")
-        HDCommonTools.shared.playEffect(url: url, vibrate: true)
+        HDCommonToolsSwift.shared.playEffect(url: url, vibrate: true)
     }
     
 
     @objc func playMusic() {
         let url = Bundle.main.url(forResource: "空谷", withExtension: "wav")
-        HDCommonTools.shared.playMusic(url: url, repeated: false)
+        HDCommonToolsSwift.shared.playMusic(url: url, repeated: false)
         
         
     }
