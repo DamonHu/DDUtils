@@ -35,8 +35,9 @@ public extension HDCommonToolsSwift {
     ///   - url: 文件地址
     ///   - repeated: 是否重复播放
     ///   - audioSessionCategory: 播放模式 .playback 扬声器播放，.playAndRecord听筒模式
-    func playMusic(url: URL?, repeated: Bool = false, audioSessionCategory: AVAudioSession.Category = AVAudioSession.Category.playback) -> Void {
-        guard var musicURL = url else { return  }
+    @discardableResult
+    func playMusic(url: URL?, repeated: Bool = false, audioSessionCategory: AVAudioSession.Category = AVAudioSession.Category.playback) -> AVAudioPlayer? {
+        guard var musicURL = url else { return nil }
         audioPlayer?.stop()
         
         let audioSession = AVAudioSession.sharedInstance()
@@ -59,6 +60,7 @@ public extension HDCommonToolsSwift {
             audioPlayer?.numberOfLoops = 0
         }
         audioPlayer?.play()
+        return audioPlayer
     }
     
     ///关闭音乐播放
