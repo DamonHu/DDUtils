@@ -69,10 +69,10 @@ public extension HDCommonToolsSwift {
     /// - Parameter idfvIfFailed: 如果用户禁止获取本机idfa，是否去尝试使用idfv
     /// - Returns: 唯一标识
     func getIDFAString(idfvIfFailed: Bool = true) -> String {
-        if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
-            return ASIdentifierManager.shared().advertisingIdentifier.uuidString
-        } else {
+        if !ASIdentifierManager.shared().isAdvertisingTrackingEnabled && idfvIfFailed {
             return UIDevice.current.identifierForVendor?.uuidString ?? ""
+        } else {
+            return ASIdentifierManager.shared().advertisingIdentifier.uuidString
         }
     }
     
