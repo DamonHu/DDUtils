@@ -124,25 +124,31 @@ public extension HDCommonToolsSwift {
             }
         }
     }
-    
-    ///打开软件对应的评分页面
-    func openAppStoreReviewPage(openType: HDOpenAppStoreType, appleID: String = "") -> Void {
+
+    /// 打开软件对应的评分页面
+    /// - Parameters:
+    ///   - openType: 打开评分页面的类型
+    ///   - appleID: 打开的appid
+    ///   - openWriteAction: 是否直接到输入评论的页面，仅对跳转到appStore有效
+    func openAppStoreReviewPage(openType: HDOpenAppStoreType, appleID: String = "", openWriteAction: Bool = false) -> Void {
         switch openType {
         case .app:
             if #available(iOS 10.3, *) {
                 SKStoreReviewController.requestReview()
             } else {
-                
+                print("ios10.3以下版本不支持")
             };
         case .appStore:
-            let url = URL(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=\(appleID)")!
+            var url = URL(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=\(appleID)&mt=8")!
+            if openWriteAction {
+                url = URL(string: "itms-apps://itunes.apple.com/cn/app/id\(appleID)?mt=8&action=write-review")!
+            }
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         case .auto:
             if #available(iOS 10.3, *) {
-                SKStoreReviewController.requestReview()
+                self.openAppStoreReviewPage(openType: .app, appleID: appleID)
             } else {
-                let url = URL(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=\(appleID)")!
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                self.openAppStoreReviewPage(openType: .appStore, appleID: appleID)
             }
         }
     }
