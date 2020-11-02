@@ -130,7 +130,7 @@ public extension HDCommonToolsSwift {
     ///   - openType: 打开评分页面的类型
     ///   - appleID: 打开的appid
     ///   - openWriteAction: 是否直接到输入评论的页面，仅对跳转到appStore有效
-    func openAppStoreReviewPage(openType: HDOpenAppStoreType, appleID: String = "", openWriteAction: Bool = false) -> Void {
+    func openAppStoreReviewPage(openType: HDOpenAppStoreType, appleID: String = "", openWriteAction: Bool = true) -> Void {
         switch openType {
         case .app:
             if #available(iOS 10.3, *) {
