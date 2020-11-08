@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name = 'HDCommonToolsSwift'
 s.swift_version = '5.0'
-s.version = '2.0.4'
+s.version = '2.0.5'
 s.license= { :type => "MIT", :file => "LICENSE" }
 s.summary = 'HDCommonTools的Swift版本，简单高效的集成常用功能'
 s.homepage = 'https://github.com/DamonHu/HDCommonToolsSwift'
