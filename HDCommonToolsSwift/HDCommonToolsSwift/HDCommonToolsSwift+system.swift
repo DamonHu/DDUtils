@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import AdSupport
+import AppTrackingTransparency
 import SystemConfiguration.CaptiveNetwork
 import StoreKit
 
@@ -65,14 +66,23 @@ public extension HDCommonToolsSwift {
         return Date().timeIntervalSince1970 - timeInterval
     }
     
-    /// 模拟软件唯一标示
-    /// - Parameter idfvIfFailed: 如果用户禁止获取本机idfa，是否去尝试使用idfv
-    /// - Returns: 唯一标识
+    /// 模拟软件唯一标示，需要在Info.plist添加Privacy - Tracking Usage Description，说明使用用途
+    /// - Parameter idfvIfFailed: 没有获取idfa的权限时，是否使用idfv
+    /// - Returns: 返回的idfa或者idfv
     func getIDFAString(idfvIfFailed: Bool = false) -> String {
-        if !ASIdentifierManager.shared().isAdvertisingTrackingEnabled && idfvIfFailed {
-            return UIDevice.current.identifierForVendor?.uuidString ?? ""
+        if #available(iOS 14.0, *) {
+            let status = ATTrackingManager.trackingAuthorizationStatus
+            if status == .authorized || idfvIfFailed == false {
+                return ASIdentifierManager.shared().advertisingIdentifier.uuidString
+            } else {
+                return UIDevice.current.identifierForVendor?.uuidString ?? ""
+            }
         } else {
-            return ASIdentifierManager.shared().advertisingIdentifier.uuidString
+            if ASIdentifierManager.shared().isAdvertisingTrackingEnabled || idfvIfFailed == false {
+                return ASIdentifierManager.shared().advertisingIdentifier.uuidString
+            } else {
+                return UIDevice.current.identifierForVendor?.uuidString ?? ""
+            }
         }
     }
     

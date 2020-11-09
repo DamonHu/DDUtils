@@ -9,9 +9,6 @@
 import Foundation
 import AVFoundation
 
-private var vibrateRepeat = false   //标记是否循环震动
-private var audioPlayer: AVAudioPlayer?
-
 public extension HDCommonToolsSwift {
     
     ///获取指定video的时长， 单位秒
@@ -109,3 +106,6 @@ public extension HDCommonToolsSwift {
         AudioServicesDisposeSystemSoundID(kSystemSoundID_Vibrate)
     }
 }
+
+private var vibrateRepeat = false   //标记是否循环震动
+private var audioPlayer: AVAudioPlayer?

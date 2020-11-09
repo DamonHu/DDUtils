@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //        HDCommonToolsSwift.shared.openAppStoreReviewPage(openType: .app)
         
         let filePath = Bundle.main.path(forResource: "1594468497552.mp4", ofType: "")
