@@ -10,6 +10,8 @@ import Foundation
 import AVFoundation
 import Photos
 import UserNotifications
+import AppTrackingTransparency
+import AdSupport
 
 public enum HDPermissionType {
     case audio          //麦克风权限
@@ -17,6 +19,7 @@ public enum HDPermissionType {
     case photoLibrary   //相册权限
     case GPS            //定位权限
     case notification   //通知权限
+    case idfa           //idfa权限获取
 }
 
 public enum HDPermissionStatus {
@@ -26,9 +29,6 @@ public enum HDPermissionStatus {
     case notDetermined  //用户尚未选择
     case limited        //部分允许，iOS14之后增加的特性
 }
-
-private var mLocationManager: CLLocationManager?   //标记是否循环震动
-private var locationComplete: ((HDPermissionStatus) -> Void)?
 
 public extension HDCommonToolsSwift {
     ///请求权限
@@ -76,6 +76,29 @@ public extension HDCommonToolsSwift {
         case .notification:
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
                 if granted {
+                    complete(.authorized)
+                } else {
+                    complete(.denied)
+                }
+            }
+        case .idfa:
+            if #available(iOS 14.0, *) {
+                ATTrackingManager.requestTrackingAuthorization { (status) in
+                    switch status {
+                    case .notDetermined:
+                        complete(.notDetermined)
+                    case .restricted:
+                        complete(.restricted)
+                    case .denied:
+                        complete(.denied)
+                    case .authorized:
+                        complete(.authorized)
+                    default:
+                        complete(.authorized)
+                    }
+                }
+            } else {
+                if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
                     complete(.authorized)
                 } else {
                     complete(.denied)
@@ -156,6 +179,28 @@ public extension HDCommonToolsSwift {
                     complete(.authorized)
                 }
             }
+        case .idfa:
+            if #available(iOS 14.0, *) {
+                let status = ATTrackingManager.trackingAuthorizationStatus
+                switch status {
+                case .notDetermined:
+                    complete(.notDetermined)
+                case .restricted:
+                    complete(.restricted)
+                case .denied:
+                    complete(.denied)
+                case .authorized:
+                    complete(.authorized)
+                default:
+                    complete(.authorized)
+                }
+            } else {
+                if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
+                    complete(.authorized)
+                } else {
+                    complete(.denied)
+                }
+            }
         }
     }
 }
@@ -198,3 +243,6 @@ extension HDCommonToolsSwift: CLLocationManagerDelegate {
         }
     }
 }
+
+private var mLocationManager: CLLocationManager?   //标记是否循环震动
+private var locationComplete: ((HDPermissionStatus) -> Void)?
