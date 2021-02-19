@@ -15,7 +15,6 @@ pod 'HDCommonToolsSwift'
 由于苹果对`idfa`的访问权限要求更严，只要导入了`AppTrackingTransparency`这个库就会询问跟踪的目的，不论你是否主动调用过，所以从`2.1.0`开始，`idfa`单独拿出来，如果需要`idfa`的功能，可以选择导入
 
 ```
-pod 'HDCommonToolsSwift'
 pod 'HDCommonToolsSwift/idfa'
 ```
 
