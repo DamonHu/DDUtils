@@ -19,7 +19,6 @@ public enum HDPermissionType {
     case photoLibrary   //相册权限
     case GPS            //定位权限
     case notification   //通知权限
-    case idfa           //idfa权限获取
 }
 
 public enum HDPermissionStatus {
@@ -76,29 +75,6 @@ public extension HDCommonToolsSwift {
         case .notification:
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
                 if granted {
-                    complete(.authorized)
-                } else {
-                    complete(.denied)
-                }
-            }
-        case .idfa:
-            if #available(iOS 14.0, *) {
-                ATTrackingManager.requestTrackingAuthorization { (status) in
-                    switch status {
-                    case .notDetermined:
-                        complete(.notDetermined)
-                    case .restricted:
-                        complete(.restricted)
-                    case .denied:
-                        complete(.denied)
-                    case .authorized:
-                        complete(.authorized)
-                    default:
-                        complete(.authorized)
-                    }
-                }
-            } else {
-                if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
                     complete(.authorized)
                 } else {
                     complete(.denied)
@@ -177,28 +153,6 @@ public extension HDCommonToolsSwift {
                     complete (.authorized)
                 default:
                     complete(.authorized)
-                }
-            }
-        case .idfa:
-            if #available(iOS 14.0, *) {
-                let status = ATTrackingManager.trackingAuthorizationStatus
-                switch status {
-                case .notDetermined:
-                    complete(.notDetermined)
-                case .restricted:
-                    complete(.restricted)
-                case .denied:
-                    complete(.denied)
-                case .authorized:
-                    complete(.authorized)
-                default:
-                    complete(.authorized)
-                }
-            } else {
-                if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
-                    complete(.authorized)
-                } else {
-                    complete(.denied)
                 }
             }
         }

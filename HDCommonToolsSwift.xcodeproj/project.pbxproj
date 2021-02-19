@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E45656C225DFC2C30064BAA4 /* HDCommonToolsSwift+idfa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45656C125DFC2C30064BAA4 /* HDCommonToolsSwift+idfa.swift */; };
 		E46E087024AD7A5200843DE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E086F24AD7A5200843DE2 /* AppDelegate.swift */; };
 		E46E087424AD7A5200843DE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E087324AD7A5200843DE2 /* ViewController.swift */; };
 		E46E087724AD7A5200843DE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46E087524AD7A5200843DE2 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E45656C125DFC2C30064BAA4 /* HDCommonToolsSwift+idfa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HDCommonToolsSwift+idfa.swift"; sourceTree = "<group>"; };
 		E46E086C24AD7A5200843DE2 /* HDCommonToolsSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDCommonToolsSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46E086F24AD7A5200843DE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E46E087324AD7A5200843DE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E45656C425DFC4E70064BAA4 /* subspec */ = {
+			isa = PBXGroup;
+			children = (
+				E45656C125DFC2C30064BAA4 /* HDCommonToolsSwift+idfa.swift */,
+			);
+			path = subspec;
+			sourceTree = "<group>";
+		};
 		E46E086324AD7A5200843DE2 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,7 @@
 		E46E088324AD7A6200843DE2 /* HDCommonToolsSwift */ = {
 			isa = PBXGroup;
 			children = (
+				E45656C425DFC4E70064BAA4 /* subspec */,
 				E4C3CD9E24AF27C2007D7A07 /* extend */,
 				E46E088424AD7A8300843DE2 /* HDCommonToolsSwift.swift */,
 				E46E088624AD7C2300843DE2 /* HDCommonToolsSwift+UI.swift */,
@@ -210,6 +221,7 @@
 				E4C3CDA424AF30C0007D7A07 /* Date+hd.swift in Sources */,
 				E46E088724AD7C2300843DE2 /* HDCommonToolsSwift+UI.swift in Sources */,
 				E4FE597124AF8DA300352695 /* HDCommonToolsSwift+media.swift in Sources */,
+				E45656C225DFC2C30064BAA4 /* HDCommonToolsSwift+idfa.swift in Sources */,
 				E4EF66BD24B9D43500EBB408 /* UIImage+hd.swift in Sources */,
 				E4C3CDA024AF2812007D7A07 /* HDNameSpace.swift in Sources */,
 				E4FE596F24AF714100352695 /* HDCommonToolsSwift+permission.swift in Sources */,
