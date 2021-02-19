@@ -10,8 +10,6 @@ import Foundation
 import AVFoundation
 import Photos
 import UserNotifications
-import AppTrackingTransparency
-import AdSupport
 
 public enum HDPermissionType {
     case audio          //麦克风权限
