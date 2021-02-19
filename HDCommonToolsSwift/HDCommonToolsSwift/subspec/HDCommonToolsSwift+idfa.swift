@@ -17,6 +17,7 @@ import AdSupport
 #endif
 
 public extension HDCommonToolsSwift {
+    ///请求IDFA权限
     func requestIDFAPermission(complete: @escaping ((HDPermissionStatus) -> Void)) -> Void {
         if #available(iOS 14.0, *) {
             ATTrackingManager.requestTrackingAuthorization { (status) in
@@ -42,7 +43,7 @@ public extension HDCommonToolsSwift {
         }
     }
 
-    ///检测权限
+    ///检测IDFA权限
     func checkIDFAPermission(type: HDPermissionType, complete: @escaping ((HDPermissionStatus) -> Void)) -> Void {
         if #available(iOS 14.0, *) {
             let status = ATTrackingManager.trackingAuthorizationStatus
