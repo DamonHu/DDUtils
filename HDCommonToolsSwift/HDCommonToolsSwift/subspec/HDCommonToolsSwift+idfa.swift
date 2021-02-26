@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 #if canImport(AppTrackingTransparency)
 import AppTrackingTransparency
 #endif
@@ -64,6 +65,26 @@ public extension HDCommonToolsSwift {
                 complete(.authorized)
             } else {
                 complete(.denied)
+            }
+        }
+    }
+
+    /// 模拟软件唯一标示，需要在Info.plist添加Privacy - Tracking Usage Description，说明使用用途
+    /// - Parameter idfvIfFailed: 没有获取idfa的权限时，是否使用idfv
+    /// - Returns: 返回的idfa或者idfv
+    func getIDFAString(idfvIfFailed: Bool = false) -> String {
+        if #available(iOS 14.0, *) {
+            let status = ATTrackingManager.trackingAuthorizationStatus
+            if status == .authorized || idfvIfFailed == false {
+                return ASIdentifierManager.shared().advertisingIdentifier.uuidString
+            } else {
+                return UIDevice.current.identifierForVendor?.uuidString ?? ""
+            }
+        } else {
+            if ASIdentifierManager.shared().isAdvertisingTrackingEnabled || idfvIfFailed == false {
+                return ASIdentifierManager.shared().advertisingIdentifier.uuidString
+            } else {
+                return UIDevice.current.identifierForVendor?.uuidString ?? ""
             }
         }
     }
