@@ -20,19 +20,19 @@ public enum HDOpenAppStoreType {
 public extension HDCommonToolsSwift {
     ///获取软件版本
     func getAppVersionString() -> String {
-        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
         return version ?? ""
     }
     
     ///获取软件构建版本
     func getAppBuildVersionString() -> String {
-        let version = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String
         return version ?? ""
     }
 
     ///获取软件名
     func getAppNameString() -> String {
-        let version = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
         return version ?? ""
     }
     
