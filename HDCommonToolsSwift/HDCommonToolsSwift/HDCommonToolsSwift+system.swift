@@ -29,6 +29,12 @@ public extension HDCommonToolsSwift {
         let version = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
         return version ?? ""
     }
+
+    ///获取软件名
+    func getAppNameString() -> String {
+        let version = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String
+        return version ?? ""
+    }
     
     ///获取系统的iOS版本
     func getIOSVersionString() -> String {
