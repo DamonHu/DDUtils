@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 import SystemConfiguration.CaptiveNetwork
+#if canImport(StoreKit)
 import StoreKit
+#endif
 
 public enum HDOpenAppStoreType {
     case app        //应用内打开，ios10.3以下无反应
