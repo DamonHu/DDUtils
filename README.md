@@ -4,7 +4,7 @@
 
 # HDCommonToolsSwift
 
-## 已经转移到[ZXKitCode/util](https://github.com/ZXKitCode/util)负责维护和更新。It has been transferred to [ZXKitCode/util](https://github.com/ZXKitCode/util) for maintenance and update
+## ⚠️⚠️⚠️已经转移到[ZXKitCode/util](https://github.com/ZXKitCode/util)负责维护和更新。It has been transferred to [ZXKitCode/util](https://github.com/ZXKitCode/util) for maintenance and update
 
 [HDCommonToolsSwift](https://github.com/DamonHu/HDCommonToolsSwift)的Swift版本，简单高效的集成常用功能，将常用的功能集合进来。目前还在完善中，也可以直接使用HDCommonToolsSwift的OC版本.
 
