@@ -2,7 +2,7 @@
 
 [中文说明](./README_zh.md)
 
-`ZXKitUtil` is a collection of commonly used functions. This tool is updated and modified by [HDCommonToolsSwift](https://github.com/DamonHu/HDCommonToolsSwift), which integrates common functions simply and efficiently. In addition, ZXKitUtilCommonTools has an OC version available.
+`ZXKitUtil` is a collection of commonly used functions. This tool is updated and modified by [HDCommonTools](https://github.com/DamonHu/HDCommonTools), which integrates common functions simply and efficiently. In addition, ZXKitUtilCommonTools has an OC version available.
 
 ## import the project
 

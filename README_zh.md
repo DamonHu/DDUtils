@@ -1,7 +1,7 @@
 
 # ZXKitUtil
 
-`ZXKitUtil`是一个常用功能的合集，该工具由[HDCommonToolsSwift](https://github.com/DamonHu/HDCommonToolsSwift)更新修改，简单高效的集成常用功能。另外HDCommonTools有OC版本可供使用。
+`ZXKitUtil`是一个常用功能的合集，该工具由[HDCommonTools](https://github.com/DamonHu/HDCommonTools)更新修改，简单高效的集成常用功能。另外HDCommonTools有OC版本可供使用。
 
 ## 一、导入项目
 
