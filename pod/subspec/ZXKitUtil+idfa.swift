@@ -45,7 +45,7 @@ public extension ZXKitUtil {
     }
 
     ///检测IDFA权限
-    func checkIDFAPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void {
+    func checkIDFAPermission(complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void {
         if #available(iOS 14.0, *) {
             let status = ATTrackingManager.trackingAuthorizationStatus
             switch status {
