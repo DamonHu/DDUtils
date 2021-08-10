@@ -12,7 +12,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        let but = UIButton()
+        print(UIButton.zx.className())
+        print(but.zx.className())
+
         //        ZXKitUtil.shared.openAppStoreReviewPage(openType: .app)
         
         let filePath = Bundle.main.path(forResource: "1594468497552.mp4", ofType: "")

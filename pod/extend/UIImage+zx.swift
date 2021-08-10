@@ -14,8 +14,8 @@ extension UIImage: ZXKitUtilNameSpaceWrappable {
 
 public extension ZXKitUtilNameSpace where T : UIImage {
     ///通过颜色获取纯色图片
-    static func getImage(color: UIColor) -> UIImage {
-        return ZXKitUtil.shared.getImage(color: color)
+    static func getImage(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+        return ZXKitUtil.shared.getImage(color: color, size: size)
     }
     
     ///线性渐变

@@ -70,10 +70,7 @@ public extension ZXKitUtil {
             if currentVC is UITabBarController {
                 let tabBarController = currentVC as! UITabBarController
                 vc = tabBarController.selectedViewController
-            }
-        }
-        if let currentVC = vc {
-            if currentVC is UINavigationController {
+            } else if currentVC is UINavigationController {
                 let navigationController = currentVC as! UINavigationController
                 vc = navigationController.visibleViewController
             }
@@ -82,8 +79,8 @@ public extension ZXKitUtil {
     }
     
     ///通过颜色获取纯色图片
-    func getImage(color: UIColor) -> UIImage {
-        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+    func getImage(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         var image: UIImage?
         
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
