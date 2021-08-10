@@ -17,7 +17,9 @@ public protocol ZXKitUtilNameSpaceWrappable {
 
 public struct ZXKitUtilNameSpace <T> {
     let object: T       //存储的实例对象
-
+    static var classObject: T.Type {
+        return T.self
+    }
     internal init(object: T) {
         self.object = object
     }

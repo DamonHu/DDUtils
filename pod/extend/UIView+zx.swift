@@ -51,6 +51,6 @@ public extension ZXKitUtilNameSpace where T : UIView {
     }
 
     static func className() -> String {
-        return String("\(Self.self)")
+        return String("\(classObject.self)")
     }
 }
