@@ -51,7 +51,7 @@ public extension ZXKitUtil {
     }
     
     ///获取当前显示的vc
-    func getCurrentVC() -> UIViewController? {
+    func getCurrentVC(ignoreChildren: Bool = true) -> UIViewController? {
         let currentWindow = self.getCurrentNormalWindow()
         guard let window = currentWindow else { return nil }
         var vc: UIViewController?
@@ -66,14 +66,18 @@ public extension ZXKitUtil {
             vc = window.rootViewController
         }
         
-        if let currentVC = vc {
-            if currentVC is UITabBarController {
-                let tabBarController = currentVC as! UITabBarController
+        while (vc is UINavigationController) || (vc is UITabBarController) {
+            if vc is UITabBarController {
+                let tabBarController = vc as! UITabBarController
                 vc = tabBarController.selectedViewController
-            } else if currentVC is UINavigationController {
-                let navigationController = currentVC as! UINavigationController
+            } else if vc is UINavigationController {
+                let navigationController = vc as! UINavigationController
                 vc = navigationController.visibleViewController
             }
+        }
+
+        if !ignoreChildren, let children = vc?.children, children.count > 0 {
+            return children.last
         }
         return vc
     }
