@@ -25,6 +25,9 @@ class ViewController: UIViewController {
 
         print(ZXKitUtil_HomeIndicator_Height, ZXKitUtil_Default_Tabbar_Height())
 
+        for item in TestEnum.allCases {
+            print(item)
+        }
 
         //        ZXKitUtil.shared.openAppStoreReviewPage(openType: .app)
         

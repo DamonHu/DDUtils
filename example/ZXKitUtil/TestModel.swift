@@ -21,3 +21,10 @@ class TestModel: NSObject {
     var ss = TestModel.self
     var struc = TestStruct()
 }
+
+enum TestEnum: CaseIterable {
+    case demo1
+    case demo2
+    case demo3
+    case demo4
+}
