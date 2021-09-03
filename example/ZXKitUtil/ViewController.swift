@@ -17,6 +17,15 @@ class ViewController: UIViewController {
         print(UIButton.zx.className())
         print(but.zx.className())
 
+        let testModel = TestModel()
+        let obj = ZXKitUtil.shared.getDictionary(object: testModel)
+        if let name = obj["name"] as? String {
+            print(name)
+        }
+
+        print(ZXKitUtil_HomeIndicator_Height, ZXKitUtil_Default_Tabbar_Height())
+
+
         //        ZXKitUtil.shared.openAppStoreReviewPage(openType: .app)
         
         let filePath = Bundle.main.path(forResource: "1594468497552.mp4", ofType: "")
