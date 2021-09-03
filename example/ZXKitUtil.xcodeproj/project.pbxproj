@@ -25,6 +25,7 @@
 		E4AC947626314B0F001FC322 /* ZXKitUtil+media.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946926314B0F001FC322 /* ZXKitUtil+media.swift */; };
 		E4AC947726314B0F001FC322 /* ZXKitUtil+permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946A26314B0F001FC322 /* ZXKitUtil+permission.swift */; };
 		E4AC947826314B0F001FC322 /* ZXKitUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946B26314B0F001FC322 /* ZXKitUtil.swift */; };
+		E4D1606726E219940040765D /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D1606626E219940040765D /* TestModel.swift */; };
 		E4D1A3C5266513A100420162 /* Data+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D1A3C4266513A100420162 /* Data+zx.swift */; };
 		E4EF66BF24B9E05400EBB408 /* 1594468497552.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E4EF66BE24B9E05400EBB408 /* 1594468497552.mp4 */; };
 		E4FE597524B0603E00352695 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E4FE597424B0603E00352695 /* music.mp3 */; };
@@ -53,6 +54,7 @@
 		E4AC946926314B0F001FC322 /* ZXKitUtil+media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZXKitUtil+media.swift"; sourceTree = "<group>"; };
 		E4AC946A26314B0F001FC322 /* ZXKitUtil+permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZXKitUtil+permission.swift"; sourceTree = "<group>"; };
 		E4AC946B26314B0F001FC322 /* ZXKitUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXKitUtil.swift; sourceTree = "<group>"; };
+		E4D1606626E219940040765D /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		E4D1A3C4266513A100420162 /* Data+zx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+zx.swift"; sourceTree = "<group>"; };
 		E4EF66BE24B9E05400EBB408 /* 1594468497552.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1594468497552.mp4; sourceTree = "<group>"; };
 		E4FE597424B0603E00352695 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				E4AC945C26314B0F001FC322 /* pod */,
 				E46E086F24AD7A5200843DE2 /* AppDelegate.swift */,
 				E46E087324AD7A5200843DE2 /* ViewController.swift */,
+				E4D1606626E219940040765D /* TestModel.swift */,
 				E4FE597424B0603E00352695 /* music.mp3 */,
 				E4EF66BE24B9E05400EBB408 /* 1594468497552.mp4 */,
 				E4FE597824B0647500352695 /* 空谷.wav */,
@@ -233,6 +236,7 @@
 				E4AC947126314B0F001FC322 /* ZXKitNameSpace.swift in Sources */,
 				E4AC946C26314B0F001FC322 /* ZXKitUtil+UI.swift in Sources */,
 				E4AC947226314B0F001FC322 /* UIView+zx.swift in Sources */,
+				E4D1606726E219940040765D /* TestModel.swift in Sources */,
 				E4D1A3C5266513A100420162 /* Data+zx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

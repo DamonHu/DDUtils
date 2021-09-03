@@ -195,10 +195,12 @@ public extension ZXKitUtil {
     }
 }
 
-///高度坐标配置
+///屏幕宽度
 public var UIScreenWidth: CGFloat {
     return UIScreen.main.bounds.size.width
 }
+
+///屏幕高度
 public var UIScreenHeight: CGFloat {
     return UIScreen.main.bounds.size.height
 }
@@ -206,6 +208,16 @@ public var UIScreenHeight: CGFloat {
 ///状态栏高度
 public var ZXKitUtil_StatusBar_Height: CGFloat {
     return UIApplication.shared.statusBarFrame.size.height
+}
+
+///底部Home Indicator高度
+public var ZXKitUtil_HomeIndicator_Height: CGFloat {
+    if #available(iOS 11.0, *) {
+        if let window = ZXKitUtil.shared.getCurrentNormalWindow() {
+            return window.safeAreaInsets.bottom
+        }
+    }
+    return 0
 }
 
 ///导航栏高度
