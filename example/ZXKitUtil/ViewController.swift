@@ -103,7 +103,16 @@ class ViewController: UIViewController {
         
         //播放音乐
         ZXKitUtil.shared.playMusic(url: URL(string: "https://file-fat.shinningmorning.com/voice/voice_xiongdi.m4a"), repeated: true)
-        
+        DispatchQueue.init(label: "other quene").async {
+            ///type设置为async，输出为lll, mmm, ssss, 设置为sync，输出为lll，ssss，mmm
+            ZXKitUtil.shared.runInMainThread(type: .sync) {
+                print("ssssssss")
+            }
+            print("mmmm")
+        }
+        print("lllllll")
+
+
         self.createUI()
     }
     

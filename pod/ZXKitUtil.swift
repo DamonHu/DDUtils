@@ -15,6 +15,12 @@ open class ZXKitUtil: NSObject {
     }
 }
 
+public enum ZXMainThreadType {
+    case `default`  //在主线程顺序执行，在其他线程异步回归到主线程（后续操作会优先执行，之后再执行任务，不阻塞界面）
+    case async      //不论是否在主线程，都异步操作
+    case sync       //在主线程顺序执行，在其他线程同步回归到主线程（后续操作等待当前任务完毕之后继续执行，可能会阻塞界面）
+}
+
 public extension ZXKitUtil {
     /// 获取class\struct的所有属性
     /// - Parameters:
@@ -37,5 +43,28 @@ public extension ZXKitUtil {
             }
         }
         return dictionary
+    }
+
+    /// 主线程执行function
+    /// - Parameters:
+    ///   - type: ZXMainThreadType
+    ///     case `default`  //在主线程顺序执行，在其他线程异步回归到主线程（即在function后面的任务会优先执行，之后再执行function任务，不阻塞界面）
+    ///     case async      //不论是否在主线程，都异步操作 (即使当前在主线程，在function后面的任务会优先执行，之后再执行function任务，不阻塞界面)
+    ///     case sync       //在主线程顺序执行，在其他线程同步回归到主线程（同一个线程中，function后面的任务会等待function任务完毕之后继续执行，可能会阻塞界面）
+    ///   - function: 执行的函数
+    func runInMainThread(type: ZXMainThreadType = .default, function: @escaping ()->Void) {
+        if type == .async {
+            DispatchQueue.main.async {
+                function()
+            }
+        } else {
+            if Thread.isMainThread {
+                function()
+            } else if type == .sync {
+                DispatchQueue.main.sync {
+                    function()
+                }
+            }
+        }
     }
 }
