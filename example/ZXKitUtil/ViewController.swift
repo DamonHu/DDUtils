@@ -22,7 +22,17 @@ class ViewController: UIViewController {
         if let name = obj["name"] as? String {
             print(name)
         }
-
+        
+        let testString = "1991926hu1991926hu1991199119911991".zx.aesCBCEncrypt(password: "1991199119911991", encodeType: .hex)
+        print(testString,testString?.zx.aesCBCDecrypt(password: "1991199119911991", encodeType: .hex))
+        
+        if #available(iOS 13.0, *) {
+            let gcm = "1991926hu1991926hu1991199119911991".zx.aesGCMEncrypt(password: "1991199119911991", encodeType: .base64)
+            print(gcm, gcm?.zx.aesGCMDecrypt(password: "1991199119911991", encodeType: .base64))
+        }
+        
+        
+        
         print(ZXKitUtil_HomeIndicator_Height, ZXKitUtil_Default_Tabbar_Height())
 
         for item in TestEnum.allCases {
