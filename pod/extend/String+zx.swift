@@ -97,6 +97,16 @@ public extension ZXKitUtilNameSpace where T == String {
         let data = object.data(using:String.Encoding.utf8)
         return data?.zx.aesGCMEncrypt(password: password, encodeType: encodeType)
     }
+
+    /*
+     AES加密
+     model: GCM
+     **/
+    @available(iOS 13.0, *)
+    func aesGCMEncrypt(passwordData: Data, encodeType: ZXKitUtilEncodeType = .base64) -> String? {
+        let data = object.data(using:String.Encoding.utf8)
+        return data?.zx.aesGCMEncrypt(passwordData: passwordData, encodeType: encodeType)
+    }
     
     @available(iOS 13.0, *)
     func aesGCMDecrypt(password: String, encodeType: ZXKitUtilEncodeType = .base64) -> String? {
@@ -106,6 +116,17 @@ public extension ZXKitUtilNameSpace where T == String {
         } else {
             let data = Data.zx.data(hexString: object)
             return data?.zx.aesGCMDecrypt(password: password)
+        }
+    }
+
+    @available(iOS 13.0, *)
+    func aesGCMDecrypt(passwordData: Data, encodeType: ZXKitUtilEncodeType = .base64) -> String? {
+        if encodeType == .base64 {
+            let data = Data(base64Encoded: object)
+            return data?.zx.aesGCMDecrypt(passwordData: passwordData)
+        } else {
+            let data = Data.zx.data(hexString: object)
+            return data?.zx.aesGCMDecrypt(passwordData: passwordData)
         }
     }
     

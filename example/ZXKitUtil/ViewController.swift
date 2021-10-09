@@ -23,16 +23,22 @@ class ViewController: UIViewController {
             print(name)
         }
         
-        let testString = "1991926hu1991926hu1991199119911991".zx.aesCBCEncrypt(password: "1991199119911991", encodeType: .hex)
-        print(testString,testString?.zx.aesCBCDecrypt(password: "1991199119911991", encodeType: .hex))
-        
         if #available(iOS 13.0, *) {
-            let gcm = "1991926hu1991926hu1991199119911991".zx.aesGCMEncrypt(password: "1991199119911991", encodeType: .base64)
-            print(gcm, gcm?.zx.aesGCMDecrypt(password: "1991199119911991", encodeType: .base64))
-        }
-        
-        
-        
+
+            let test = "13001515100".zx.aesGCMEncrypt(passwordData: Data.zx.data(hexString: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412")!, encodeType: .hex)!
+            print("aes", test)
+
+            let testString = "0b9a9ab2e7dc71b15b565681c949d63d2dc264bec492003a08e644c3bcb5b0a62e04391225e9f9"
+            print(testString.zx.aesGCMDecrypt(passwordData: Data.zx.data(hexString: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412")!, encodeType: .hex))
+            print(testString.zx.aesGCMDecrypt(passwordData: Data.zx.data(hexString: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412")!, encodeType: .hex)?.zx.encryptString(encryType: .md5))
+
+
+
+//            print(test)
+//            print(test?.zx.aesCBCDecrypt(password: "1234567890123456", encodeType: .hex))
+        } else {
+            // Fallback on earlier versions
+        }        
         print(ZXKitUtil_HomeIndicator_Height, ZXKitUtil_Default_Tabbar_Height())
 
         for item in TestEnum.allCases {

@@ -101,12 +101,32 @@ public extension ZXKitUtilNameSpace where T == Data {
             return encode.zx.hexEncodedString()
         }
     }
-    
+
+    @available(iOS 13.0, *)
+    func aesGCMEncrypt(passwordData: Data, encodeType: ZXKitUtilEncodeType = .base64) -> String? {
+        let key = SymmetricKey.init(data: passwordData)
+        guard let sealedBox = try? AES.GCM.seal(object, using: key, nonce:  AES.GCM.Nonce()) else { return nil }
+        guard let encode = sealedBox.combined else { return nil }
+        if encodeType == .base64 {
+            return encode.base64EncodedString()
+        } else {
+            return encode.zx.hexEncodedString()
+        }
+    }
     //AES GCM解密
     @available(iOS 13.0, *)
     func aesGCMDecrypt(password: String) -> String? {
         assert(password.count == kCCKeySizeAES128 || password.count == kCCKeySizeAES192 || password.count == kCCKeySizeAES256, "Invalid key length")
         let key = SymmetricKey.init(data: password.data(using:String.Encoding.utf8)!)
+        guard let sealedBox = try? AES.GCM.SealedBox.init(combined: object) else { return nil }
+        guard let decry = try? AES.GCM.open(sealedBox, using: key) else { return nil }
+        return String(decoding: decry, as: UTF8.self)
+    }
+
+    //AES GCM解密
+    @available(iOS 13.0, *)
+    func aesGCMDecrypt(passwordData: Data) -> String? {
+        let key = SymmetricKey.init(data: passwordData)
         guard let sealedBox = try? AES.GCM.SealedBox.init(combined: object) else { return nil }
         guard let decry = try? AES.GCM.open(sealedBox, using: key) else { return nil }
         return String(decoding: decry, as: UTF8.self)
