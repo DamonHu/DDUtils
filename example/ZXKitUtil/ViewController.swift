@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CryptoKit
 
 class ViewController: UIViewController {
 
@@ -24,13 +25,13 @@ class ViewController: UIViewController {
         }
         
         if #available(iOS 13.0, *) {
+            let test = "17777777777".zx.aesGCMEncrypt(key: SymmetricKey.init(data: Data.zx.data(hexString: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412")!), encodeType: .hex)!
+            print("aes", test, test.zx.aesGCMDecrypt(key: SymmetricKey.init(data: Data.zx.data(hexString: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412")!) , encodeType: .hex))
+            
 
-            let test = "13001515100".zx.aesGCMEncrypt(passwordData: Data.zx.data(hexString: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412")!, encodeType: .hex)!
-            print("aes", test)
-
-            let testString = "0b9a9ab2e7dc71b15b565681c949d63d2dc264bec492003a08e644c3bcb5b0a62e04391225e9f9"
-            print(testString.zx.aesGCMDecrypt(passwordData: Data.zx.data(hexString: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412")!, encodeType: .hex))
-            print(testString.zx.aesGCMDecrypt(passwordData: Data.zx.data(hexString: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412")!, encodeType: .hex)?.zx.encryptString(encryType: .md5))
+            let testString = "be8fa1620a219d31751c720a9dc76a4967c94e5dfc3a94b6dc45d4b516d91fd1bfe98d2730"
+            print(testString.zx.aesGCMDecrypt(key: SymmetricKey.init(data: Data.zx.data(hexString: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412")!) , encodeType: .hex))
+            print((testString.zx.aesGCMDecrypt(key: SymmetricKey.init(data: Data.zx.data(hexString: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412")!) , encodeType: .hex)! + "1234").zx.encryptString(encryType: .md5))
 
 
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CryptoKit
 
 extension String: ZXKitUtilNameSpaceWrappable {
     
@@ -93,9 +94,9 @@ public extension ZXKitUtilNameSpace where T == String {
      model: GCM
      **/
     @available(iOS 13.0, *)
-    func aesGCMEncrypt(password: String, encodeType: ZXKitUtilEncodeType = .base64) -> String? {
+    func aesGCMEncrypt(password: String, encodeType: ZXKitUtilEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce()) -> String? {
         let data = object.data(using:String.Encoding.utf8)
-        return data?.zx.aesGCMEncrypt(password: password, encodeType: encodeType)
+        return data?.zx.aesGCMEncrypt(password: password, encodeType: encodeType, nonce: nonce)
     }
 
     /*
@@ -103,9 +104,9 @@ public extension ZXKitUtilNameSpace where T == String {
      model: GCM
      **/
     @available(iOS 13.0, *)
-    func aesGCMEncrypt(passwordData: Data, encodeType: ZXKitUtilEncodeType = .base64) -> String? {
+    func aesGCMEncrypt(key: SymmetricKey, encodeType: ZXKitUtilEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce()) -> String? {
         let data = object.data(using:String.Encoding.utf8)
-        return data?.zx.aesGCMEncrypt(passwordData: passwordData, encodeType: encodeType)
+        return data?.zx.aesGCMEncrypt(key: key, encodeType: encodeType, nonce: nonce)
     }
     
     @available(iOS 13.0, *)
@@ -119,14 +120,18 @@ public extension ZXKitUtilNameSpace where T == String {
         }
     }
 
+    /*
+     AES解密
+     model: GCM
+     **/
     @available(iOS 13.0, *)
-    func aesGCMDecrypt(passwordData: Data, encodeType: ZXKitUtilEncodeType = .base64) -> String? {
+    func aesGCMDecrypt(key: SymmetricKey, encodeType: ZXKitUtilEncodeType = .base64) -> String? {
         if encodeType == .base64 {
             let data = Data(base64Encoded: object)
-            return data?.zx.aesGCMDecrypt(passwordData: passwordData)
+            return data?.zx.aesGCMDecrypt(key: key)
         } else {
             let data = Data.zx.data(hexString: object)
-            return data?.zx.aesGCMDecrypt(passwordData: passwordData)
+            return data?.zx.aesGCMDecrypt(key: key)
         }
     }
     
