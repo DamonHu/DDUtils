@@ -25,22 +25,17 @@ class ViewController: UIViewController {
         }
         
         if #available(iOS 13.0, *) {
-            let test = "17777777777".zx.aesGCMEncrypt(key: SymmetricKey.init(data: Data.zx.data(hexString: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412")!), encodeType: .hex)!
-            print("aes", test, test.zx.aesGCMDecrypt(key: SymmetricKey.init(data: Data.zx.data(hexString: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412")!) , encodeType: .hex))
-            
+            let key = SymmetricKey.init(data: Data.zx.data(from: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412", encodeType: .hex)!)
+            let test = "17777777777".zx.aesGCMEncrypt(key: key)
+            print(test, test?.zx.aesGCMDecrypt(key: key))
 
-            let testString = "be8fa1620a219d31751c720a9dc76a4967c94e5dfc3a94b6dc45d4b516d91fd1bfe98d2730"
-            print(testString.zx.aesGCMDecrypt(key: SymmetricKey.init(data: Data.zx.data(hexString: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412")!) , encodeType: .hex))
-            print((testString.zx.aesGCMDecrypt(key: SymmetricKey.init(data: Data.zx.data(hexString: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412")!) , encodeType: .hex)! + "1234").zx.encryptString(encryType: .md5))
+            print("hmac", "welcome to hangge.com".zx.hmac(hashType: .sha1, password: "67FG", encodeType: .hex))
+        }
 
-
-
-//            print(test)
-//            print(test?.zx.aesCBCDecrypt(password: "1234567890123456", encodeType: .hex))
-        } else {
-            // Fallback on earlier versions
-        }        
         print(ZXKitUtil_HomeIndicator_Height, ZXKitUtil_Default_Tabbar_Height())
+
+        let cbc = "mmmsss".zx.aesCBCEncrypt(password: "12345678901234561234567890123456")!
+        print("cbc", cbc, cbc.zx.aesCBCDecrypt(password: "12345678901234561234567890123456"))
 
         for item in TestEnum.allCases {
             print(item)
@@ -80,19 +75,21 @@ class ViewController: UIViewController {
         //16进制颜色转为UIColor
         _ = UIColor.zx.color(hexValue: 0xffffff)
         //md5加密
-        _ = "哈哈是电话费".zx.encryptString(encryType: ZXKitUtilEncryType.md5)
+        _ = "哈哈是电话费".zx.hashString(hashType: .md5)
         //sha加密
-        _ = "sha1加密".zx.encryptString(encryType: ZXKitUtilEncryType.sha1)
-        _ = "哈哈是电话费".zx.encryptString(encryType: ZXKitUtilEncryType.sha256)
+        _ = "sha1加密".zx.hashString(hashType: .sha1)
+        _ = "哈哈是电话费".zx.hashString(hashType: .sha256)
         //base64加密
-        _ = "哈哈是电话费".zx.encryptString(encryType: ZXKitUtilEncryType.base64)
+//        _ = "哈哈是电话费".zx encryptString(encryType: .base64)
         //base64解码
-        _ = "5ZOI5ZOI5piv55S16K+d6LS5".zx.base64Decode()
+        let base64 = "5ZOI5ZOI5piv55S16K+d6LS5".zx.encodeString(from: .base64, to: .system(.utf8))
+        print("base64", base64)
         //字符串转unicode
-        _ = "哈哈是电话费".zx.unicodeEncode()
+        let toUnicode = "哈哈是电话费\n".zx.unicodeEncode()
+        print("toUnicode", toUnicode)
         //unicode转中文
-        _ = "\\u54c8\\u54c8\\u54c8".zx.unicodeDecode()
-        
+        let unicode = "\\u6e56\\u5357\\u6000\\u5316\\ua\\u8bd5\\u8bd5\\ua\\ua\\u58eb\\u5927\\u592b\\u6492".zx.unicodeDecode()
+        print("unicode", unicode)
         //软件版本
         _ = ZXKitUtil.shared.getAppVersionString()
         //软件构建版本
