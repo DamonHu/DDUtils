@@ -29,7 +29,7 @@ class ViewController: UIViewController {
             let test = "17777777777".zx.aesGCMEncrypt(key: key)
             print(test, test?.zx.aesGCMDecrypt(key: key))
 
-            print("hmac", "welcome to hangge.com".zx.hmac(hashType: .sha1, password: "67FG", encodeType: .hex))
+            print("hmac", "ZXKitUtil".zx.hmac(hashType: .sha1, password: "67FG", encodeType: .hex))
         }
 
         print(ZXKitUtil_HomeIndicator_Height, ZXKitUtil_Default_Tabbar_Height())

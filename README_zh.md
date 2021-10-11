@@ -41,10 +41,12 @@ pod 'ZXKitUtil/idfa'
 |UIScreenWidth|屏幕宽度||
 |UIScreenHeight|屏幕高度||
 |ZXKitUtil_StatusBar_Height|状态栏高度||
+|ZXKitUtil_HomeIndicator_Height|Home Indicator高度||
 |func ZXKitUtil_Default_NavigationBar_Height(vc: UIViewController? = nil)|导航栏高度|ZXKitUtil_Default_NavigationBar_Height()|
 |func func ZXKitUtil_Default_Tabbar_Height(vc: UIViewController? = nil)|tabbar高度|ZXKitUtil_Default_Tabbar_Height()|
 |func addLayerShadow(color: UIColor, offset: CGSize, radius: CGFloat, cornerRadius: CGFloat? = nil)|为view添加阴影|view.zx.addLayerShadow(color: UIColor.black, offset: CGSize(width: 2, height: 0), radius: 10)|
 |func setFrame(x: CGFloat? = nil, y: CGFloat? = nil, width: CGFloat? = nil, height: CGFloat? = nil)|view单独设置Frame的某个值|view.zx.setFrame(x: 10)|
+|func className() -> String|获取view的类名|button.zx.className()|
 
 ### 系统和软件信息
 
@@ -52,6 +54,7 @@ pod 'ZXKitUtil/idfa'
 |----|----|----|
 |func getAppVersionString()|获取软件版本|ZXKitUtil.shared.getAppVersionString()|
 |func getAppBuildVersionString()|获取软件构建版本|ZXKitUtil.shared.getAppBuildVersionString()|
+|func getAppNameString()|获取软件的显示名字|ZXKitUtil.shared.getAppNameString()|
 |func getIOSVersionString()|获取系统的iOS版本|ZXKitUtil.shared.getIOSVersionString()|
 |func getIOSLanguageStr()|获取系统语言|ZXKitUtil.shared.getIOSLanguageStr()|
 |func getBundleIdentifier()|获取软件Bundle Identifier|ZXKitUtil.shared.getBundleIdentifier()|
@@ -69,7 +72,7 @@ pod 'ZXKitUtil/idfa'
 |----|----|----|
 |func requestPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void))|请求权限|ZXKitUtil.shared.requestPermission(type: .notification) { (status) in print("权限设置回调", status) }|
 |func checkPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void))|检测软件权限|ZXKitUtil.shared.checkPermission(type: .notification) { (status) in print("当前权限状态", status) }|
-|func requestIDFAPermission(complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void|检测软件IDFA权限|ZXKitUtil.shared.requestIDFAPermission { (status) in print("当前idfa权限状态", status) }|
+|func requestIDFAPermission(complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void|请求软件IDFA权限|ZXKitUtil.shared.requestIDFAPermission { (status) in print("当前idfa权限状态", status) }|
 |func checkIDFAPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void|检测软件idfa权限|ZXKitUtil.shared.checkIDFAPermission { (status) in print("当前权限状态", status) }|
 
 ### 多媒体操作
@@ -95,16 +98,42 @@ pod 'ZXKitUtil/idfa'
 
 ### 其他
 
+#### ZXKitUtil
+
 |名称|功能说明|示例|
 |----|----|----|
-|func compare(anotherDate: Date, ignoreTime: Bool = false)|比较日期，设置是否忽略时间|Date().zx.compare(anotherDate: date)|
+|func getDictionary(object: Any, debug: Bool = false) -> [String: Any]|遍历获取class\struct的所有属性名和值|ZXKitUtil.shared.getDictionary(object: testModel)|
+|func runInMainThread(type: ZXMainThreadType = .default, function: @escaping ()->Void)|主线程执行function|ZXKitUtil.shared.runInMainThread(type: .sync) { ... }|
+
+#### String
+
+|名称|功能说明|示例|
+|----|----|----|
 |func subString(rang: NSRange)|截取字符串|string.zx.subString(rang: NSRange(location: 2, length: 5))|
 |func unicodeDecode()|unicode转中文|"\\u54c8\\u54c8\\u54c8".zx.unicodeDecode()|
 |func unicodeEncode()|字符串转unicode|"哈哈是电话费".zx.unicodeEncode()|
-|func base64Decode(lowercase: Bool = true)|base64解码|"5ZOI5ZOI5piv55S16K+d6LS5".zx.base64Decode()|
-|func aes256Decrypt(password: String, ivString: String = "abcdefghijklmnop")|aes256解密|string.zx.aes256Decrypt(password: "password")|
-|func aes256Encrypt(password: String, ivString: String = "abcdefghijklmnop")|aes256加密|string.zx.aes256Encrypt(password: "password")|
-|func encryptString(encryType: ZXKitUtilEncryType, lowercase: Bool = true)|字符串加密|string.zx.encryptString(encryType: ZXKitUtilEncryType.md5) <br/> 支持md5/sha1/sha224/sha256/sha384/sha512/base64加密|
+|func encodeString(from originType: ZXKitUtilEncodeType = .system(.utf8), to encodeType: ZXKitUtilEncodeType)|字符串修改编码显示|"5ZOI5ZOI5piv55S16K+d6LS5".zx.encodeString(from: .base64, to: .system(.utf8))|
+|func aesCBCEncrypt(password: String, ivString: String = "abcdefghijklmnop")|aes cbc模式加密|string.zx.aesCBCEncrypt(password: "password")|
+|func aesCBCDecrypt(password: String, ivString: String = "abcdefghijklmnop")|aes cbc解密|string.zx.aesCBCDecrypt(password: "password")|
+|func hashString(hashType: ZXKitUtilHashType, lowercase: Bool = true)|字符串hash计算|string.zx. hashString(hashType: .md5) <br/> 支持md5/sha1/sha224/sha256/sha384/sha512|
+|func aesGCMEncrypt(password: String, encodeType: ZXKitUtilEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce())|aes gcm模式加密|string.zx.aesGCMEncrypt(password: "password")|
+|func aesGCMDecrypt(password: String, encodeType: ZXKitUtilEncodeType = .base64)|aes gcm模式解密|string.zx.aesGCMDecrypt(password: "password")|
+|func hmac(hashType: ZXKitUtilHashType, password: String, encodeType: ZXKitUtilEncodeType = .base64)|HMAC计算|"ZXKitUtil".zx.hmac(hashType: .sha1, password: "67FG", encodeType: .hex)|
+
+#### Data
+
+|名称|功能说明|示例|
+|----|----|----|
+|static func data(from string: String, encodeType: ZXKitUtilEncodeType)|通过字符串和编码获取数据| Data.zx.data(from: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412", encodeType: .hex)|
+|func encodeString(encodeType: ZXKitUtilEncodeType)|数据转为指定编码的字符串| data.zx.encodeString(encodeType: .hex)|
+|func aesCBCEncrypt(password: String, ivString: String = "abcdefghijklmnop")|aes cbc模式加密|data.zx.aesCBCEncrypt(password: "password")|
+|func aesCBCDecrypt(password: String, ivString: String = "abcdefghijklmnop")|aes cbc解密|data.zx.aesCBCDecrypt(password: "password")|
+|func hashString(hashType: ZXKitUtilHashType, lowercase: Bool = true)|字符串hash计算|data.zx. hashString(hashType: .md5) <br/> 支持md5/sha1/sha224/sha256/sha384/sha512|
+|func aesGCMEncrypt(password: String, encodeType: ZXKitUtilEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce())|aes gcm模式加密|data.zx.aesGCMEncrypt(password: "password")|
+|func aesGCMDecrypt(password: String, encodeType: ZXKitUtilEncodeType = .base64)|aes gcm模式解密|data.zx.aesGCMDecrypt(password: "password")|
+|func hmac(hashType: ZXKitUtilHashType, password: String, encodeType: ZXKitUtilEncodeType = .base64)|HMAC计算|data.zx.hmac(hashType: .sha1, password: "67FG", encodeType: .hex)|
+
+
 
 ## 三、其他
 
