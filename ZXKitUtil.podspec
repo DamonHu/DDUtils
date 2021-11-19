@@ -5,7 +5,7 @@ s.version = '3.2.1'
 s.license= { :type => "Apache-2.0 License", :file => "LICENSE" }
 s.summary = 'ZXKitUtil. A package library of commonly used functions on the iOS platform, which can realize multiple complex functions in one sentence'
 s.homepage = 'https://github.com/ZXKitCode/ZXKitUtil'
-s.authors = { 'ZXKitCode' => 'dong765@qq.com' }
+s.authors = { 'ZXKitUtil' => 'dong765@qq.com' }
 s.source = { :git => "https://github.com/ZXKitCode/ZXKitUtil.git", :tag => s.version}
 s.requires_arc = true
 s.ios.deployment_target = '10.0'
