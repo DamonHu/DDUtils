@@ -95,6 +95,7 @@ public extension ZXKitUtilNameSpace where T == String {
     }
 }
 
+#if canImport(CryptoKit)
 @available(iOS 13.0, *)
 public extension ZXKitUtilNameSpace where T == String {
     /*
@@ -145,3 +146,4 @@ public extension ZXKitUtilNameSpace where T == String {
         return data?.zx.hmac(hashType: hashType, key: key, encodeType: encodeType)
     }
 }
+#endif
