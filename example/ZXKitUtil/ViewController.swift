@@ -37,6 +37,9 @@ class ViewController: UIViewController {
         let cbc = "mmmsss".zx.aesCBCEncrypt(password: "12345678901234561234567890123456")!
         print("cbc", cbc, cbc.zx.aesCBCDecrypt(password: "12345678901234561234567890123456"))
 
+        let data = Data.zx.data(from: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412", encodeType: .hex)
+        print("hash1", data?.zx.encodeString(encodeType: .hex))
+
         for item in TestEnum.allCases {
             print(item)
         }
