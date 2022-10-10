@@ -28,8 +28,8 @@ public extension ZXKitUtilNameSpace where T : UIColor {
                     if traitCollection.userInterfaceStyle == .light {
                         return UIColor(displayP3Red: CGFloat(((Float)((hexValue & 0xFF0000) >> 16))/255.0), green: CGFloat(((Float)((hexValue & 0xFF00) >> 8))/255.0), blue: CGFloat(((Float)(hexValue & 0xFF))/255.0), alpha: CGFloat(alpha))
                     } else {
-                        var displayHex = darkHexValue ?? hexValue
-                        var displayAlpha = darkAlpha ?? alpha
+                        let displayHex = darkHexValue ?? hexValue
+                        let displayAlpha = darkAlpha ?? alpha
                         return UIColor(displayP3Red: CGFloat(((Float)((displayHex & 0xFF0000) >> 16))/255.0), green: CGFloat(((Float)((displayHex & 0xFF00) >> 8))/255.0), blue: CGFloat(((Float)(displayHex & 0xFF))/255.0), alpha: CGFloat(displayAlpha))
                     }
                 }
@@ -55,8 +55,8 @@ public extension ZXKitUtilNameSpace where T : UIColor {
                 if traitCollection.userInterfaceStyle == .light {
                     return self._getColor(hexString: hexString, alpha: alpha)
                 } else {
-                    var displayHex = darkHexString ?? hexString
-                    var displayAlpha = darkAlpha ?? alpha
+                    let displayHex = darkHexString ?? hexString
+                    let displayAlpha = darkAlpha ?? alpha
                     return self._getColor(hexString: displayHex, alpha: displayAlpha)
                 }
             }
