@@ -22,24 +22,28 @@ public extension ZXKitUtil {
     func requestIDFAPermission(complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void {
         if #available(iOS 14.0, *) {
             ATTrackingManager.requestTrackingAuthorization { (status) in
-                switch status {
-                    case .notDetermined:
-                        complete(.notDetermined)
-                    case .restricted:
-                        complete(.restricted)
-                    case .denied:
-                        complete(.denied)
-                    case .authorized:
-                        complete(.authorized)
-                    default:
-                        complete(.authorized)
+                self.runInMainThread {
+                    switch status {
+                        case .notDetermined:
+                            complete(.notDetermined)
+                        case .restricted:
+                            complete(.restricted)
+                        case .denied:
+                            complete(.denied)
+                        case .authorized:
+                            complete(.authorized)
+                        default:
+                            complete(.authorized)
+                    }
                 }
             }
         } else {
-            if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
-                complete(.authorized)
-            } else {
-                complete(.denied)
+            self.runInMainThread {
+                if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
+                    complete(.authorized)
+                } else {
+                    complete(.denied)
+                }
             }
         }
     }
