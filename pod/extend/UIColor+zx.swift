@@ -76,6 +76,7 @@ private extension ZXKitUtilNameSpace where T : UIColor {
         } else if (hexString.hasPrefix("0x") || hexString.hasPrefix("0X")) {
             hex = String(hexString.suffix(hexString.count - 2))
         }
+        assert(hex.count == 6, "hex value invalid")
         guard hex.count == 6 else {
             //不足6位不符合
             return UIColor.clear
