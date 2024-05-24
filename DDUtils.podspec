@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
 s.name = 'DDUtils'
 s.swift_version = '5.0'
-s.version = '5.0.0'
+s.version = '5.0.1'
 s.license= { :type => "MIT", :file => "LICENSE" }
-s.summary = 'DDUtils. A package library of commonly used functions on the iOS platform, which can realize multiple complex functions in one sentence'
+s.summary = 'DDUtils is a collection of commonly used features, developed based on Swift, that can be quickly implemented on iOS devices.'
 s.homepage = 'https://github.com/DamonHu/DDUtils'
 s.authors = { 'DDUtils' => 'dong765@qq.com' }
 s.source = { :git => "https://github.com/DamonHu/DDUtils.git", :tag => s.version}
@@ -18,5 +18,5 @@ s.subspec 'idfa' do |cs|
     cs.dependency 'DDUtils/core'
 end
 s.default_subspecs = "core"
-s.documentation_url = 'http://blog.hudongdong.com/swift/1079.html'
+s.documentation_url = 'https://ddceo.com/blog/1281.html'
 end
