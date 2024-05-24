@@ -12,19 +12,19 @@
 		E46E087724AD7A5200843DE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46E087524AD7A5200843DE2 /* Main.storyboard */; };
 		E46E087924AD7A5400843DE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46E087824AD7A5400843DE2 /* Assets.xcassets */; };
 		E46E087C24AD7A5400843DE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46E087A24AD7A5400843DE2 /* LaunchScreen.storyboard */; };
-		E4AC946C26314B0F001FC322 /* ZXKitUtil+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC945D26314B0F001FC322 /* ZXKitUtil+UI.swift */; };
+		E4AC946C26314B0F001FC322 /* DDUtils+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC945D26314B0F001FC322 /* DDUtils+UI.swift */; };
 		E4AC946D26314B0F001FC322 /* UIImage+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC945F26314B0F001FC322 /* UIImage+zx.swift */; };
 		E4AC946E26314B0F001FC322 /* Date+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946026314B0F001FC322 /* Date+zx.swift */; };
 		E4AC946F26314B0F001FC322 /* UIColor+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946126314B0F001FC322 /* UIColor+zx.swift */; };
 		E4AC947026314B0F001FC322 /* String+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946226314B0F001FC322 /* String+zx.swift */; };
 		E4AC947126314B0F001FC322 /* ZXKitNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946326314B0F001FC322 /* ZXKitNameSpace.swift */; };
 		E4AC947226314B0F001FC322 /* UIView+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946426314B0F001FC322 /* UIView+zx.swift */; };
-		E4AC947326314B0F001FC322 /* ZXKitUtil+idfa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946626314B0F001FC322 /* ZXKitUtil+idfa.swift */; };
-		E4AC947426314B0F001FC322 /* ZXKitUtil+system.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946726314B0F001FC322 /* ZXKitUtil+system.swift */; };
-		E4AC947526314B0F001FC322 /* ZXKitUtil+file.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946826314B0F001FC322 /* ZXKitUtil+file.swift */; };
-		E4AC947626314B0F001FC322 /* ZXKitUtil+media.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946926314B0F001FC322 /* ZXKitUtil+media.swift */; };
-		E4AC947726314B0F001FC322 /* ZXKitUtil+permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946A26314B0F001FC322 /* ZXKitUtil+permission.swift */; };
-		E4AC947826314B0F001FC322 /* ZXKitUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946B26314B0F001FC322 /* ZXKitUtil.swift */; };
+		E4AC947326314B0F001FC322 /* DDUtils+idfa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946626314B0F001FC322 /* DDUtils+idfa.swift */; };
+		E4AC947426314B0F001FC322 /* DDUtils+system.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946726314B0F001FC322 /* DDUtils+system.swift */; };
+		E4AC947526314B0F001FC322 /* DDUtils+file.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946826314B0F001FC322 /* DDUtils+file.swift */; };
+		E4AC947626314B0F001FC322 /* DDUtils+media.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946926314B0F001FC322 /* DDUtils+media.swift */; };
+		E4AC947726314B0F001FC322 /* DDUtils+permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946A26314B0F001FC322 /* DDUtils+permission.swift */; };
+		E4AC947826314B0F001FC322 /* DDUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946B26314B0F001FC322 /* DDUtils.swift */; };
 		E4D1606726E219940040765D /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D1606626E219940040765D /* TestModel.swift */; };
 		E4D1A3C5266513A100420162 /* Data+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D1A3C4266513A100420162 /* Data+zx.swift */; };
 		E4EF66BF24B9E05400EBB408 /* 1594468497552.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E4EF66BE24B9E05400EBB408 /* 1594468497552.mp4 */; };
@@ -34,26 +34,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E46E086C24AD7A5200843DE2 /* ZXKitUtil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZXKitUtil.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E46E086C24AD7A5200843DE2 /* DDUtils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDUtils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46E086F24AD7A5200843DE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E46E087324AD7A5200843DE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E46E087624AD7A5200843DE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E46E087824AD7A5400843DE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E46E087B24AD7A5400843DE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E46E087D24AD7A5400843DE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4AC945D26314B0F001FC322 /* ZXKitUtil+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZXKitUtil+UI.swift"; sourceTree = "<group>"; };
+		E4AC945D26314B0F001FC322 /* DDUtils+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DDUtils+UI.swift"; sourceTree = "<group>"; };
 		E4AC945F26314B0F001FC322 /* UIImage+zx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+zx.swift"; sourceTree = "<group>"; };
 		E4AC946026314B0F001FC322 /* Date+zx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+zx.swift"; sourceTree = "<group>"; };
 		E4AC946126314B0F001FC322 /* UIColor+zx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+zx.swift"; sourceTree = "<group>"; };
 		E4AC946226314B0F001FC322 /* String+zx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+zx.swift"; sourceTree = "<group>"; };
 		E4AC946326314B0F001FC322 /* ZXKitNameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXKitNameSpace.swift; sourceTree = "<group>"; };
 		E4AC946426314B0F001FC322 /* UIView+zx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+zx.swift"; sourceTree = "<group>"; };
-		E4AC946626314B0F001FC322 /* ZXKitUtil+idfa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZXKitUtil+idfa.swift"; sourceTree = "<group>"; };
-		E4AC946726314B0F001FC322 /* ZXKitUtil+system.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZXKitUtil+system.swift"; sourceTree = "<group>"; };
-		E4AC946826314B0F001FC322 /* ZXKitUtil+file.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZXKitUtil+file.swift"; sourceTree = "<group>"; };
-		E4AC946926314B0F001FC322 /* ZXKitUtil+media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZXKitUtil+media.swift"; sourceTree = "<group>"; };
-		E4AC946A26314B0F001FC322 /* ZXKitUtil+permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZXKitUtil+permission.swift"; sourceTree = "<group>"; };
-		E4AC946B26314B0F001FC322 /* ZXKitUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXKitUtil.swift; sourceTree = "<group>"; };
+		E4AC946626314B0F001FC322 /* DDUtils+idfa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DDUtils+idfa.swift"; sourceTree = "<group>"; };
+		E4AC946726314B0F001FC322 /* DDUtils+system.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DDUtils+system.swift"; sourceTree = "<group>"; };
+		E4AC946826314B0F001FC322 /* DDUtils+file.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DDUtils+file.swift"; sourceTree = "<group>"; };
+		E4AC946926314B0F001FC322 /* DDUtils+media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DDUtils+media.swift"; sourceTree = "<group>"; };
+		E4AC946A26314B0F001FC322 /* DDUtils+permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DDUtils+permission.swift"; sourceTree = "<group>"; };
+		E4AC946B26314B0F001FC322 /* DDUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDUtils.swift; sourceTree = "<group>"; };
 		E4D1606626E219940040765D /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		E4D1A3C4266513A100420162 /* Data+zx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+zx.swift"; sourceTree = "<group>"; };
 		E4EF66BE24B9E05400EBB408 /* 1594468497552.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1594468497552.mp4; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		E46E086324AD7A5200843DE2 = {
 			isa = PBXGroup;
 			children = (
-				E46E086E24AD7A5200843DE2 /* ZXKitUtil */,
+				E46E086E24AD7A5200843DE2 /* DDUtils */,
 				E46E086D24AD7A5200843DE2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,12 +84,12 @@
 		E46E086D24AD7A5200843DE2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E46E086C24AD7A5200843DE2 /* ZXKitUtil.app */,
+				E46E086C24AD7A5200843DE2 /* DDUtils.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E46E086E24AD7A5200843DE2 /* ZXKitUtil */ = {
+		E46E086E24AD7A5200843DE2 /* DDUtils */ = {
 			isa = PBXGroup;
 			children = (
 				E4AC945C26314B0F001FC322 /* pod */,
@@ -105,20 +105,20 @@
 				E46E087A24AD7A5400843DE2 /* LaunchScreen.storyboard */,
 				E46E087D24AD7A5400843DE2 /* Info.plist */,
 			);
-			path = ZXKitUtil;
+			path = DDUtils;
 			sourceTree = "<group>";
 		};
 		E4AC945C26314B0F001FC322 /* pod */ = {
 			isa = PBXGroup;
 			children = (
-				E4AC945D26314B0F001FC322 /* ZXKitUtil+UI.swift */,
+				E4AC945D26314B0F001FC322 /* DDUtils+UI.swift */,
 				E4AC945E26314B0F001FC322 /* extend */,
 				E4AC946526314B0F001FC322 /* subspec */,
-				E4AC946726314B0F001FC322 /* ZXKitUtil+system.swift */,
-				E4AC946826314B0F001FC322 /* ZXKitUtil+file.swift */,
-				E4AC946926314B0F001FC322 /* ZXKitUtil+media.swift */,
-				E4AC946A26314B0F001FC322 /* ZXKitUtil+permission.swift */,
-				E4AC946B26314B0F001FC322 /* ZXKitUtil.swift */,
+				E4AC946726314B0F001FC322 /* DDUtils+system.swift */,
+				E4AC946826314B0F001FC322 /* DDUtils+file.swift */,
+				E4AC946926314B0F001FC322 /* DDUtils+media.swift */,
+				E4AC946A26314B0F001FC322 /* DDUtils+permission.swift */,
+				E4AC946B26314B0F001FC322 /* DDUtils.swift */,
 			);
 			name = pod;
 			path = ../../pod;
@@ -141,7 +141,7 @@
 		E4AC946526314B0F001FC322 /* subspec */ = {
 			isa = PBXGroup;
 			children = (
-				E4AC946626314B0F001FC322 /* ZXKitUtil+idfa.swift */,
+				E4AC946626314B0F001FC322 /* DDUtils+idfa.swift */,
 			);
 			path = subspec;
 			sourceTree = "<group>";
@@ -149,9 +149,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E46E086B24AD7A5200843DE2 /* ZXKitUtil */ = {
+		E46E086B24AD7A5200843DE2 /* DDUtils */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E46E088024AD7A5400843DE2 /* Build configuration list for PBXNativeTarget "ZXKitUtil" */;
+			buildConfigurationList = E46E088024AD7A5400843DE2 /* Build configuration list for PBXNativeTarget "DDUtils" */;
 			buildPhases = (
 				E46E086824AD7A5200843DE2 /* Sources */,
 				E46E086924AD7A5200843DE2 /* Frameworks */,
@@ -161,9 +161,9 @@
 			);
 			dependencies = (
 			);
-			name = ZXKitUtil;
+			name = DDUtils;
 			productName = HDSwiftCommonTools;
-			productReference = E46E086C24AD7A5200843DE2 /* ZXKitUtil.app */;
+			productReference = E46E086C24AD7A5200843DE2 /* DDUtils.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -181,7 +181,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E46E086724AD7A5200843DE2 /* Build configuration list for PBXProject "ZXKitUtil" */;
+			buildConfigurationList = E46E086724AD7A5200843DE2 /* Build configuration list for PBXProject "DDUtils" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -194,7 +194,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E46E086B24AD7A5200843DE2 /* ZXKitUtil */,
+				E46E086B24AD7A5200843DE2 /* DDUtils */,
 			);
 		};
 /* End PBXProject section */
@@ -221,20 +221,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4AC947526314B0F001FC322 /* ZXKitUtil+file.swift in Sources */,
-				E4AC947726314B0F001FC322 /* ZXKitUtil+permission.swift in Sources */,
+				E4AC947526314B0F001FC322 /* DDUtils+file.swift in Sources */,
+				E4AC947726314B0F001FC322 /* DDUtils+permission.swift in Sources */,
 				E46E087424AD7A5200843DE2 /* ViewController.swift in Sources */,
 				E4AC946D26314B0F001FC322 /* UIImage+zx.swift in Sources */,
-				E4AC947326314B0F001FC322 /* ZXKitUtil+idfa.swift in Sources */,
+				E4AC947326314B0F001FC322 /* DDUtils+idfa.swift in Sources */,
 				E4AC946E26314B0F001FC322 /* Date+zx.swift in Sources */,
-				E4AC947826314B0F001FC322 /* ZXKitUtil.swift in Sources */,
-				E4AC947426314B0F001FC322 /* ZXKitUtil+system.swift in Sources */,
-				E4AC947626314B0F001FC322 /* ZXKitUtil+media.swift in Sources */,
+				E4AC947826314B0F001FC322 /* DDUtils.swift in Sources */,
+				E4AC947426314B0F001FC322 /* DDUtils+system.swift in Sources */,
+				E4AC947626314B0F001FC322 /* DDUtils+media.swift in Sources */,
 				E4AC946F26314B0F001FC322 /* UIColor+zx.swift in Sources */,
 				E46E087024AD7A5200843DE2 /* AppDelegate.swift in Sources */,
 				E4AC947026314B0F001FC322 /* String+zx.swift in Sources */,
 				E4AC947126314B0F001FC322 /* ZXKitNameSpace.swift in Sources */,
-				E4AC946C26314B0F001FC322 /* ZXKitUtil+UI.swift in Sources */,
+				E4AC946C26314B0F001FC322 /* DDUtils+UI.swift in Sources */,
 				E4AC947226314B0F001FC322 /* UIView+zx.swift in Sources */,
 				E4D1606726E219940040765D /* TestModel.swift in Sources */,
 				E4D1A3C5266513A100420162 /* Data+zx.swift in Sources */,
@@ -422,7 +422,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E46E086724AD7A5200843DE2 /* Build configuration list for PBXProject "ZXKitUtil" */ = {
+		E46E086724AD7A5200843DE2 /* Build configuration list for PBXProject "DDUtils" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E46E087E24AD7A5400843DE2 /* Debug */,
@@ -431,7 +431,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E46E088024AD7A5400843DE2 /* Build configuration list for PBXNativeTarget "ZXKitUtil" */ = {
+		E46E088024AD7A5400843DE2 /* Build configuration list for PBXNativeTarget "DDUtils" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E46E088124AD7A5400843DE2 /* Debug */,

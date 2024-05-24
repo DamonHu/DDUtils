@@ -1,6 +1,6 @@
 //
-//  ZXKitUtilNameSpace.swift
-//  ZXKitUtil
+//  DDUtilsNameSpace.swift
+//  DDUtils
 //
 //  Created by Damon on 2020/7/3.
 //  Copyright © 2020 Damon. All rights reserved.
@@ -9,13 +9,13 @@
 import Foundation
 
 //实现命名空间需遵守的协议
-public protocol ZXKitUtilNameSpaceWrappable {
+public protocol DDUtilsNameSpaceWrappable {
     associatedtype WrapperType
-    var zx: WrapperType { get }
-    static var zx: WrapperType.Type { get }
+    var dd: WrapperType { get }
+    static var dd: WrapperType.Type { get }
 }
 
-public struct ZXKitUtilNameSpace <T> {
+public struct DDUtilsNameSpace <T> {
     let object: T       //存储的实例对象
     static var classObject: T.Type {
         return T.self
@@ -26,12 +26,12 @@ public struct ZXKitUtilNameSpace <T> {
 }
 
 //协议默认的实现方式
-public extension ZXKitUtilNameSpaceWrappable {
-    var zx: ZXKitUtilNameSpace<Self> {
-        return ZXKitUtilNameSpace(object: self)
+public extension DDUtilsNameSpaceWrappable {
+    var dd: DDUtilsNameSpace<Self> {
+        return DDUtilsNameSpace(object: self)
     }
 
-    static var zx: ZXKitUtilNameSpace<Self>.Type {
-        return ZXKitUtilNameSpace.self
+    static var dd: DDUtilsNameSpace<Self>.Type {
+        return DDUtilsNameSpace.self
     }
 }

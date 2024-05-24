@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E46E086B24AD7A5200843DE2"
-               BuildableName = "ZXKitUtil.app"
-               BlueprintName = "ZXKitUtil"
+               BuildableName = "DDUtils.app"
+               BlueprintName = "DDUtils"
                ReferencedContainer = "container:ZXKitUtil.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E46E086B24AD7A5200843DE2"
-            BuildableName = "ZXKitUtil.app"
-            BlueprintName = "ZXKitUtil"
+            BuildableName = "DDUtils.app"
+            BlueprintName = "DDUtils"
             ReferencedContainer = "container:ZXKitUtil.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E46E086B24AD7A5200843DE2"
-            BuildableName = "ZXKitUtil.app"
-            BlueprintName = "ZXKitUtil"
+            BuildableName = "DDUtils.app"
+            BlueprintName = "DDUtils"
             ReferencedContainer = "container:ZXKitUtil.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

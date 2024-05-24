@@ -1,6 +1,6 @@
 //
-//  ZXKitUtil+media.swift
-//  ZXKitUtil
+//  DDUtils+media.swift
+//  DDUtils
 //
 //  Created by Damon on 2020/7/4.
 //  Copyright © 2020 Damon. All rights reserved.
@@ -12,7 +12,7 @@ import AVFoundation
 private var vibrateRepeat = false   //标记是否循环震动
 private var audioPlayer: AVAudioPlayer? //音乐播放器
 
-public extension ZXKitUtil {
+public extension DDUtils {
     
     ///获取指定video的时长， 单位秒
     func getVideoDuration(videoURL: URL) -> Double {
@@ -46,8 +46,8 @@ public extension ZXKitUtil {
         
         
         if musicURL.absoluteString.hasPrefix("http://") || musicURL.absoluteString.hasPrefix("https://") {
-            guard let name = musicURL.path.zx.hashString(hashType: .md5) else { return nil }
-            let path = ZXKitUtil.shared.createFileDirectory(in: .caches, directoryName: "music").appendingPathComponent(name, isDirectory: false)
+            guard let name = musicURL.path.dd.hashString(hashType: .md5) else { return nil }
+            let path = DDUtils.shared.createFileDirectory(in: .caches, directoryName: "music").appendingPathComponent(name, isDirectory: false)
             let audioData = try? Data(contentsOf: musicURL)
             try? audioData?.write(to: path)
             musicURL = path

@@ -1,6 +1,6 @@
 //
-//  UIColor+zx.swift
-//  ZXKitUtil
+//  UIColor+dd.swift
+//  DDUtils
 //
 //  Created by Damon on 2020/7/9.
 //  Copyright © 2020 Damon. All rights reserved.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-extension UIColor: ZXKitUtilNameSpaceWrappable {
+extension UIColor: DDUtilsNameSpaceWrappable {
 
 }
 
-public extension ZXKitUtilNameSpace where T : UIColor {
+public extension DDUtilsNameSpace where T : UIColor {
 
     /// 16进制颜色转为UIColor
     /// - Parameters:
@@ -67,7 +67,7 @@ public extension ZXKitUtilNameSpace where T : UIColor {
     }
 }
 
-private extension ZXKitUtilNameSpace where T : UIColor {
+private extension DDUtilsNameSpace where T : UIColor {
     ///通过十六进制字符串获取颜色
     static func _getColor(hexString: String, alpha: CGFloat = 1.0) -> UIColor {
         var hex = ""

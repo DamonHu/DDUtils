@@ -1,6 +1,6 @@
 //
-//  ZXKitUtil.swift
-//  ZXKitUtil
+//  DDUtils.swift
+//  DDUtils
 //
 //  Created by Damon on 2020/7/2.
 //  Copyright © 2020 Damon. All rights reserved.
@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-open class ZXKitUtil: NSObject {
-    private static let instance = ZXKitUtil()
-    open class var shared: ZXKitUtil {
+open class DDUtils: NSObject {
+    private static let instance = DDUtils()
+    open class var shared: DDUtils {
         return instance
     }
 
@@ -27,7 +27,7 @@ public enum ZXMainThreadType {
     case sync       //在主线程顺序执行，在其他线程同步回归到主线程（后续操作等待当前任务完毕之后继续执行，可能会阻塞界面）
 }
 
-public extension ZXKitUtil {
+public extension DDUtils {
     /// 获取class\struct的所有属性
     /// - Parameters:
     ///   - object: 需要获取的属性
@@ -38,7 +38,7 @@ public extension ZXKitUtil {
         var dictionary = [String : Any]()
 
         if debug {
-            print("--- ZXKitUtil.getDictionary(object:debug:) ---")
+            print("--- DDUtils.getDictionary(object:debug:) ---")
         }
         for (key, value) in reflection {
             if let key = key {

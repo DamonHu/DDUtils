@@ -1,6 +1,6 @@
 //
-//  ZXKitUtil+UI.swift
-//  ZXKitUtil
+//  DDUtils+UI.swift
+//  DDUtils
 //
 //  Created by Damon on 2020/7/2.
 //  Copyright © 2020 Damon. All rights reserved.
@@ -14,7 +14,7 @@ import UIKit
 //      |         |
 //       ---------
 //      C         D
-public enum ZXKitUtilGradientDirection {
+public enum DDUtilsGradientDirection {
     case minXToMaxX         //AC - BD
     case minYToMaxY         //AB - CD
     case minXMinYToMaxXMaxY //A - D
@@ -32,7 +32,7 @@ public enum ZXKitUtilGradientDirection {
 }
 
 
-public extension ZXKitUtil {
+public extension DDUtils {
     ///获取当前的normalwindow
     func getCurrentNormalWindow() -> UIWindow? {
         var window:UIWindow? = UIApplication.shared.keyWindow
@@ -110,7 +110,7 @@ public extension ZXKitUtil {
     }
     
     ///线性渐变
-    func getLinearGradientImage(colors: [UIColor], directionType: ZXKitUtilGradientDirection, size: CGSize = CGSize(width: 100, height: 100)) -> UIImage {
+    func getLinearGradientImage(colors: [UIColor], directionType: DDUtilsGradientDirection, size: CGSize = CGSize(width: 100, height: 100)) -> UIImage {
         if (colors.count == 0) {
             return UIImage()
         } else if (colors.count == 1) {
@@ -217,18 +217,18 @@ public var UIScreenHeight: CGFloat {
 }
 
 ///状态栏高度
-public var ZXKitUtil_StatusBar_Height: CGFloat {
+public var DDUtils_StatusBar_Height: CGFloat {
     return UIApplication.shared.statusBarFrame.size.height
 }
 
 ///底部Home Indicator高度
-public var ZXKitUtil_HomeIndicator_Height: CGFloat {
+public var DDUtils_HomeIndicator_Height: CGFloat {
     if #available(iOS 11.0, *) {
-        if let cacheHomeIndicatorHeight = ZXKitUtil.shared.cacheHomeIndicatorHeight {
+        if let cacheHomeIndicatorHeight = DDUtils.shared.cacheHomeIndicatorHeight {
             return cacheHomeIndicatorHeight
-        } else if let window = ZXKitUtil.shared.getCurrentNormalWindow() {
+        } else if let window = DDUtils.shared.getCurrentNormalWindow() {
             let bottom = window.safeAreaInsets.bottom
-            ZXKitUtil.shared.cacheHomeIndicatorHeight = bottom
+            DDUtils.shared.cacheHomeIndicatorHeight = bottom
             return bottom
         }
     }
@@ -236,8 +236,8 @@ public var ZXKitUtil_HomeIndicator_Height: CGFloat {
 }
 
 ///导航栏高度
-public func ZXKitUtil_Default_NavigationBar_Height(vc: UIViewController? = nil, cachePrior: Bool = true) -> CGFloat {
-    if cachePrior, let cacheDefaultNavigationBarHeight = ZXKitUtil.shared.cacheDefaultNavigationBarHeight {
+public func DDUtils_Default_NavigationBar_Height(vc: UIViewController? = nil, cachePrior: Bool = true) -> CGFloat {
+    if cachePrior, let cacheDefaultNavigationBarHeight = DDUtils.shared.cacheDefaultNavigationBarHeight {
         return cacheDefaultNavigationBarHeight
     } else {
         var height: CGFloat = 0
@@ -246,14 +246,14 @@ public func ZXKitUtil_Default_NavigationBar_Height(vc: UIViewController? = nil, 
         } else {
             height = UINavigationController(nibName: nil, bundle: nil).navigationBar.frame.size.height
         }
-        ZXKitUtil.shared.cacheDefaultNavigationBarHeight = height
+        DDUtils.shared.cacheDefaultNavigationBarHeight = height
         return height
     }
 }
 
 ///tabbar高度
-public func ZXKitUtil_Default_Tabbar_Height(vc: UIViewController? = nil, cachePrior: Bool = true) -> CGFloat {
-    if cachePrior, let cacheDefaultTabbarHeight = ZXKitUtil.shared.cacheDefaultTabbarHeight {
+public func DDUtils_Default_Tabbar_Height(vc: UIViewController? = nil, cachePrior: Bool = true) -> CGFloat {
+    if cachePrior, let cacheDefaultTabbarHeight = DDUtils.shared.cacheDefaultTabbarHeight {
         return cacheDefaultTabbarHeight
     } else {
         var height: CGFloat = 0
@@ -262,12 +262,12 @@ public func ZXKitUtil_Default_Tabbar_Height(vc: UIViewController? = nil, cachePr
         } else {
             height = UITabBarController(nibName: nil, bundle: nil).tabBar.frame.size.height
         }
-        ZXKitUtil.shared.cacheDefaultTabbarHeight = height
+        DDUtils.shared.cacheDefaultTabbarHeight = height
         return height
     }
 }
 
 ///状态栏和导航栏总高度
-public func ZXKitUtil_Default_Nav_And_Status_Height(vc: UIViewController? = nil) -> CGFloat {
-    return ZXKitUtil_Default_NavigationBar_Height(vc: vc) + ZXKitUtil_StatusBar_Height
+public func DDUtils_Default_Nav_And_Status_Height(vc: UIViewController? = nil) -> CGFloat {
+    return DDUtils_Default_NavigationBar_Height(vc: vc) + DDUtils_StatusBar_Height
 }

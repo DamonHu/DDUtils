@@ -1,6 +1,6 @@
 //
-//  ZXKitUtil+idfa.swift
-//  ZXKitUtil
+//  DDUtils+idfa.swift
+//  DDUtils
 //
 //  Created by Damon on 2021/2/19.
 //  Copyright © 2021 Damon. All rights reserved.
@@ -17,9 +17,9 @@ import AdSupport
 //
 #endif
 
-public extension ZXKitUtil {
+public extension DDUtils {
     ///请求IDFA权限
-    func requestIDFAPermission(complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void {
+    func requestIDFAPermission(complete: @escaping ((DDUtilsPermissionStatus) -> Void)) -> Void {
         if #available(iOS 14.0, *) {
             ATTrackingManager.requestTrackingAuthorization { (status) in
                 self.runInMainThread {
@@ -49,7 +49,7 @@ public extension ZXKitUtil {
     }
 
     ///检测IDFA权限
-    func checkIDFAPermission(complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void {
+    func checkIDFAPermission(complete: @escaping ((DDUtilsPermissionStatus) -> Void)) -> Void {
         if #available(iOS 14.0, *) {
             let status = ATTrackingManager.trackingAuthorizationStatus
             switch status {

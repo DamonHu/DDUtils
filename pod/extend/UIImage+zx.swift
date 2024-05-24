@@ -1,6 +1,6 @@
 //
-//  UIImage+zx.swift
-//  ZXKitUtil
+//  UIImage+dd.swift
+//  DDUtils
 //
 //  Created by Damon on 2020/7/11.
 //  Copyright © 2020 Damon. All rights reserved.
@@ -8,24 +8,24 @@
 
 import UIKit
 
-extension UIImage: ZXKitUtilNameSpaceWrappable {
+extension UIImage: DDUtilsNameSpaceWrappable {
 
 }
 
-public extension ZXKitUtilNameSpace where T : UIImage {
+public extension DDUtilsNameSpace where T : UIImage {
     ///通过颜色获取纯色图片
     static func getImage(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
-        return ZXKitUtil.shared.getImage(color: color, size: size)
+        return DDUtils.shared.getImage(color: color, size: size)
     }
     
     ///线性渐变
-    static func getLinearGradientImage(colors: [UIColor], directionType: ZXKitUtilGradientDirection, size: CGSize = CGSize(width: 100, height: 100)) -> UIImage {
-        return ZXKitUtil.shared.getLinearGradientImage(colors: colors, directionType: directionType, size: size)
+    static func getLinearGradientImage(colors: [UIColor], directionType: DDUtilsGradientDirection, size: CGSize = CGSize(width: 100, height: 100)) -> UIImage {
+        return DDUtils.shared.getLinearGradientImage(colors: colors, directionType: directionType, size: size)
     }
     
     ///角度渐变
     static func getRadialGradientImage(colors: [UIColor], raduis: CGFloat, size: CGSize = CGSize(width: 100, height: 100)) -> UIImage {
-        return ZXKitUtil.shared.getRadialGradientImage(colors: colors, raduis: raduis, size: size)
+        return DDUtils.shared.getRadialGradientImage(colors: colors, raduis: raduis, size: size)
     }
     
     ///通过view专为图片
@@ -69,7 +69,7 @@ public extension ZXKitUtilNameSpace where T : UIImage {
     
 }
 
-private extension ZXKitUtilNameSpace where T : UIImage {
+private extension DDUtilsNameSpace where T : UIImage {
     static func _getImage(view: UIView) -> UIImage? {
         view.layoutIfNeeded()
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0)

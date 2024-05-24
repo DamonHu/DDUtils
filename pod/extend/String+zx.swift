@@ -1,6 +1,6 @@
 //
-//  String+zx.swift
-//  ZXKitUtil
+//  String+dd.swift
+//  DDUtils
 //
 //  Created by Damon on 2020/7/3.
 //  Copyright © 2020 Damon. All rights reserved.
@@ -11,11 +11,11 @@ import Foundation
 import CryptoKit
 #endif
 
-extension String: ZXKitUtilNameSpaceWrappable {
+extension String: DDUtilsNameSpaceWrappable {
     
 }
 
-public extension ZXKitUtilNameSpace where T == String {
+public extension DDUtilsNameSpace where T == String {
     ///截取字符串
     func subString(rang: NSRange) -> String {
         var string = String()
@@ -75,9 +75,9 @@ public extension ZXKitUtilNameSpace where T == String {
     ///   - originType: 字符串原来的编码格式
     ///   - encodeType: 即将转换的编码格式
     /// - Returns: 转换成功的新字符串
-    func encodeString(from originType: ZXKitUtilEncodeType = .system(.utf8), to encodeType: ZXKitUtilEncodeType) -> String? {
-        let data = Data.zx.data(from: object, encodeType: originType)
-        return data?.zx.encodeString(encodeType: encodeType)
+    func encodeString(from originType: DDUtilsEncodeType = .system(.utf8), to encodeType: DDUtilsEncodeType) -> String? {
+        let data = Data.dd.data(from: object, encodeType: originType)
+        return data?.dd.encodeString(encodeType: encodeType)
     }
     
     /*
@@ -86,79 +86,79 @@ public extension ZXKitUtilNameSpace where T == String {
      padding: PKCS7Padding
      AES block Size: 128
      **/
-    func aesCBCEncrypt(password: String, ivString: String = "abcdefghijklmnop", encodeType: ZXKitUtilEncodeType = .base64) -> String? {
+    func aesCBCEncrypt(password: String, ivString: String = "abcdefghijklmnop", encodeType: DDUtilsEncodeType = .base64) -> String? {
         let data = object.data(using:String.Encoding.utf8)
-        return data?.zx.aesCBCEncrypt(password: password, ivString: ivString, encodeType: encodeType)
+        return data?.dd.aesCBCEncrypt(password: password, ivString: ivString, encodeType: encodeType)
     }
     
     ///aes CBC解密
-    func aesCBCDecrypt(password: String, ivString: String = "abcdefghijklmnop", encodeType: ZXKitUtilEncodeType = .base64) -> String? {
-        let data = Data.zx.data(from: object, encodeType: encodeType)
-        return data?.zx.aesCBCDecrypt(password: password, ivString: ivString)
+    func aesCBCDecrypt(password: String, ivString: String = "abcdefghijklmnop", encodeType: DDUtilsEncodeType = .base64) -> String? {
+        let data = Data.dd.data(from: object, encodeType: encodeType)
+        return data?.dd.aesCBCDecrypt(password: password, ivString: ivString)
     }
 
     //MARK: 加密
-    func hashString(hashType: ZXKitUtilHashType, lowercase: Bool = true) -> String? {
+    func hashString(hashType: DDUtilsHashType, lowercase: Bool = true) -> String? {
         let data = object.data(using: String.Encoding.utf8)
-        return data?.zx.hashString(hashType: hashType, lowercase: lowercase)
+        return data?.dd.hashString(hashType: hashType, lowercase: lowercase)
     }
 
 
-    @available(*, deprecated, message: "Use hashString(hashType: ZXKitUtilHashType, lowercase: Bool) instead")
-    func encryptString(encryType: ZXKitUtilHashType, lowercase: Bool = true) -> String? {
+    @available(*, deprecated, message: "Use hashString(hashType: DDUtilsHashType, lowercase: Bool) instead")
+    func encryptString(encryType: DDUtilsHashType, lowercase: Bool = true) -> String? {
         return self.hashString(hashType: encryType, lowercase: lowercase)
     }
 }
 
 #if canImport(CryptoKit)
 @available(iOS 13.0, *)
-public extension ZXKitUtilNameSpace where T == String {
+public extension DDUtilsNameSpace where T == String {
     /*
      AES加密
      model: GCM
      **/
-    func aesGCMEncrypt(password: String, encodeType: ZXKitUtilEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce()) -> String? {
+    func aesGCMEncrypt(password: String, encodeType: DDUtilsEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce()) -> String? {
         let data = object.data(using:String.Encoding.utf8)
-        return data?.zx.aesGCMEncrypt(password: password, encodeType: encodeType, nonce: nonce)
+        return data?.dd.aesGCMEncrypt(password: password, encodeType: encodeType, nonce: nonce)
     }
 
     /*
      AES加密
      model: GCM
      **/
-    func aesGCMEncrypt(key: SymmetricKey, encodeType: ZXKitUtilEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce()) -> String? {
+    func aesGCMEncrypt(key: SymmetricKey, encodeType: DDUtilsEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce()) -> String? {
         let data = object.data(using:String.Encoding.utf8)
-        return data?.zx.aesGCMEncrypt(key: key, encodeType: encodeType, nonce: nonce)
+        return data?.dd.aesGCMEncrypt(key: key, encodeType: encodeType, nonce: nonce)
     }
 
     /*
      AES解密
      model: GCM
      **/
-    func aesGCMDecrypt(password: String, encodeType: ZXKitUtilEncodeType = .base64) -> String? {
-        let data = Data.zx.data(from: object, encodeType: encodeType)
-        return data?.zx.aesGCMDecrypt(password: password)
+    func aesGCMDecrypt(password: String, encodeType: DDUtilsEncodeType = .base64) -> String? {
+        let data = Data.dd.data(from: object, encodeType: encodeType)
+        return data?.dd.aesGCMDecrypt(password: password)
     }
 
     /*
      AES解密
      model: GCM
      **/
-    func aesGCMDecrypt(key: SymmetricKey, encodeType: ZXKitUtilEncodeType = .base64) -> String? {
-        let data = Data.zx.data(from: object, encodeType: encodeType)
-        return data?.zx.aesGCMDecrypt(key: key)
+    func aesGCMDecrypt(key: SymmetricKey, encodeType: DDUtilsEncodeType = .base64) -> String? {
+        let data = Data.dd.data(from: object, encodeType: encodeType)
+        return data?.dd.aesGCMDecrypt(key: key)
     }
 
     ///HMAC计算
-    func hmac(hashType: ZXKitUtilHashType, password: String, encodeType: ZXKitUtilEncodeType = .base64) -> String? {
+    func hmac(hashType: DDUtilsHashType, password: String, encodeType: DDUtilsEncodeType = .base64) -> String? {
         let data = object.data(using:String.Encoding.utf8)
-        return data?.zx.hmac(hashType: hashType, password: password, encodeType: encodeType)
+        return data?.dd.hmac(hashType: hashType, password: password, encodeType: encodeType)
     }
 
     ///HMAC计算
-    func hmac(hashType: ZXKitUtilHashType, key: SymmetricKey, encodeType: ZXKitUtilEncodeType = .base64) -> String? {
+    func hmac(hashType: DDUtilsHashType, key: SymmetricKey, encodeType: DDUtilsEncodeType = .base64) -> String? {
         let data = object.data(using:String.Encoding.utf8)
-        return data?.zx.hmac(hashType: hashType, key: key, encodeType: encodeType)
+        return data?.dd.hmac(hashType: hashType, key: key, encodeType: encodeType)
     }
 }
 #endif

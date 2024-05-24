@@ -1,6 +1,6 @@
 //
-//  Data+zx.swift
-//  ZXKitUtil
+//  Data+dd.swift
+//  DDUtils
 //
 //  Created by Damon on 2021/5/31.
 //  Copyright © 2021 Damon. All rights reserved.
@@ -12,7 +12,7 @@ import CommonCrypto
 import CryptoKit
 #endif
 
-public enum ZXKitUtilHashType {
+public enum DDUtilsHashType {
     case md5
     case sha1
     case sha224
@@ -21,19 +21,19 @@ public enum ZXKitUtilHashType {
     case sha512
 }
 
-public enum ZXKitUtilEncodeType {
+public enum DDUtilsEncodeType {
     case hex
     case base64
     case system(String.Encoding)
 }
 
-extension Data: ZXKitUtilNameSpaceWrappable {
+extension Data: DDUtilsNameSpaceWrappable {
     
 }
 
-public extension ZXKitUtilNameSpace where T == Data {
+public extension DDUtilsNameSpace where T == Data {
     //string生成Data，兼容hex和base64
-    static func data(from string: String, encodeType: ZXKitUtilEncodeType) -> Data? {
+    static func data(from string: String, encodeType: DDUtilsEncodeType) -> Data? {
         switch encodeType {
             case .hex:
                 let len = string.count / 2
@@ -58,7 +58,7 @@ public extension ZXKitUtilNameSpace where T == Data {
     }
 
     //编码
-    func encodeString(encodeType: ZXKitUtilEncodeType) -> String? {
+    func encodeString(encodeType: DDUtilsEncodeType) -> String? {
         switch encodeType {
             case .hex:
                 return object.map { String(format: "%02hhx", $0) }.joined()
@@ -70,7 +70,7 @@ public extension ZXKitUtilNameSpace where T == Data {
     }
 
     ///hash计算
-    func hashString(hashType: ZXKitUtilHashType, lowercase: Bool = true) -> String {
+    func hashString(hashType: DDUtilsHashType, lowercase: Bool = true) -> String {
         var output = NSMutableString()
         switch hashType {
             case .md5:
@@ -153,11 +153,11 @@ public extension ZXKitUtilNameSpace where T == Data {
      padding: PKCS7Padding
      AES block Size: 128
      **/
-    func aesCBCEncrypt(password: String, ivString: String = "abcdefghijklmnop", encodeType: ZXKitUtilEncodeType = .base64) -> String? {
+    func aesCBCEncrypt(password: String, ivString: String = "abcdefghijklmnop", encodeType: DDUtilsEncodeType = .base64) -> String? {
         assert(ivString.count == kCCKeySizeAES128, "iv should be \(kCCKeySizeAES128) bytes")
         assert(password.count == kCCKeySizeAES128 || password.count == kCCKeySizeAES192 || password.count == kCCKeySizeAES256, "Invalid key length. Available length is \(kCCKeySizeAES128) \(kCCKeySizeAES192) \(kCCKeySizeAES256)")
         let encryptData = self._crypt(data: object, password: password, ivString: ivString, option: CCOperation(kCCEncrypt))
-        return encryptData?.zx.encodeString(encodeType: encodeType)
+        return encryptData?.dd.encodeString(encodeType: encodeType)
     }
     
     ///AES CBC解密
@@ -171,27 +171,27 @@ public extension ZXKitUtilNameSpace where T == Data {
     }
 
     /**deprecated*/
-    @available(*, deprecated, message: "Use hashString(hashType: ZXKitUtilHashType, lowercase: Bool) instead")
-    func encryptString(encryType: ZXKitUtilHashType, lowercase: Bool = true) -> String {
+    @available(*, deprecated, message: "Use hashString(hashType: DDUtilsHashType, lowercase: Bool) instead")
+    func encryptString(encryType: DDUtilsHashType, lowercase: Bool = true) -> String {
         return self.hashString(hashType: encryType, lowercase: lowercase)
     }
 }
 
 #if canImport(CryptoKit)
 @available(iOS 13.0, *)
-public extension ZXKitUtilNameSpace where T == Data {
+public extension DDUtilsNameSpace where T == Data {
     //AES GCM加密
-    func aesGCMEncrypt(password: String, encodeType: ZXKitUtilEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce()) -> String? {
+    func aesGCMEncrypt(password: String, encodeType: DDUtilsEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce()) -> String? {
         assert(password.count == kCCKeySizeAES128 || password.count == kCCKeySizeAES192 || password.count == kCCKeySizeAES256, "Invalid key length. Available length is \(kCCKeySizeAES128) \(kCCKeySizeAES192) \(kCCKeySizeAES256)")
         return self.aesGCMEncrypt(key: SymmetricKey.init(data: password.data(using:String.Encoding.utf8)!), encodeType: encodeType, nonce: nonce)
     }
 
     ///AES GCM加密
-    func aesGCMEncrypt(key: SymmetricKey, encodeType: ZXKitUtilEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce()) -> String? {
+    func aesGCMEncrypt(key: SymmetricKey, encodeType: DDUtilsEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce()) -> String? {
         assert(key.bitCount / 8 == kCCKeySizeAES128 || key.bitCount / 8 == kCCKeySizeAES192 || key.bitCount / 8 == kCCKeySizeAES256, "Invalid key length. Available length is \(kCCKeySizeAES128) \(kCCKeySizeAES192) \(kCCKeySizeAES256)")
         guard let sealedBox = try? AES.GCM.seal(object, using: key, nonce:  nonce) else { return nil }
         guard let encode = sealedBox.combined else { return nil }
-        return encode.zx.encodeString(encodeType: encodeType)
+        return encode.dd.encodeString(encodeType: encodeType)
     }
     //AES GCM解密
     func aesGCMDecrypt(password: String) -> String? {
@@ -209,38 +209,38 @@ public extension ZXKitUtilNameSpace where T == Data {
     }
 
     ///HMAC计算
-    func hmac(hashType: ZXKitUtilHashType, password: String, encodeType: ZXKitUtilEncodeType = .base64) -> String? {
+    func hmac(hashType: DDUtilsHashType, password: String, encodeType: DDUtilsEncodeType = .base64) -> String? {
         let key = SymmetricKey.init(data: password.data(using:String.Encoding.utf8)!)
         return self.hmac(hashType: hashType, key: key, encodeType: encodeType)
     }
 
     ///HMAC计算
-    func hmac(hashType: ZXKitUtilHashType, key: SymmetricKey, encodeType: ZXKitUtilEncodeType = .base64) -> String? {
+    func hmac(hashType: DDUtilsHashType, key: SymmetricKey, encodeType: DDUtilsEncodeType = .base64) -> String? {
         switch hashType {
             case .md5:
                 let sign = HMAC<Insecure.MD5>.authenticationCode(for: object, using: key)
-                return Data(sign).zx.encodeString(encodeType: encodeType)
+                return Data(sign).dd.encodeString(encodeType: encodeType)
             case .sha1:
                 let sign = HMAC<Insecure.SHA1>.authenticationCode(for: object, using: key)
-                return Data(sign).zx.encodeString(encodeType: encodeType)
+                return Data(sign).dd.encodeString(encodeType: encodeType)
             case .sha224:
                 assert(false, "unsupported hash type")
                 return nil
             case .sha256:
                 let sign = HMAC<SHA256>.authenticationCode(for: object, using: key)
-                return Data(sign).zx.encodeString(encodeType: encodeType)
+                return Data(sign).dd.encodeString(encodeType: encodeType)
             case .sha384:
                 let sign = HMAC<SHA384>.authenticationCode(for: object, using: key)
-                return Data(sign).zx.encodeString(encodeType: encodeType)
+                return Data(sign).dd.encodeString(encodeType: encodeType)
             case .sha512:
                 let sign = HMAC<SHA512>.authenticationCode(for: object, using: key)
-                return Data(sign).zx.encodeString(encodeType: encodeType)
+                return Data(sign).dd.encodeString(encodeType: encodeType)
         }
     }
 }
 #endif
 
-private extension ZXKitUtilNameSpace where T == Data {
+private extension DDUtilsNameSpace where T == Data {
     func _crypt(data: Data, password: String, ivString: String, option: CCOperation) -> Data? {
         guard let iv = ivString.data(using:String.Encoding.utf8) else { return nil }
         guard let key = password.data(using:String.Encoding.utf8) else { return nil }
