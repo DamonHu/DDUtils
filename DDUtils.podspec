@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name = 'DDUtils'
 s.swift_version = '5.0'
-s.version = '1.0.0'
+s.version = '5.0.0'
 s.license= { :type => "MIT", :file => "LICENSE" }
 s.summary = 'DDUtils. A package library of commonly used functions on the iOS platform, which can realize multiple complex functions in one sentence'
 s.homepage = 'https://github.com/DamonHu/DDUtils'
