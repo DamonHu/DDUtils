@@ -47,9 +47,18 @@
             BlueprintIdentifier = "E46E086B24AD7A5200843DE2"
             BuildableName = "DDUtils.app"
             BlueprintName = "DDUtils"
-            ReferencedContainer = "container:ZXKitUtil.xcodeproj">
+            ReferencedContainer = "container:DDUtils.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E46E086B24AD7A5200843DE2"
+            BuildableName = "DDUtils.app"
+            BlueprintName = "DDUtils"
+            ReferencedContainer = "container:ZXKitUtil.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -67,6 +76,15 @@
             ReferencedContainer = "container:ZXKitUtil.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E46E086B24AD7A5200843DE2"
+            BuildableName = "DDUtils.app"
+            BlueprintName = "DDUtils"
+            ReferencedContainer = "container:ZXKitUtil.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

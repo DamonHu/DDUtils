@@ -73,6 +73,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E416215B2C0423230021DEAC /* idfa */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC946626314B0F001FC322 /* DDUtils+idfa.swift */,
+			);
+			path = idfa;
+			sourceTree = "<group>";
+		};
+		E416215C2C0423610021DEAC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		E416215D2C04236A0021DEAC /* utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		E46E086324AD7A5200843DE2 = {
 			isa = PBXGroup;
 			children = (
@@ -141,7 +163,9 @@
 		E4AC946526314B0F001FC322 /* subspec */ = {
 			isa = PBXGroup;
 			children = (
-				E4AC946626314B0F001FC322 /* DDUtils+idfa.swift */,
+				E416215D2C04236A0021DEAC /* utils */,
+				E416215C2C0423610021DEAC /* UI */,
+				E416215B2C0423230021DEAC /* idfa */,
 			);
 			path = subspec;
 			sourceTree = "<group>";
@@ -384,7 +408,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5M4924XW7Y;
-				INFOPLIST_FILE = ZXKitUtil/Info.plist;
+				INFOPLIST_FILE = DDUtils/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -405,7 +429,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5M4924XW7Y;
-				INFOPLIST_FILE = ZXKitUtil/Info.plist;
+				INFOPLIST_FILE = DDUtils/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
