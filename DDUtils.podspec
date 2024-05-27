@@ -11,12 +11,30 @@ s.requires_arc = true
 s.ios.deployment_target = '11.0'
 s.weak_frameworks = 'CryptoKit'
 s.subspec 'core' do |cs|
-    cs.source_files = "pod/extend/*.swift","pod/*.swift"
+    cs.source_files = "pod/*.swift"
+end
+s.subspec 'utils' do |cs|
+    cs.dependency 'DDUtils/core'
+    cs.source_files = "pod/subspec/utils/*.swift"
+end
+s.subspec 'ui' do |cs|
+    cs.dependency 'DDUtils/core'
+    cs.source_files = "pod/subspec/UI/*.swift"
+end
+s.subspec 'permission' do |cs|
+    cs.dependency 'DDUtils/core'
+    cs.source_files = "pod/subspec/permission/*.swift"
 end
 s.subspec 'idfa' do |cs|
-    cs.source_files = "pod/subspec/idfa/*.swift"
     cs.dependency 'DDUtils/core'
+    cs.source_files = "pod/subspec/permission/PermissionConfig.swift", "pod/subspec/idfa/*.swift"
 end
-s.default_subspecs = "core"
+s.subspec 'basic' do |cs|
+    cs.dependency 'DDUtils/core'
+    cs.dependency 'DDUtils/utils'
+    cs.dependency 'DDUtils/ui'
+    cs.dependency 'DDUtils/permission'
+end
+s.default_subspecs = "basic"
 s.documentation_url = 'https://ddceo.com/blog/1281.html'
 end

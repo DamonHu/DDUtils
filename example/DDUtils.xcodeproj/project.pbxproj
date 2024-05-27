@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E41621602C0424E10021DEAC /* PermissionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E416215F2C0424E10021DEAC /* PermissionConfig.swift */; };
+		E41621622C042FEC0021DEAC /* DDUtils+AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41621612C042FEC0021DEAC /* DDUtils+AppStore.swift */; };
 		E46E087024AD7A5200843DE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E086F24AD7A5200843DE2 /* AppDelegate.swift */; };
 		E46E087424AD7A5200843DE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E087324AD7A5200843DE2 /* ViewController.swift */; };
 		E46E087724AD7A5200843DE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46E087524AD7A5200843DE2 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E416215F2C0424E10021DEAC /* PermissionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionConfig.swift; sourceTree = "<group>"; };
+		E41621612C042FEC0021DEAC /* DDUtils+AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DDUtils+AppStore.swift"; sourceTree = "<group>"; };
 		E46E086C24AD7A5200843DE2 /* DDUtils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDUtils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46E086F24AD7A5200843DE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E46E087324AD7A5200843DE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +88,11 @@
 		E416215C2C0423610021DEAC /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E4AC946426314B0F001FC322 /* UIView+zx.swift */,
+				E4AC946126314B0F001FC322 /* UIColor+zx.swift */,
+				E4AC945F26314B0F001FC322 /* UIImage+zx.swift */,
+				E4AC945D26314B0F001FC322 /* DDUtils+UI.swift */,
+				E41621612C042FEC0021DEAC /* DDUtils+AppStore.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -91,8 +100,23 @@
 		E416215D2C04236A0021DEAC /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				E4AC946026314B0F001FC322 /* Date+zx.swift */,
+				E4AC946226314B0F001FC322 /* String+zx.swift */,
+				E4D1A3C4266513A100420162 /* Data+zx.swift */,
+				E4AC946726314B0F001FC322 /* DDUtils+system.swift */,
+				E4AC946826314B0F001FC322 /* DDUtils+file.swift */,
+				E4AC946926314B0F001FC322 /* DDUtils+media.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		E416215E2C0424B10021DEAC /* permission */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC946A26314B0F001FC322 /* DDUtils+permission.swift */,
+				E416215F2C0424E10021DEAC /* PermissionConfig.swift */,
+			);
+			path = permission;
 			sourceTree = "<group>";
 		};
 		E46E086324AD7A5200843DE2 = {
@@ -133,36 +157,18 @@
 		E4AC945C26314B0F001FC322 /* pod */ = {
 			isa = PBXGroup;
 			children = (
-				E4AC945D26314B0F001FC322 /* DDUtils+UI.swift */,
-				E4AC945E26314B0F001FC322 /* extend */,
 				E4AC946526314B0F001FC322 /* subspec */,
-				E4AC946726314B0F001FC322 /* DDUtils+system.swift */,
-				E4AC946826314B0F001FC322 /* DDUtils+file.swift */,
-				E4AC946926314B0F001FC322 /* DDUtils+media.swift */,
-				E4AC946A26314B0F001FC322 /* DDUtils+permission.swift */,
 				E4AC946B26314B0F001FC322 /* DDUtils.swift */,
+				E4AC946326314B0F001FC322 /* ZXKitNameSpace.swift */,
 			);
 			name = pod;
 			path = ../../pod;
 			sourceTree = "<group>";
 		};
-		E4AC945E26314B0F001FC322 /* extend */ = {
-			isa = PBXGroup;
-			children = (
-				E4AC945F26314B0F001FC322 /* UIImage+zx.swift */,
-				E4AC946026314B0F001FC322 /* Date+zx.swift */,
-				E4AC946126314B0F001FC322 /* UIColor+zx.swift */,
-				E4AC946226314B0F001FC322 /* String+zx.swift */,
-				E4AC946326314B0F001FC322 /* ZXKitNameSpace.swift */,
-				E4AC946426314B0F001FC322 /* UIView+zx.swift */,
-				E4D1A3C4266513A100420162 /* Data+zx.swift */,
-			);
-			path = extend;
-			sourceTree = "<group>";
-		};
 		E4AC946526314B0F001FC322 /* subspec */ = {
 			isa = PBXGroup;
 			children = (
+				E416215E2C0424B10021DEAC /* permission */,
 				E416215D2C04236A0021DEAC /* utils */,
 				E416215C2C0423610021DEAC /* UI */,
 				E416215B2C0423230021DEAC /* idfa */,
@@ -247,12 +253,14 @@
 			files = (
 				E4AC947526314B0F001FC322 /* DDUtils+file.swift in Sources */,
 				E4AC947726314B0F001FC322 /* DDUtils+permission.swift in Sources */,
+				E41621602C0424E10021DEAC /* PermissionConfig.swift in Sources */,
 				E46E087424AD7A5200843DE2 /* ViewController.swift in Sources */,
 				E4AC946D26314B0F001FC322 /* UIImage+zx.swift in Sources */,
 				E4AC947326314B0F001FC322 /* DDUtils+idfa.swift in Sources */,
 				E4AC946E26314B0F001FC322 /* Date+zx.swift in Sources */,
 				E4AC947826314B0F001FC322 /* DDUtils.swift in Sources */,
 				E4AC947426314B0F001FC322 /* DDUtils+system.swift in Sources */,
+				E41621622C042FEC0021DEAC /* DDUtils+AppStore.swift in Sources */,
 				E4AC947626314B0F001FC322 /* DDUtils+media.swift in Sources */,
 				E4AC946F26314B0F001FC322 /* UIColor+zx.swift in Sources */,
 				E46E087024AD7A5200843DE2 /* AppDelegate.swift in Sources */,

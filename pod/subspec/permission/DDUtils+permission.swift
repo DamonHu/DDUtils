@@ -14,22 +14,6 @@ import UserNotifications
 private var mLocationManager: CLLocationManager?   //定位管理
 private var locationComplete: ((DDUtilsPermissionStatus) -> Void)?    //定位结束
 
-public enum DDUtilsPermissionType {
-    case audio          //麦克风权限
-    case video          //相机权限
-    case photoLibrary   //相册权限
-    case GPS            //定位权限
-    case notification   //通知权限
-}
-
-public enum DDUtilsPermissionStatus {
-    case authorized     //用户允许
-    case restricted     //被限制修改不了状态,比如家长控制选项等
-    case denied         //用户拒绝
-    case notDetermined  //用户尚未选择
-    case limited        //部分允许，iOS14之后增加的特性
-}
-
 public extension DDUtils {
     ///请求权限
     func requestPermission(type: DDUtilsPermissionType, complete: @escaping ((DDUtilsPermissionStatus) -> Void)) -> Void {

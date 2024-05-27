@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         //角度渐变图片
         _ = DDUtils.shared.getRadialGradientImage(colors: [UIColor.red, UIColor.black, UIColor.blue], raduis: 45)
         //线性渐变图片
-        _ = DDUtils.shared.getLinearGradientImage(colors:  [UIColor.red, UIColor.black, UIColor.blue], directionType: .leftToRight)
+        _ = DDUtils.shared.getLinearGradientImage(colors:  [UIColor.red, UIColor.black, UIColor.blue], directionType: .minXToMaxX)
         //16进制颜色转为UIColor
         _ =  UIColor.dd.color(hexValue: 0xffffff)
         //16进制字符串转为UIColor
@@ -135,7 +135,7 @@ class ViewController: UIViewController {
     
     func createUI() {
         let button = UIButton(type: .custom)
-        let image = DDUtils.shared.getLinearGradientImage(colors:  [UIColor.red, UIColor.black, UIColor.blue], directionType: .leftToRight)
+        let image = DDUtils.shared.getLinearGradientImage(colors:  [UIColor.red, UIColor.black, UIColor.blue], directionType: .minXToMaxX)
         button.setImage(image, for: .normal)
         self.view.addSubview(button)
         button.frame = CGRect(x: 100, y: 100, width: 100, height: 100)

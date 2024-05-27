@@ -19,16 +19,6 @@ public enum DDUtilsGradientDirection {
     case minYToMaxY         //AB - CD
     case minXMinYToMaxXMaxY //A - D
     case minXMaxYToMaxXminY //C - B
-    
-    
-    @available(*, deprecated, message: "user minXToMaxX")
-    case leftToRight            //AC - BD
-    @available(*, deprecated, message: "user minYToMaxY")
-    case topToBottom            //AB - CD
-    @available(*, deprecated, message: "user minXMinYToMaxXMaxY")
-    case leftTopToRightBottom   //A - D
-    @available(*, deprecated, message: "user minXMaxYToMaxXminY")
-    case leftBottomToRightTop   //C - B
 }
 
 
@@ -129,16 +119,16 @@ public extension DDUtils {
         gradientLayer.colors = cgColors
         gradientLayer.locations = locations
         
-        if (directionType == .leftToRight || directionType == .minXToMaxX) {
+        if (directionType == .minXToMaxX) {
             gradientLayer.startPoint = CGPoint(x: 0, y: 0)
             gradientLayer.endPoint = CGPoint(x: 1, y: 0)
-        } else if (directionType == .topToBottom || directionType == .minYToMaxY){
+        } else if (directionType == .minYToMaxY){
             gradientLayer.startPoint = CGPoint(x: 0, y: 0)
             gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        } else if (directionType == .leftTopToRightBottom || directionType == .minXMinYToMaxXMaxY){
+        } else if (directionType == .minXMinYToMaxXMaxY){
             gradientLayer.startPoint = CGPoint(x: 0, y: 0)
             gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-        } else if (directionType == .leftBottomToRightTop || directionType == .minXMaxYToMaxXminY){
+        } else if (directionType == .minXMaxYToMaxXminY){
             gradientLayer.startPoint = CGPoint(x: 0, y: 1)
             gradientLayer.endPoint = CGPoint(x: 1, y: 0)
         }
