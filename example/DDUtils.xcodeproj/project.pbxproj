@@ -19,7 +19,7 @@
 		E4AC946E26314B0F001FC322 /* Date+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946026314B0F001FC322 /* Date+zx.swift */; };
 		E4AC946F26314B0F001FC322 /* UIColor+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946126314B0F001FC322 /* UIColor+zx.swift */; };
 		E4AC947026314B0F001FC322 /* String+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946226314B0F001FC322 /* String+zx.swift */; };
-		E4AC947126314B0F001FC322 /* ZXKitNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946326314B0F001FC322 /* ZXKitNameSpace.swift */; };
+		E4AC947126314B0F001FC322 /* DDUtilsNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946326314B0F001FC322 /* DDUtilsNameSpace.swift */; };
 		E4AC947226314B0F001FC322 /* UIView+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946426314B0F001FC322 /* UIView+zx.swift */; };
 		E4AC947326314B0F001FC322 /* DDUtils+idfa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946626314B0F001FC322 /* DDUtils+idfa.swift */; };
 		E4AC947426314B0F001FC322 /* DDUtils+system.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946726314B0F001FC322 /* DDUtils+system.swift */; };
@@ -50,7 +50,7 @@
 		E4AC946026314B0F001FC322 /* Date+zx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+zx.swift"; sourceTree = "<group>"; };
 		E4AC946126314B0F001FC322 /* UIColor+zx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+zx.swift"; sourceTree = "<group>"; };
 		E4AC946226314B0F001FC322 /* String+zx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+zx.swift"; sourceTree = "<group>"; };
-		E4AC946326314B0F001FC322 /* ZXKitNameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXKitNameSpace.swift; sourceTree = "<group>"; };
+		E4AC946326314B0F001FC322 /* DDUtilsNameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDUtilsNameSpace.swift; sourceTree = "<group>"; };
 		E4AC946426314B0F001FC322 /* UIView+zx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+zx.swift"; sourceTree = "<group>"; };
 		E4AC946626314B0F001FC322 /* DDUtils+idfa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DDUtils+idfa.swift"; sourceTree = "<group>"; };
 		E4AC946726314B0F001FC322 /* DDUtils+system.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DDUtils+system.swift"; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 			children = (
 				E4AC946526314B0F001FC322 /* subspec */,
 				E4AC946B26314B0F001FC322 /* DDUtils.swift */,
-				E4AC946326314B0F001FC322 /* ZXKitNameSpace.swift */,
+				E4AC946326314B0F001FC322 /* DDUtilsNameSpace.swift */,
 			);
 			name = pod;
 			path = ../../pod;
@@ -265,7 +265,7 @@
 				E4AC946F26314B0F001FC322 /* UIColor+zx.swift in Sources */,
 				E46E087024AD7A5200843DE2 /* AppDelegate.swift in Sources */,
 				E4AC947026314B0F001FC322 /* String+zx.swift in Sources */,
-				E4AC947126314B0F001FC322 /* ZXKitNameSpace.swift in Sources */,
+				E4AC947126314B0F001FC322 /* DDUtilsNameSpace.swift in Sources */,
 				E4AC946C26314B0F001FC322 /* DDUtils+UI.swift in Sources */,
 				E4AC947226314B0F001FC322 /* UIView+zx.swift in Sources */,
 				E4D1606726E219940040765D /* TestModel.swift in Sources */,
@@ -417,7 +417,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5M4924XW7Y;
 				INFOPLIST_FILE = DDUtils/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,7 +438,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5M4924XW7Y;
 				INFOPLIST_FILE = DDUtils/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
