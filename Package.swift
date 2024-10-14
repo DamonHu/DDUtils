@@ -8,27 +8,23 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "DDUtilsL",
-            targets: ["DDUtilsT"]
+            name: "DDUtils",
+            targets: ["DDUtils"]
         ),
         .library(
-            name: "DDUtilsIDFAL",
-            targets: ["DDUtilsIDFAT"]
+            name: "DDUtilsIDFA",
+            targets: ["DDUtilsIDFA"]
         ),
     ],
     targets: [
         .target(
-            name: "DDUtilsT",
+            name: "DDUtils",
             path: "Sources/core"
         ),
         .target(
-            name: "DDUtilsIDFAT",
-            dependencies: ["DDUtilsT"],
+            name: "DDUtilsIDFA",
+            dependencies: ["DDUtils"],
             path: "Sources/idfa"
-        ),
-        .testTarget(
-            name: "DDUtilsTests",
-            dependencies: ["DDUtilsT"]
         ),
     ]
 )
