@@ -7,28 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E41621602C0424E10021DEAC /* PermissionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E416215F2C0424E10021DEAC /* PermissionConfig.swift */; };
-		E41621622C042FEC0021DEAC /* DDUtils+AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41621612C042FEC0021DEAC /* DDUtils+AppStore.swift */; };
 		E46E087024AD7A5200843DE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E086F24AD7A5200843DE2 /* AppDelegate.swift */; };
 		E46E087424AD7A5200843DE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E087324AD7A5200843DE2 /* ViewController.swift */; };
 		E46E087724AD7A5200843DE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46E087524AD7A5200843DE2 /* Main.storyboard */; };
 		E46E087924AD7A5400843DE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46E087824AD7A5400843DE2 /* Assets.xcassets */; };
 		E46E087C24AD7A5400843DE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46E087A24AD7A5400843DE2 /* LaunchScreen.storyboard */; };
-		E4AC946C26314B0F001FC322 /* DDUtils+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC945D26314B0F001FC322 /* DDUtils+UI.swift */; };
-		E4AC946D26314B0F001FC322 /* UIImage+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC945F26314B0F001FC322 /* UIImage+zx.swift */; };
-		E4AC946E26314B0F001FC322 /* Date+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946026314B0F001FC322 /* Date+zx.swift */; };
-		E4AC946F26314B0F001FC322 /* UIColor+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946126314B0F001FC322 /* UIColor+zx.swift */; };
-		E4AC947026314B0F001FC322 /* String+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946226314B0F001FC322 /* String+zx.swift */; };
-		E4AC947126314B0F001FC322 /* DDUtilsNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946326314B0F001FC322 /* DDUtilsNameSpace.swift */; };
-		E4AC947226314B0F001FC322 /* UIView+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946426314B0F001FC322 /* UIView+zx.swift */; };
-		E4AC947326314B0F001FC322 /* DDUtils+idfa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946626314B0F001FC322 /* DDUtils+idfa.swift */; };
-		E4AC947426314B0F001FC322 /* DDUtils+system.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946726314B0F001FC322 /* DDUtils+system.swift */; };
-		E4AC947526314B0F001FC322 /* DDUtils+file.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946826314B0F001FC322 /* DDUtils+file.swift */; };
-		E4AC947626314B0F001FC322 /* DDUtils+media.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946926314B0F001FC322 /* DDUtils+media.swift */; };
-		E4AC947726314B0F001FC322 /* DDUtils+permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946A26314B0F001FC322 /* DDUtils+permission.swift */; };
-		E4AC947826314B0F001FC322 /* DDUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC946B26314B0F001FC322 /* DDUtils.swift */; };
 		E4D1606726E219940040765D /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D1606626E219940040765D /* TestModel.swift */; };
-		E4D1A3C5266513A100420162 /* Data+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D1A3C4266513A100420162 /* Data+zx.swift */; };
+		E4D873A52CBD016D00B9422A /* String+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D873A22CBD016D00B9422A /* String+zx.swift */; };
+		E4D873A62CBD016D00B9422A /* PermissionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D873952CBD016D00B9422A /* PermissionConfig.swift */; };
+		E4D873A72CBD016D00B9422A /* DDUtils+media.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D873A02CBD016D00B9422A /* DDUtils+media.swift */; };
+		E4D873A82CBD016D00B9422A /* DDUtils+AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D873972CBD016D00B9422A /* DDUtils+AppStore.swift */; };
+		E4D873A92CBD016D00B9422A /* UIColor+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D873992CBD016D00B9422A /* UIColor+zx.swift */; };
+		E4D873AA2CBD016D00B9422A /* UIView+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8739B2CBD016D00B9422A /* UIView+zx.swift */; };
+		E4D873AB2CBD016D00B9422A /* DDUtils+idfa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D873922CBD016D00B9422A /* DDUtils+idfa.swift */; };
+		E4D873AC2CBD016D00B9422A /* DDUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8738F2CBD016D00B9422A /* DDUtils.swift */; };
+		E4D873AD2CBD016D00B9422A /* DDUtils+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D873982CBD016D00B9422A /* DDUtils+UI.swift */; };
+		E4D873AE2CBD016D00B9422A /* DDUtils+permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D873942CBD016D00B9422A /* DDUtils+permission.swift */; };
+		E4D873AF2CBD016D00B9422A /* DDUtilsNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D873902CBD016D00B9422A /* DDUtilsNameSpace.swift */; };
+		E4D873B02CBD016D00B9422A /* UIImage+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8739A2CBD016D00B9422A /* UIImage+zx.swift */; };
+		E4D873B12CBD016D00B9422A /* Date+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8739E2CBD016D00B9422A /* Date+zx.swift */; };
+		E4D873B22CBD016D00B9422A /* DDUtils+file.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8739F2CBD016D00B9422A /* DDUtils+file.swift */; };
+		E4D873B32CBD016D00B9422A /* DDUtils+system.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D873A12CBD016D00B9422A /* DDUtils+system.swift */; };
+		E4D873B42CBD016D00B9422A /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8738D2CBD016D00B9422A /* Placeholder.swift */; };
+		E4D873B52CBD016D00B9422A /* Data+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8739D2CBD016D00B9422A /* Data+zx.swift */; };
 		E4EF66BF24B9E05400EBB408 /* 1594468497552.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E4EF66BE24B9E05400EBB408 /* 1594468497552.mp4 */; };
 		E4FE597524B0603E00352695 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E4FE597424B0603E00352695 /* music.mp3 */; };
 		E4FE597724B0605300352695 /* click.caf in Resources */ = {isa = PBXBuildFile; fileRef = E4FE597624B0605300352695 /* click.caf */; };
@@ -36,8 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E416215F2C0424E10021DEAC /* PermissionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionConfig.swift; sourceTree = "<group>"; };
-		E41621612C042FEC0021DEAC /* DDUtils+AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DDUtils+AppStore.swift"; sourceTree = "<group>"; };
 		E46E086C24AD7A5200843DE2 /* DDUtils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDUtils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46E086F24AD7A5200843DE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E46E087324AD7A5200843DE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,21 +44,24 @@
 		E46E087824AD7A5400843DE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E46E087B24AD7A5400843DE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E46E087D24AD7A5400843DE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4AC945D26314B0F001FC322 /* DDUtils+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DDUtils+UI.swift"; sourceTree = "<group>"; };
-		E4AC945F26314B0F001FC322 /* UIImage+zx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+zx.swift"; sourceTree = "<group>"; };
-		E4AC946026314B0F001FC322 /* Date+zx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+zx.swift"; sourceTree = "<group>"; };
-		E4AC946126314B0F001FC322 /* UIColor+zx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+zx.swift"; sourceTree = "<group>"; };
-		E4AC946226314B0F001FC322 /* String+zx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+zx.swift"; sourceTree = "<group>"; };
-		E4AC946326314B0F001FC322 /* DDUtilsNameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDUtilsNameSpace.swift; sourceTree = "<group>"; };
-		E4AC946426314B0F001FC322 /* UIView+zx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+zx.swift"; sourceTree = "<group>"; };
-		E4AC946626314B0F001FC322 /* DDUtils+idfa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DDUtils+idfa.swift"; sourceTree = "<group>"; };
-		E4AC946726314B0F001FC322 /* DDUtils+system.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DDUtils+system.swift"; sourceTree = "<group>"; };
-		E4AC946826314B0F001FC322 /* DDUtils+file.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DDUtils+file.swift"; sourceTree = "<group>"; };
-		E4AC946926314B0F001FC322 /* DDUtils+media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DDUtils+media.swift"; sourceTree = "<group>"; };
-		E4AC946A26314B0F001FC322 /* DDUtils+permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DDUtils+permission.swift"; sourceTree = "<group>"; };
-		E4AC946B26314B0F001FC322 /* DDUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDUtils.swift; sourceTree = "<group>"; };
 		E4D1606626E219940040765D /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
-		E4D1A3C4266513A100420162 /* Data+zx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+zx.swift"; sourceTree = "<group>"; };
+		E4D8738D2CBD016D00B9422A /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
+		E4D8738F2CBD016D00B9422A /* DDUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDUtils.swift; sourceTree = "<group>"; };
+		E4D873902CBD016D00B9422A /* DDUtilsNameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDUtilsNameSpace.swift; sourceTree = "<group>"; };
+		E4D873922CBD016D00B9422A /* DDUtils+idfa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DDUtils+idfa.swift"; sourceTree = "<group>"; };
+		E4D873942CBD016D00B9422A /* DDUtils+permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DDUtils+permission.swift"; sourceTree = "<group>"; };
+		E4D873952CBD016D00B9422A /* PermissionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionConfig.swift; sourceTree = "<group>"; };
+		E4D873972CBD016D00B9422A /* DDUtils+AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DDUtils+AppStore.swift"; sourceTree = "<group>"; };
+		E4D873982CBD016D00B9422A /* DDUtils+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DDUtils+UI.swift"; sourceTree = "<group>"; };
+		E4D873992CBD016D00B9422A /* UIColor+zx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+zx.swift"; sourceTree = "<group>"; };
+		E4D8739A2CBD016D00B9422A /* UIImage+zx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+zx.swift"; sourceTree = "<group>"; };
+		E4D8739B2CBD016D00B9422A /* UIView+zx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+zx.swift"; sourceTree = "<group>"; };
+		E4D8739D2CBD016D00B9422A /* Data+zx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+zx.swift"; sourceTree = "<group>"; };
+		E4D8739E2CBD016D00B9422A /* Date+zx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+zx.swift"; sourceTree = "<group>"; };
+		E4D8739F2CBD016D00B9422A /* DDUtils+file.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DDUtils+file.swift"; sourceTree = "<group>"; };
+		E4D873A02CBD016D00B9422A /* DDUtils+media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DDUtils+media.swift"; sourceTree = "<group>"; };
+		E4D873A12CBD016D00B9422A /* DDUtils+system.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DDUtils+system.swift"; sourceTree = "<group>"; };
+		E4D873A22CBD016D00B9422A /* String+zx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+zx.swift"; sourceTree = "<group>"; };
 		E4EF66BE24B9E05400EBB408 /* 1594468497552.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1594468497552.mp4; sourceTree = "<group>"; };
 		E4FE597424B0603E00352695 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		E4FE597624B0605300352695 /* click.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = click.caf; sourceTree = "<group>"; };
@@ -77,48 +79,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E416215B2C0423230021DEAC /* idfa */ = {
-			isa = PBXGroup;
-			children = (
-				E4AC946626314B0F001FC322 /* DDUtils+idfa.swift */,
-			);
-			path = idfa;
-			sourceTree = "<group>";
-		};
-		E416215C2C0423610021DEAC /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				E4AC946426314B0F001FC322 /* UIView+zx.swift */,
-				E4AC946126314B0F001FC322 /* UIColor+zx.swift */,
-				E4AC945F26314B0F001FC322 /* UIImage+zx.swift */,
-				E4AC945D26314B0F001FC322 /* DDUtils+UI.swift */,
-				E41621612C042FEC0021DEAC /* DDUtils+AppStore.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		E416215D2C04236A0021DEAC /* utils */ = {
-			isa = PBXGroup;
-			children = (
-				E4AC946026314B0F001FC322 /* Date+zx.swift */,
-				E4AC946226314B0F001FC322 /* String+zx.swift */,
-				E4D1A3C4266513A100420162 /* Data+zx.swift */,
-				E4AC946726314B0F001FC322 /* DDUtils+system.swift */,
-				E4AC946826314B0F001FC322 /* DDUtils+file.swift */,
-				E4AC946926314B0F001FC322 /* DDUtils+media.swift */,
-			);
-			path = utils;
-			sourceTree = "<group>";
-		};
-		E416215E2C0424B10021DEAC /* permission */ = {
-			isa = PBXGroup;
-			children = (
-				E4AC946A26314B0F001FC322 /* DDUtils+permission.swift */,
-				E416215F2C0424E10021DEAC /* PermissionConfig.swift */,
-			);
-			path = permission;
-			sourceTree = "<group>";
-		};
 		E46E086324AD7A5200843DE2 = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +98,7 @@
 		E46E086E24AD7A5200843DE2 /* DDUtils */ = {
 			isa = PBXGroup;
 			children = (
-				E4AC945C26314B0F001FC322 /* pod */,
+				E4D873A42CBD016D00B9422A /* Sources */,
 				E46E086F24AD7A5200843DE2 /* AppDelegate.swift */,
 				E46E087324AD7A5200843DE2 /* ViewController.swift */,
 				E4D1606626E219940040765D /* TestModel.swift */,
@@ -154,27 +114,78 @@
 			path = DDUtils;
 			sourceTree = "<group>";
 		};
-		E4AC945C26314B0F001FC322 /* pod */ = {
+		E4D8738E2CBD016D00B9422A /* basic */ = {
 			isa = PBXGroup;
 			children = (
-				E4AC946526314B0F001FC322 /* subspec */,
-				E4AC946B26314B0F001FC322 /* DDUtils.swift */,
-				E4AC946326314B0F001FC322 /* DDUtilsNameSpace.swift */,
+				E4D8738D2CBD016D00B9422A /* Placeholder.swift */,
 			);
-			name = pod;
-			path = ../../pod;
+			path = basic;
 			sourceTree = "<group>";
 		};
-		E4AC946526314B0F001FC322 /* subspec */ = {
+		E4D873912CBD016D00B9422A /* core */ = {
 			isa = PBXGroup;
 			children = (
-				E416215E2C0424B10021DEAC /* permission */,
-				E416215D2C04236A0021DEAC /* utils */,
-				E416215C2C0423610021DEAC /* UI */,
-				E416215B2C0423230021DEAC /* idfa */,
+				E4D8738F2CBD016D00B9422A /* DDUtils.swift */,
+				E4D873902CBD016D00B9422A /* DDUtilsNameSpace.swift */,
 			);
-			path = subspec;
+			path = core;
 			sourceTree = "<group>";
+		};
+		E4D873932CBD016D00B9422A /* idfa */ = {
+			isa = PBXGroup;
+			children = (
+				E4D873922CBD016D00B9422A /* DDUtils+idfa.swift */,
+			);
+			path = idfa;
+			sourceTree = "<group>";
+		};
+		E4D873962CBD016D00B9422A /* permission */ = {
+			isa = PBXGroup;
+			children = (
+				E4D873942CBD016D00B9422A /* DDUtils+permission.swift */,
+				E4D873952CBD016D00B9422A /* PermissionConfig.swift */,
+			);
+			path = permission;
+			sourceTree = "<group>";
+		};
+		E4D8739C2CBD016D00B9422A /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				E4D873972CBD016D00B9422A /* DDUtils+AppStore.swift */,
+				E4D873982CBD016D00B9422A /* DDUtils+UI.swift */,
+				E4D873992CBD016D00B9422A /* UIColor+zx.swift */,
+				E4D8739A2CBD016D00B9422A /* UIImage+zx.swift */,
+				E4D8739B2CBD016D00B9422A /* UIView+zx.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		E4D873A32CBD016D00B9422A /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8739D2CBD016D00B9422A /* Data+zx.swift */,
+				E4D8739E2CBD016D00B9422A /* Date+zx.swift */,
+				E4D8739F2CBD016D00B9422A /* DDUtils+file.swift */,
+				E4D873A02CBD016D00B9422A /* DDUtils+media.swift */,
+				E4D873A12CBD016D00B9422A /* DDUtils+system.swift */,
+				E4D873A22CBD016D00B9422A /* String+zx.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		E4D873A42CBD016D00B9422A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8738E2CBD016D00B9422A /* basic */,
+				E4D873912CBD016D00B9422A /* core */,
+				E4D873932CBD016D00B9422A /* idfa */,
+				E4D873962CBD016D00B9422A /* permission */,
+				E4D8739C2CBD016D00B9422A /* ui */,
+				E4D873A32CBD016D00B9422A /* utils */,
+			);
+			name = Sources;
+			path = ../Sources;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -251,25 +262,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4AC947526314B0F001FC322 /* DDUtils+file.swift in Sources */,
-				E4AC947726314B0F001FC322 /* DDUtils+permission.swift in Sources */,
-				E41621602C0424E10021DEAC /* PermissionConfig.swift in Sources */,
 				E46E087424AD7A5200843DE2 /* ViewController.swift in Sources */,
-				E4AC946D26314B0F001FC322 /* UIImage+zx.swift in Sources */,
-				E4AC947326314B0F001FC322 /* DDUtils+idfa.swift in Sources */,
-				E4AC946E26314B0F001FC322 /* Date+zx.swift in Sources */,
-				E4AC947826314B0F001FC322 /* DDUtils.swift in Sources */,
-				E4AC947426314B0F001FC322 /* DDUtils+system.swift in Sources */,
-				E41621622C042FEC0021DEAC /* DDUtils+AppStore.swift in Sources */,
-				E4AC947626314B0F001FC322 /* DDUtils+media.swift in Sources */,
-				E4AC946F26314B0F001FC322 /* UIColor+zx.swift in Sources */,
+				E4D873A52CBD016D00B9422A /* String+zx.swift in Sources */,
+				E4D873A62CBD016D00B9422A /* PermissionConfig.swift in Sources */,
+				E4D873A72CBD016D00B9422A /* DDUtils+media.swift in Sources */,
+				E4D873A82CBD016D00B9422A /* DDUtils+AppStore.swift in Sources */,
+				E4D873A92CBD016D00B9422A /* UIColor+zx.swift in Sources */,
+				E4D873AA2CBD016D00B9422A /* UIView+zx.swift in Sources */,
+				E4D873AB2CBD016D00B9422A /* DDUtils+idfa.swift in Sources */,
+				E4D873AC2CBD016D00B9422A /* DDUtils.swift in Sources */,
+				E4D873AD2CBD016D00B9422A /* DDUtils+UI.swift in Sources */,
+				E4D873AE2CBD016D00B9422A /* DDUtils+permission.swift in Sources */,
+				E4D873AF2CBD016D00B9422A /* DDUtilsNameSpace.swift in Sources */,
+				E4D873B02CBD016D00B9422A /* UIImage+zx.swift in Sources */,
+				E4D873B12CBD016D00B9422A /* Date+zx.swift in Sources */,
+				E4D873B22CBD016D00B9422A /* DDUtils+file.swift in Sources */,
+				E4D873B32CBD016D00B9422A /* DDUtils+system.swift in Sources */,
+				E4D873B42CBD016D00B9422A /* Placeholder.swift in Sources */,
+				E4D873B52CBD016D00B9422A /* Data+zx.swift in Sources */,
 				E46E087024AD7A5200843DE2 /* AppDelegate.swift in Sources */,
-				E4AC947026314B0F001FC322 /* String+zx.swift in Sources */,
-				E4AC947126314B0F001FC322 /* DDUtilsNameSpace.swift in Sources */,
-				E4AC946C26314B0F001FC322 /* DDUtils+UI.swift in Sources */,
-				E4AC947226314B0F001FC322 /* UIView+zx.swift in Sources */,
 				E4D1606726E219940040765D /* TestModel.swift in Sources */,
-				E4D1A3C5266513A100420162 /* Data+zx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

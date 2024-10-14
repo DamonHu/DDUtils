@@ -10,6 +10,9 @@ import Foundation
 import AVFoundation
 import Photos
 import UserNotifications
+#if canImport(DDUtils)
+import DDUtils
+#endif
 
 private var mLocationManager: CLLocationManager?   //定位管理
 private var locationComplete: ((DDUtilsPermissionStatus) -> Void)?    //定位结束
