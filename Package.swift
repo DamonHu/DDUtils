@@ -39,7 +39,8 @@ let package = Package(
         ),
         .target(
             name: "basic",  // 全小写
-            dependencies: ["core", "utils", "ui", "permission", "idfa"]  // 依赖同样小写
+            dependencies: ["core", "utils", "ui", "permission", "idfa"],  // 依赖同样小写
+            path: "Sources/basic"
         ),
         .testTarget(
             name: "DDUtilsTests",
