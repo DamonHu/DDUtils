@@ -8,27 +8,27 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "DDUtils",
-            targets: ["DDUtils"]
+            name: "DDUtilsL",
+            targets: ["DDUtilsT"]
         ),
         .library(
-            name: "DDUtilsIDFA",
-            targets: ["DDUtilsIDFA"]
+            name: "DDUtilsIDFAL",
+            targets: ["DDUtilsIDFAT"]
         ),
     ],
     targets: [
         .target(
-            name: "DDUtils",  // 全小写
-            path: "Sources/core"  // 对应全小写目录
+            name: "DDUtilsT",
+            path: "Sources/core"
         ),
         .target(
-            name: "DDUtilsIDFA",  // 全小写
-            dependencies: ["DDUtils"],  // 依赖同样小写
-            path: "Sources/idfa"  // 对应全小写目录
+            name: "DDUtilsIDFAT",
+            dependencies: ["DDUtilsT"],
+            path: "Sources/idfa"
         ),
         .testTarget(
             name: "DDUtilsTests",
-            dependencies: ["DDUtils"]
+            dependencies: ["DDUtilsT"]
         ),
     ]
 )
