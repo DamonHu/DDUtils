@@ -13,6 +13,9 @@ import AppTrackingTransparency
 #endif
 #if canImport(AdSupport)
 import AdSupport
+#endif
+#if canImport(DDUtils)
+import DDUtils
 #else
 //
 #endif
