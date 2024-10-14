@@ -9,7 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "DDUtils",
-            targets: ["core", "utils", "ui", "permission"]
+            targets: ["core"]
         ),
         .library(
             name: "DDUtilsIDFA",
@@ -22,28 +22,13 @@ let package = Package(
             path: "Sources/core"  // 对应全小写目录
         ),
         .target(
-            name: "utils",  // 全小写
-            dependencies: ["core"],  // 依赖同样小写
-            path: "Sources/utils"  // 对应全小写目录
-        ),
-        .target(
-            name: "ui",  // 全小写
-            dependencies: ["core"],  // 依赖同样小写
-            path: "Sources/ui"  // 对应全小写目录
-        ),
-        .target(
-            name: "permission",  // 全小写
-            dependencies: ["core"],  // 依赖同样小写
-            path: "Sources/permission"  // 对应全小写目录
-        ),
-        .target(
             name: "idfa",  // 全小写
-            dependencies: ["core", "permission"],  // 依赖同样小写
+            dependencies: ["core"],  // 依赖同样小写
             path: "Sources/idfa"  // 对应全小写目录
         ),
         .testTarget(
             name: "DDUtilsTests",
-            dependencies: ["basic"]
+            dependencies: ["core"]
         ),
     ]
 )
