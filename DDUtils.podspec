@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name = 'DDUtils'
   s.swift_version = '5.0'
-  s.version = '5.0.4'
+  s.version = '5.0.13'
   s.license = { :type => "MIT", :file => "LICENSE" }
   s.summary = 'DDUtils is a collection of commonly used features, developed based on Swift, that can be quickly implemented on iOS devices.'
-  s.homepage = 'https://github.com/DamonHu/DDUtils'
+  s.homepage = 'https://dongge.org/blog/1281.html'
   s.authors = { 'DDUtils' => 'dong765@qq.com' }
   s.source = { :git => "https://github.com/DamonHu/DDUtils.git", :tag => s.version }
   s.requires_arc = true
@@ -13,25 +13,25 @@ Pod::Spec.new do |s|
 
   # subspec for core
   s.subspec 'core' do |cs|
-    cs.source_files = "Sources/core/*.swift"  # 全小写路径
+    cs.source_files = "Sources/core/core/*.swift" 
   end
 
   # subspec for utils
   s.subspec 'utils' do |cs|
     cs.dependency 'DDUtils/core'
-    cs.source_files = "Sources/utils/*.swift"  # 全小写路径
+    cs.source_files = "Sources/core/utils/*.swift"  # 全小写路径
   end
 
   # subspec for ui
   s.subspec 'ui' do |cs|
     cs.dependency 'DDUtils/core'
-    cs.source_files = "Sources/ui/*.swift"  # 全小写路径
+    cs.source_files = "Sources/core/ui/*.swift"  # 全小写路径
   end
 
   # subspec for permission
   s.subspec 'permission' do |cs|
     cs.dependency 'DDUtils/core'
-    cs.source_files = "Sources/permission/*.swift"  # 全小写路径
+    cs.source_files = "Sources/core/permission/*.swift"  # 全小写路径
   end
 
   # subspec for idfa
@@ -53,5 +53,5 @@ Pod::Spec.new do |s|
   # Default subspec
   s.default_subspecs = 'basic'
 
-  s.documentation_url = 'https://ddceo.com/blog/1281.html'
+  s.documentation_url = 'https://dongge.org/blog/1281.html'
 end
