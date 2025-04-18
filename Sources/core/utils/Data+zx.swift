@@ -184,8 +184,9 @@ public extension DDUtilsNameSpace where T == Data {
 public extension DDUtilsNameSpace where T == Data {
     //AES GCM加密
     func aesGCMEncrypt(password: String, encodeType: DDUtilsEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce()) -> String? {
-        assert(password.count == kCCKeySizeAES128 || password.count == kCCKeySizeAES192 || password.count == kCCKeySizeAES256, "Invalid key length. Available length is \(kCCKeySizeAES128) \(kCCKeySizeAES192) \(kCCKeySizeAES256)")
-        return self.aesGCMEncrypt(key: SymmetricKey.init(data: password.data(using:String.Encoding.utf8)!), encodeType: encodeType, nonce: nonce)
+        guard let key = password.data(using: .utf8) else { return nil }
+        assert(key.count == kCCKeySizeAES128 || key.count == kCCKeySizeAES192 || key.count == kCCKeySizeAES256, "Invalid key length. Available length is \(kCCKeySizeAES128) \(kCCKeySizeAES192) \(kCCKeySizeAES256)")
+        return self.aesGCMEncrypt(key: SymmetricKey.init(data: key), encodeType: encodeType, nonce: nonce)
     }
 
     ///AES GCM加密
@@ -197,9 +198,10 @@ public extension DDUtilsNameSpace where T == Data {
     }
     //AES GCM解密
     func aesGCMDecrypt(password: String) -> String? {
-        assert(password.count == kCCKeySizeAES128 || password.count == kCCKeySizeAES192 || password.count == kCCKeySizeAES256, "Invalid key length. Available length is \(kCCKeySizeAES128) \(kCCKeySizeAES192) \(kCCKeySizeAES256)")
-        let key = SymmetricKey.init(data: password.data(using:String.Encoding.utf8)!)
-        return self.aesGCMDecrypt(key: key)
+        guard let key = password.data(using: .utf8) else { return nil }
+        assert(key.count == kCCKeySizeAES128 || key.count == kCCKeySizeAES192 || key.count == kCCKeySizeAES256, "Invalid key length. Available length is \(kCCKeySizeAES128) \(kCCKeySizeAES192) \(kCCKeySizeAES256)")
+        let keyData = SymmetricKey.init(data: key)
+        return self.aesGCMDecrypt(key: keyData)
     }
 
     //AES GCM解密
