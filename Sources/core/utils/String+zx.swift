@@ -69,6 +69,27 @@ public extension DDUtilsNameSpace where T == String {
     func unicodeEncode() -> String? {
         return self.encodeString(from: .system(.nonLossyASCII), to: .system(.utf8))
     }
+    
+    ///字符串是否是emoji表情
+    func isEmoji() -> Bool {
+        return object.unicodeScalars.contains(where: {
+            $0.properties.isEmoji ||
+            $0.properties.isEmojiPresentation ||
+            $0.properties.isEmojiModifier ||
+            $0.properties.isEmojiModifierBase
+        })
+    }
+    
+    func isValidEmail() -> Bool {
+        let emailRegex = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
+        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: object)
+    }
+    
+    func isValidURLFormat() -> Bool {
+        let urlRegex = #"^https?:\/\/[^\s/$.?#].[^\s]*$"#
+        return NSPredicate(format: "SELF MATCHES %@", urlRegex).evaluate(with: object)
+    }
+    
 
     /// 字符串转格式
     /// - Parameters:

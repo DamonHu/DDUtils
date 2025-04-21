@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'DDUtils'
   s.swift_version = '5.0'
-  s.version = '5.0.13'
+  s.version = '5.0.14'
   s.license = { :type => "MIT", :file => "LICENSE" }
   s.summary = 'DDUtils is a collection of commonly used features, developed based on Swift, that can be quickly implemented on iOS devices.'
   s.homepage = 'https://dongge.org/blog/1281.html'
