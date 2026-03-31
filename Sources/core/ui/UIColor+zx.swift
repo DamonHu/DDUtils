@@ -8,10 +8,6 @@
 
 import UIKit
 
-extension UIColor: DDUtilsNameSpaceWrappable {
-
-}
-
 public extension DDUtilsNameSpace where T : UIColor {
 
     /// 16进制颜色转为UIColor

@@ -11,10 +11,6 @@ import Foundation
 import CryptoKit
 #endif
 
-extension String: DDUtilsNameSpaceWrappable {
-    
-}
-
 public extension DDUtilsNameSpace where T == String {
     ///截取字符串
     func subString(rang: NSRange) -> String {
@@ -122,6 +118,18 @@ public extension DDUtilsNameSpace where T == String {
     func hashString(hashType: DDUtilsHashType, lowercase: Bool = true) -> String? {
         let data = object.data(using: String.Encoding.utf8)
         return data?.dd.hashString(hashType: hashType, lowercase: lowercase)
+    }
+    
+    //XOR加密
+    func xorEncrypt(password: String, encodeType: DDUtilsEncodeType = .base64) -> String? {
+        let data = object.data(using: String.Encoding.utf8)
+        return data?.dd.xorEncrypt(password: password, encodeType: encodeType)
+    }
+    
+    //XOR解密
+    func xorDecrypt(password: String, encodeType: DDUtilsEncodeType = .base64) -> String? {
+        let data = Data.dd.data(from: object, encodeType: encodeType)
+        return data?.dd.xorDecrypt(password: password)
     }
 
 

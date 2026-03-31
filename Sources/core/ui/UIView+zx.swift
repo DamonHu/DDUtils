@@ -8,10 +8,6 @@
 
 import UIKit
 
-extension UIView: DDUtilsNameSpaceWrappable {
-
-}
-
 public extension DDUtilsNameSpace where T : UIView {
     ///添加阴影
     func addLayerShadow(color: UIColor, offset: CGSize, radius: CGFloat, cornerRadius: CGFloat? = nil) -> Void {

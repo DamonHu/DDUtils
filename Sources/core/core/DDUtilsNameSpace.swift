@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 //实现命名空间需遵守的协议
 public protocol DDUtilsNameSpaceWrappable {
@@ -35,3 +36,10 @@ public extension DDUtilsNameSpaceWrappable {
         return DDUtilsNameSpace.self
     }
 }
+
+extension UIView: DDUtilsNameSpaceWrappable {}
+extension UIColor: DDUtilsNameSpaceWrappable {}
+extension UIImage: DDUtilsNameSpaceWrappable {}
+extension Data: DDUtilsNameSpaceWrappable {}
+extension Date: DDUtilsNameSpaceWrappable {}
+extension String: DDUtilsNameSpaceWrappable {}

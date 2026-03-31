@@ -8,10 +8,6 @@
 
 import UIKit
 
-extension UIImage: DDUtilsNameSpaceWrappable {
-
-}
-
 public extension DDUtilsNameSpace where T : UIImage {
     ///通过颜色获取纯色图片
     static func getImage(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {

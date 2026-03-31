@@ -27,10 +27,6 @@ public enum DDUtilsEncodeType {
     case system(String.Encoding)
 }
 
-extension Data: DDUtilsNameSpaceWrappable {
-    
-}
-
 public extension DDUtilsNameSpace where T == Data {
     //string生成Data，兼容hex和base64
     static func data(from string: String, encodeType: DDUtilsEncodeType) -> Data? {
@@ -170,6 +166,30 @@ public extension DDUtilsNameSpace where T == Data {
             return nil
         }
         return String(data: encryptData, encoding: String.Encoding.utf8)
+    }
+    
+    //XOR加密
+    func xorEncrypt(password: String, encodeType: DDUtilsEncodeType = .base64) -> String? {
+        let key = Array(password.utf8)
+        let inputBytes = Array(self.object)
+        var outputBytes = [UInt8]()
+        for i in 0..<inputBytes.count {
+            // 将输入字节与 Key 的对应字节进行异或
+            outputBytes.append(inputBytes[i] ^ key[i % key.count])
+        }
+        // 返回 Base64 字符串以便在 URL 中传输
+        return Data(outputBytes).dd.encodeString(encodeType: encodeType)
+    }
+    
+    //XOR解密
+    func xorDecrypt(password: String) -> String? {
+        let key = Array(password.utf8)
+        let inputBytes = Array(self.object)
+        var outputBytes = [UInt8]()
+        for i in 0..<inputBytes.count {
+                outputBytes.append(inputBytes[i] ^ key[i % key.count])
+        }
+        return String(bytes: outputBytes, encoding: .utf8)
     }
 
     /**deprecated*/

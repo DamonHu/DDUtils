@@ -119,7 +119,7 @@ class ViewController: UIViewController {
         }
         
         //播放音乐
-        DDUtils.shared.playMusic(url: URL(string: "https://file-fat.shinningmorning.com/voice/voice_xiongdi.m4a"), repeated: true)
+//        DDUtils.shared.playMusic(url: URL(string: "https://file-fat.shinningmorning.com/voice/voice_xiongdi.m4a"), repeated: true)
         DispatchQueue.init(label: "other quene").async {
             ///type设置为async，输出为lll, mmm, ssss, 设置为sync，输出为lll，ssss，mmm
             DDUtils.shared.runInMainThread(type: .sync) {
@@ -128,7 +128,6 @@ class ViewController: UIViewController {
             print("mmmm")
         }
         print("lllllll")
-
 
         self.createUI()
     }
@@ -149,6 +148,15 @@ class ViewController: UIViewController {
         button2.frame = CGRect(x: 100, y: 300, width: 100, height: 100)
         
         button2.addTarget(self, action: #selector(playMusic), for: UIControl.Event.touchUpInside)
+        
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 400, width: 50, height: 50))
+//        imageView.backgroundColor = .red
+        imageView.tintColor = .black
+        self.view.addSubview(imageView)
+        imageView.dd.setAssetsPDF(category: "editor", icon: "editor-edit-2")
+        
+        
+//        self.view.backgroundColor = .red
     }
     
     @objc func click() {

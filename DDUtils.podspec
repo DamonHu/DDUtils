@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'DDUtils'
   s.swift_version = '5.0'
-  s.version = '5.0.14'
+  s.version = '5.0.15'
   s.license = { :type => "MIT", :file => "LICENSE" }
   s.summary = 'DDUtils is a collection of commonly used features, developed based on Swift, that can be quickly implemented on iOS devices.'
   s.homepage = 'https://dongge.org/blog/1281.html'
@@ -41,6 +41,14 @@ Pod::Spec.new do |s|
     cs.source_files = "Sources/idfa/*.swift"  # 全小写路径
   end
 
+  # subspec for assets
+  s.subspec 'assets' do |cs|
+    cs.dependency 'DDUtils/core'
+    cs.dependency 'DDUtils/utils'
+    cs.dependency 'Kingfisher'
+    cs.source_files = "Sources/assets/*.swift"  # 全小写路径
+  end
+
   # Basic subspec including all features
   s.subspec 'basic' do |cs|
     cs.dependency 'DDUtils/core'
@@ -53,5 +61,5 @@ Pod::Spec.new do |s|
   # Default subspec
   s.default_subspecs = 'basic'
 
-  s.documentation_url = 'https://dongge.org/blog/1281.html'
+  s.documentation_url = 'https://blog.dongge.net/1281.html'
 end
