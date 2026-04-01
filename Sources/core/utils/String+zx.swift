@@ -131,12 +131,6 @@ public extension DDUtilsNameSpace where T == String {
         let data = Data.dd.data(from: object, encodeType: encodeType)
         return data?.dd.xorDecrypt(password: password)
     }
-
-
-    @available(*, deprecated, message: "Use hashString(hashType: DDUtilsHashType, lowercase: Bool) instead")
-    func encryptString(encryType: DDUtilsHashType, lowercase: Bool = true) -> String? {
-        return self.hashString(hashType: encryType, lowercase: lowercase)
-    }
 }
 
 #if canImport(CryptoKit)

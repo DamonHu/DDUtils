@@ -55,7 +55,7 @@ class ViewController: UIViewController {
             print("size: ", size)
             
             if let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
-                print(data.dd.encryptString(encryType: .sha1))
+                print(data.dd.hashString(hashType: .sha1))
             }
             
         }
@@ -100,6 +100,7 @@ class ViewController: UIViewController {
         //获取唯一标识
         _ = DDUtils.shared.getIDFAString()
         
+                                                                     
         //比较时间
         _ = Date().dd.compare(anotherDate: Date(timeIntervalSince1970: 1000), ignoreTime: true)
         

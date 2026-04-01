@@ -24,125 +24,221 @@ public enum DDUtilsHashType {
 public enum DDUtilsEncodeType {
     case hex
     case base64
+    case base62
     case system(String.Encoding)
 }
+
+let DDKitUtilsAlphabet = Array("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
 public extension DDUtilsNameSpace where T == Data {
     //string生成Data，兼容hex和base64
     static func data(from string: String, encodeType: DDUtilsEncodeType) -> Data? {
         switch encodeType {
-            case .hex:
-                let len = string.count / 2
-                var data = Data(capacity: len)
-                var i = string.startIndex
-                for _ in 0..<len {
-                    let j = string.index(i, offsetBy: 2)
-                    let bytes = string[i..<j]
-                    if var num = UInt8(bytes, radix: 16) {
-                        data.append(&num, count: 1)
-                    } else {
-                        return nil
-                    }
-                    i = j
+        case .hex:
+            let len = string.count / 2
+            var data = Data(capacity: len)
+            var i = string.startIndex
+            for _ in 0..<len {
+                let j = string.index(i, offsetBy: 2)
+                let bytes = string[i..<j]
+                if var num = UInt8(bytes, radix: 16) {
+                    data.append(&num, count: 1)
+                } else {
+                    return nil
                 }
-                return data
-            case .base64:
-                return Data(base64Encoded: string)
-            case .system(let encode):
-                return string.data(using: encode)
+                i = j
+            }
+            return data
+            
+        case .base64:
+            return Data(base64Encoded: string)
+            
+        case .system(let encode):
+            return string.data(using: encode)
+            
+        case .base62:
+            guard !string.isEmpty else { return nil }
+            
+            let alphabet = DDKitUtilsAlphabet
+            let charToIndex = Dictionary(uniqueKeysWithValues: alphabet.enumerated().map { ($1, $0) })
+            // ✅ 只统计“前导0”
+            let zeroChar = alphabet[0]
+            var leadingZeroCount = 0
+            for char in string {
+                if char == zeroChar {
+                    leadingZeroCount += 1
+                } else {
+                    break
+                }
+            }
+            // 转数字
+            var digits = [Int]()
+            digits.reserveCapacity(string.count)
+            for char in string {
+                guard let index = charToIndex[char] else { return nil }
+                digits.append(index)
+            }
+            
+            var bytes = [UInt8]()
+            var currentDigits = digits
+            
+            while !currentDigits.isEmpty {
+                var remainder = 0
+                var nextDigits = [Int]()
+                nextDigits.reserveCapacity(currentDigits.count)
+                
+                for digit in currentDigits {
+                    let current = digit + remainder * 62
+                    let quotient = current >> 8
+                    remainder = current & 0xff
+                    
+                    if !nextDigits.isEmpty || quotient > 0 {
+                        nextDigits.append(quotient)
+                    }
+                }
+                
+                bytes.append(UInt8(remainder))
+                currentDigits = nextDigits
+            }
+            
+            // ✅ 只补前导0（关键修复）
+            bytes.append(contentsOf: Array(repeating: 0, count: leadingZeroCount))
+            
+            return Data(bytes.reversed())
         }
     }
-
+    
     //编码
     func encodeString(encodeType: DDUtilsEncodeType) -> String? {
         switch encodeType {
-            case .hex:
-                return object.map { String(format: "%02hhx", $0) }.joined()
-            case .base64:
-                return object.base64EncodedString()
-            case .system(let encode):
-                return String(data: object, encoding: encode)
+        case .hex:
+            return object.map { String(format: "%02hhx", $0) }.joined()
+            
+        case .base64:
+            return object.base64EncodedString()
+            
+        case .system(let encode):
+            return String(data: object, encoding: encode)
+            
+        case .base62:
+            guard !self.object.isEmpty else { return "" }
+            let alphabet = DDKitUtilsAlphabet
+            // ✅ 只统计“前导0”
+            var leadingZeroCount = 0
+            for byte in self.object {
+                if byte == 0 {
+                    leadingZeroCount += 1
+                } else {
+                    break
+                }
+            }
+            var bytes = Array(self.object)
+            var result = [Character]()
+            result.reserveCapacity(bytes.count)
+            
+            while !bytes.isEmpty {
+                var remainder = 0
+                var nextBytes = [UInt8]()
+                nextBytes.reserveCapacity(bytes.count)
+                
+                for byte in bytes {
+                    let current = Int(byte) + (remainder << 8)
+                    let quotient = current / 62
+                    remainder = current % 62
+                    
+                    if !nextBytes.isEmpty || quotient > 0 {
+                        nextBytes.append(UInt8(quotient))
+                    }
+                }
+                
+                result.append(alphabet[remainder])
+                bytes = nextBytes
+            }
+            // ✅ 只处理前导0（关键修复）
+            result.append(contentsOf: Array(repeating: alphabet[0], count: leadingZeroCount))
+            
+            return String(result.reversed())
         }
     }
-
+    
     ///hash计算
     func hashString(hashType: DDUtilsHashType, lowercase: Bool = true) -> String {
         var output = NSMutableString()
         switch hashType {
-            case .md5:
-                var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
-                _ = object.withUnsafeBytes { (messageBytes) -> Bool in
-                    CC_MD5(messageBytes.baseAddress, CC_LONG(object.count), &digest)
-                    return true
-                }
-
-                output = NSMutableString(capacity: Int(CC_MD5_DIGEST_LENGTH))
-                for byte in digest{
-                    output.appendFormat("%02x", byte)
-                }
-            case .sha1:
-                var digest = [UInt8](repeating: 0, count: Int(CC_SHA1_DIGEST_LENGTH))
-                _ = object.withUnsafeBytes { (messageBytes) -> Bool in
-                    CC_SHA1(messageBytes.baseAddress, CC_LONG(object.count), &digest)
-                    return true
-                }
-
-                output = NSMutableString(capacity: Int(CC_SHA1_DIGEST_LENGTH))
-                for byte in digest{
-                    output.appendFormat("%02x", byte)
-                }
-            case .sha224:
-                var digest = [UInt8](repeating: 0, count: Int(CC_SHA224_DIGEST_LENGTH))
-                _ = object.withUnsafeBytes { (messageBytes) -> Bool in
-                    CC_SHA224(messageBytes.baseAddress, CC_LONG(object.count), &digest)
-                    return true
-                }
-
-                output = NSMutableString(capacity: Int(CC_SHA224_DIGEST_LENGTH))
-                for byte in digest{
-                    output.appendFormat("%02x", byte)
-                }
-            case .sha256:
-                var digest = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
-                _ = object.withUnsafeBytes { (messageBytes) -> Bool in
-                    CC_SHA256(messageBytes.baseAddress, CC_LONG(object.count), &digest)
-                    return true
-                }
-
-                output = NSMutableString(capacity: Int(CC_SHA256_DIGEST_LENGTH))
-                for byte in digest{
-                    output.appendFormat("%02x", byte)
-                }
-            case .sha384:
-                var digest = [UInt8](repeating: 0, count: Int(CC_SHA384_DIGEST_LENGTH))
-                _ = object.withUnsafeBytes { (messageBytes) -> Bool in
-                    CC_SHA384(messageBytes.baseAddress, CC_LONG(object.count), &digest)
-                    return true
-                }
-
-                output = NSMutableString(capacity: Int(CC_SHA384_DIGEST_LENGTH))
-                for byte in digest{
-                    output.appendFormat("%02x", byte)
-                }
-            case .sha512:
-                var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
-                _ = object.withUnsafeBytes { (messageBytes) -> Bool in
-                    CC_SHA512(messageBytes.baseAddress, CC_LONG(object.count), &digest)
-                    return true
-                }
-
-                output = NSMutableString(capacity: Int(CC_SHA512_DIGEST_LENGTH))
-                for byte in digest{
-                    output.appendFormat("%02x", byte)
-                }
+        case .md5:
+            var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
+            _ = object.withUnsafeBytes { (messageBytes) -> Bool in
+                CC_MD5(messageBytes.baseAddress, CC_LONG(object.count), &digest)
+                return true
+            }
+            
+            output = NSMutableString(capacity: Int(CC_MD5_DIGEST_LENGTH))
+            for byte in digest{
+                output.appendFormat("%02x", byte)
+            }
+        case .sha1:
+            var digest = [UInt8](repeating: 0, count: Int(CC_SHA1_DIGEST_LENGTH))
+            _ = object.withUnsafeBytes { (messageBytes) -> Bool in
+                CC_SHA1(messageBytes.baseAddress, CC_LONG(object.count), &digest)
+                return true
+            }
+            
+            output = NSMutableString(capacity: Int(CC_SHA1_DIGEST_LENGTH))
+            for byte in digest{
+                output.appendFormat("%02x", byte)
+            }
+        case .sha224:
+            var digest = [UInt8](repeating: 0, count: Int(CC_SHA224_DIGEST_LENGTH))
+            _ = object.withUnsafeBytes { (messageBytes) -> Bool in
+                CC_SHA224(messageBytes.baseAddress, CC_LONG(object.count), &digest)
+                return true
+            }
+            
+            output = NSMutableString(capacity: Int(CC_SHA224_DIGEST_LENGTH))
+            for byte in digest{
+                output.appendFormat("%02x", byte)
+            }
+        case .sha256:
+            var digest = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
+            _ = object.withUnsafeBytes { (messageBytes) -> Bool in
+                CC_SHA256(messageBytes.baseAddress, CC_LONG(object.count), &digest)
+                return true
+            }
+            
+            output = NSMutableString(capacity: Int(CC_SHA256_DIGEST_LENGTH))
+            for byte in digest{
+                output.appendFormat("%02x", byte)
+            }
+        case .sha384:
+            var digest = [UInt8](repeating: 0, count: Int(CC_SHA384_DIGEST_LENGTH))
+            _ = object.withUnsafeBytes { (messageBytes) -> Bool in
+                CC_SHA384(messageBytes.baseAddress, CC_LONG(object.count), &digest)
+                return true
+            }
+            
+            output = NSMutableString(capacity: Int(CC_SHA384_DIGEST_LENGTH))
+            for byte in digest{
+                output.appendFormat("%02x", byte)
+            }
+        case .sha512:
+            var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
+            _ = object.withUnsafeBytes { (messageBytes) -> Bool in
+                CC_SHA512(messageBytes.baseAddress, CC_LONG(object.count), &digest)
+                return true
+            }
+            
+            output = NSMutableString(capacity: Int(CC_SHA512_DIGEST_LENGTH))
+            for byte in digest{
+                output.appendFormat("%02x", byte)
+            }
         }
-
+        
         if !lowercase {
             return String(output).uppercased()
         }
         return String(output)
     }
-
+    
     /*
      AES CBC加密
      model: CBC
@@ -187,15 +283,9 @@ public extension DDUtilsNameSpace where T == Data {
         let inputBytes = Array(self.object)
         var outputBytes = [UInt8]()
         for i in 0..<inputBytes.count {
-                outputBytes.append(inputBytes[i] ^ key[i % key.count])
+            outputBytes.append(inputBytes[i] ^ key[i % key.count])
         }
         return String(bytes: outputBytes, encoding: .utf8)
-    }
-
-    /**deprecated*/
-    @available(*, deprecated, message: "Use hashString(hashType: DDUtilsHashType, lowercase: Bool) instead")
-    func encryptString(encryType: DDUtilsHashType, lowercase: Bool = true) -> String {
-        return self.hashString(hashType: encryType, lowercase: lowercase)
     }
 }
 
@@ -208,7 +298,7 @@ public extension DDUtilsNameSpace where T == Data {
         assert(key.count == kCCKeySizeAES128 || key.count == kCCKeySizeAES192 || key.count == kCCKeySizeAES256, "Invalid key length. Available length is \(kCCKeySizeAES128) \(kCCKeySizeAES192) \(kCCKeySizeAES256)")
         return self.aesGCMEncrypt(key: SymmetricKey.init(data: key), encodeType: encodeType, nonce: nonce)
     }
-
+    
     ///AES GCM加密
     func aesGCMEncrypt(key: SymmetricKey, encodeType: DDUtilsEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce()) -> String? {
         assert(key.bitCount / 8 == kCCKeySizeAES128 || key.bitCount / 8 == kCCKeySizeAES192 || key.bitCount / 8 == kCCKeySizeAES256, "Invalid key length. Available length is \(kCCKeySizeAES128) \(kCCKeySizeAES192) \(kCCKeySizeAES256)")
@@ -223,7 +313,7 @@ public extension DDUtilsNameSpace where T == Data {
         let keyData = SymmetricKey.init(data: key)
         return self.aesGCMDecrypt(key: keyData)
     }
-
+    
     //AES GCM解密
     func aesGCMDecrypt(key: SymmetricKey) -> String? {
         assert(key.bitCount / 8 == kCCKeySizeAES128 || key.bitCount / 8 == kCCKeySizeAES192 || key.bitCount / 8 == kCCKeySizeAES256, "Invalid key length. Available length is \(kCCKeySizeAES128) \(kCCKeySizeAES192) \(kCCKeySizeAES256)")
@@ -231,34 +321,34 @@ public extension DDUtilsNameSpace where T == Data {
         guard let decry = try? AES.GCM.open(sealedBox, using: key) else { return nil }
         return String(decoding: decry, as: UTF8.self)
     }
-
+    
     ///HMAC计算
     func hmac(hashType: DDUtilsHashType, password: String, encodeType: DDUtilsEncodeType = .base64) -> String? {
         let key = SymmetricKey.init(data: password.data(using:String.Encoding.utf8)!)
         return self.hmac(hashType: hashType, key: key, encodeType: encodeType)
     }
-
+    
     ///HMAC计算
     func hmac(hashType: DDUtilsHashType, key: SymmetricKey, encodeType: DDUtilsEncodeType = .base64) -> String? {
         switch hashType {
-            case .md5:
-                let sign = HMAC<Insecure.MD5>.authenticationCode(for: object, using: key)
-                return Data(sign).dd.encodeString(encodeType: encodeType)
-            case .sha1:
-                let sign = HMAC<Insecure.SHA1>.authenticationCode(for: object, using: key)
-                return Data(sign).dd.encodeString(encodeType: encodeType)
-            case .sha224:
-                assert(false, "unsupported hash type")
-                return nil
-            case .sha256:
-                let sign = HMAC<SHA256>.authenticationCode(for: object, using: key)
-                return Data(sign).dd.encodeString(encodeType: encodeType)
-            case .sha384:
-                let sign = HMAC<SHA384>.authenticationCode(for: object, using: key)
-                return Data(sign).dd.encodeString(encodeType: encodeType)
-            case .sha512:
-                let sign = HMAC<SHA512>.authenticationCode(for: object, using: key)
-                return Data(sign).dd.encodeString(encodeType: encodeType)
+        case .md5:
+            let sign = HMAC<Insecure.MD5>.authenticationCode(for: object, using: key)
+            return Data(sign).dd.encodeString(encodeType: encodeType)
+        case .sha1:
+            let sign = HMAC<Insecure.SHA1>.authenticationCode(for: object, using: key)
+            return Data(sign).dd.encodeString(encodeType: encodeType)
+        case .sha224:
+            assert(false, "unsupported hash type")
+            return nil
+        case .sha256:
+            let sign = HMAC<SHA256>.authenticationCode(for: object, using: key)
+            return Data(sign).dd.encodeString(encodeType: encodeType)
+        case .sha384:
+            let sign = HMAC<SHA384>.authenticationCode(for: object, using: key)
+            return Data(sign).dd.encodeString(encodeType: encodeType)
+        case .sha512:
+            let sign = HMAC<SHA512>.authenticationCode(for: object, using: key)
+            return Data(sign).dd.encodeString(encodeType: encodeType)
         }
     }
 }
@@ -268,12 +358,12 @@ private extension DDUtilsNameSpace where T == Data {
     func _crypt(data: Data, key: Data, iv: Data, option: CCOperation) -> Data? {
         let cryptLength = data.count + kCCBlockSizeAES128
         var cryptData   = Data(count: cryptLength)
-
+        
         let keyLength = key.count
         let options   = CCOptions(kCCOptionPKCS7Padding)
-
+        
         var bytesLength = Int(0)
-
+        
         let status = cryptData.withUnsafeMutableBytes { cryptBytes in
             data.withUnsafeBytes { dataBytes in
                 iv.withUnsafeBytes { ivBytes in
@@ -283,11 +373,11 @@ private extension DDUtilsNameSpace where T == Data {
                 }
             }
         }
-
+        
         guard UInt32(status) == UInt32(kCCSuccess) else {
             return nil
         }
-
+        
         cryptData.removeSubrange(bytesLength..<cryptData.count)
         return cryptData
     }

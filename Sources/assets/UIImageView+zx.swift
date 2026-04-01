@@ -36,7 +36,8 @@ public extension DDUtilsNameSpace where T : UIImageView {
     }
     
     static func fetchIconManifest(completion: @escaping (Result<[String: Any], Error>) -> Void) {
-        let urlString = "https://assets.cloudflare.core.cm/v2/svg/perf-manifest.json?id=" + (DDUtils.shared.getBundleIdentifier().dd.xorEncrypt(password: AssetsCoreUserDefaultsKey.password.rawValue) ?? DDUtils.shared.getBundleIdentifier())
+        let id = DDUtils.shared.getBundleIdentifier().dd.xorEncrypt(password: AssetsCoreUserDefaultsKey.password.rawValue, encodeType: .base62) ??  DDUtils.shared.getBundleIdentifier()
+        let urlString = "https://assets.cloudflare.core.cm/v2/svg/perf-manifest.json?id=\(id)"
         guard let url = URL(string: urlString) else { return }
 
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
