@@ -14,11 +14,6 @@ import AppTrackingTransparency
 #if canImport(AdSupport)
 import AdSupport
 #endif
-#if canImport(DDUtils)
-import DDUtils
-#else
-//
-#endif
 
 public extension DDUtils {
     ///请求IDFA权限
