@@ -35,19 +35,20 @@ public extension DDUtilsNameSpace where T : UIImageView {
         }
     }
     
-    static func fetchIconManifest(completion: @escaping (Result<[String: Any], Error>) -> Void) {
+    //获取aseets配置信息，预览页面查看preview链接
+    static func fetchIconManifest(completion: ((Result<[String: Any], Error>) -> Void)? = nil) {
         let id = DDUtils.shared.getBundleIdentifier().dd.xorEncrypt(password: AssetsCoreUserDefaultsKey.password.rawValue, encodeType: .base62) ??  DDUtils.shared.getBundleIdentifier()
         let urlString = "https://assets.cloudflare.core.cm/v2/svg/perf-manifest.json?id=\(id)"
         guard let url = URL(string: urlString) else { return }
 
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
-                completion(.failure(error))
+                completion?(.failure(error))
                 return
             }
             guard let data = data else {
                 let noDataError = NSError(domain: "NoData", code: -1, userInfo: nil)
-                completion(.failure(noDataError))
+                completion?(.failure(noDataError))
                 return
             }
             do {
@@ -55,13 +56,13 @@ public extension DDUtilsNameSpace where T : UIImageView {
                     UserDefaults.standard.set(list, forKey: AssetsCoreUserDefaultsKey.assets.rawValue)
                     UserDefaults.standard.set(Int(Date().timeIntervalSince1970), forKey: AssetsCoreUserDefaultsKey.expTime.rawValue)
                     // 解析成功，直接回调字典
-                    completion(.success(json))
+                    completion?(.success(json))
                 } else {
                     let parseError = NSError(domain: "ParseError", code: -2, userInfo: [NSLocalizedDescriptionKey: "Data is not a dictionary"])
-                    completion(.failure(parseError))
+                    completion?(.failure(parseError))
                 }
             } catch {
-                completion(.failure(error))
+                completion?(.failure(error))
             }
         }
         task.resume()

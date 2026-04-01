@@ -99,7 +99,6 @@ class ViewController: UIViewController {
         _ = DDUtils.shared.getAppBuildVersionString()
         //获取唯一标识
         _ = DDUtils.shared.getIDFAString()
-        
                                                                      
         //比较时间
         _ = Date().dd.compare(anotherDate: Date(timeIntervalSince1970: 1000), ignoreTime: true)
