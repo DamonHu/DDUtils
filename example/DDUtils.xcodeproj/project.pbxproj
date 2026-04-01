@@ -13,8 +13,8 @@
 		E46E087724AD7A5200843DE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46E087524AD7A5200843DE2 /* Main.storyboard */; };
 		E46E087924AD7A5400843DE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46E087824AD7A5400843DE2 /* Assets.xcassets */; };
 		E46E087C24AD7A5400843DE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46E087A24AD7A5400843DE2 /* LaunchScreen.storyboard */; };
-		E4B173462F7BAF60001A14E0 /* UIImageView+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B173452F7BAF58001A14E0 /* UIImageView+zx.swift */; };
-		E4B173482F7BD62F001A14E0 /* UIImageView+kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B173472F7BD625001A14E0 /* UIImageView+kingfisher.swift */; };
+		E4B1734C2F7CB314001A14E0 /* UIImageView+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1734A2F7CB314001A14E0 /* UIImageView+zx.swift */; };
+		E4B1734D2F7CB314001A14E0 /* UIImageView+kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B173492F7CB314001A14E0 /* UIImageView+kingfisher.swift */; };
 		E4D1606726E219940040765D /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D1606626E219940040765D /* TestModel.swift */; };
 		E4D873D22CBD093D00B9422A /* UIView+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D873C52CBD093D00B9422A /* UIView+zx.swift */; };
 		E4D873D32CBD093D00B9422A /* UIImage+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D873C42CBD093D00B9422A /* UIImage+zx.swift */; };
@@ -47,8 +47,8 @@
 		E46E087824AD7A5400843DE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E46E087B24AD7A5400843DE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E46E087D24AD7A5400843DE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4B173452F7BAF58001A14E0 /* UIImageView+zx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+zx.swift"; sourceTree = "<group>"; };
-		E4B173472F7BD625001A14E0 /* UIImageView+kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+kingfisher.swift"; sourceTree = "<group>"; };
+		E4B173492F7CB314001A14E0 /* UIImageView+kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+kingfisher.swift"; sourceTree = "<group>"; };
+		E4B1734A2F7CB314001A14E0 /* UIImageView+zx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+zx.swift"; sourceTree = "<group>"; };
 		E4D1606626E219940040765D /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		E4D873BB2CBD093D00B9422A /* DDUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDUtils.swift; sourceTree = "<group>"; };
 		E4D873BC2CBD093D00B9422A /* DDUtilsNameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDUtilsNameSpace.swift; sourceTree = "<group>"; };
@@ -131,11 +131,11 @@
 			path = DDUtils;
 			sourceTree = "<group>";
 		};
-		E4B173442F7BAF3F001A14E0 /* assets */ = {
+		E4B1734B2F7CB314001A14E0 /* assets */ = {
 			isa = PBXGroup;
 			children = (
-				E4B173472F7BD625001A14E0 /* UIImageView+kingfisher.swift */,
-				E4B173452F7BAF58001A14E0 /* UIImageView+zx.swift */,
+				E4B173492F7CB314001A14E0 /* UIImageView+kingfisher.swift */,
+				E4B1734A2F7CB314001A14E0 /* UIImageView+zx.swift */,
 			);
 			path = assets;
 			sourceTree = "<group>";
@@ -186,7 +186,6 @@
 		E4D873CE2CBD093D00B9422A /* core */ = {
 			isa = PBXGroup;
 			children = (
-				E4B173442F7BAF3F001A14E0 /* assets */,
 				E4D873BD2CBD093D00B9422A /* core */,
 				E4D873C02CBD093D00B9422A /* permission */,
 				E4D873C62CBD093D00B9422A /* ui */,
@@ -206,6 +205,7 @@
 		E4D873D12CBD093D00B9422A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E4B1734B2F7CB314001A14E0 /* assets */,
 				E4D873CE2CBD093D00B9422A /* core */,
 				E4D873D02CBD093D00B9422A /* idfa */,
 			);
@@ -348,9 +348,9 @@
 				E4D873D42CBD093D00B9422A /* Date+zx.swift in Sources */,
 				E4D873D52CBD093D00B9422A /* DDUtils+permission.swift in Sources */,
 				E4D873D62CBD093D00B9422A /* DDUtils+media.swift in Sources */,
-				E4B173482F7BD62F001A14E0 /* UIImageView+kingfisher.swift in Sources */,
 				E4D873D72CBD093D00B9422A /* UIColor+zx.swift in Sources */,
-				E4B173462F7BAF60001A14E0 /* UIImageView+zx.swift in Sources */,
+				E4B1734C2F7CB314001A14E0 /* UIImageView+zx.swift in Sources */,
+				E4B1734D2F7CB314001A14E0 /* UIImageView+kingfisher.swift in Sources */,
 				E4D873D82CBD093D00B9422A /* DDUtils.swift in Sources */,
 				E4D873D92CBD093D00B9422A /* Data+zx.swift in Sources */,
 				E4D873DA2CBD093D00B9422A /* DDUtils+system.swift in Sources */,
