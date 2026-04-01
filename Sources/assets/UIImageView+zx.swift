@@ -10,9 +10,9 @@ import UIKit
 import Kingfisher
 
 enum AssetsCoreUserDefaultsKey: String {
-    case password = "AssetsCoreUserDefaultsKey"
-    case assets
-    case expTime
+    case password = "AssetsCoreUserDefaultsKey_password"
+    case assets = "AssetsCoreUserDefaultsKey_assets"
+    case expTime = "AssetsCoreUserDefaultsKey_expTime"
 }
 
 public extension DDUtilsNameSpace where T : UIImageView {
