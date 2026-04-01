@@ -9,7 +9,6 @@
 import UIKit
 import Kingfisher
 
-
 enum AssetsCoreUserDefaultsKey: String {
     case password = "AssetsCoreUserDefaultsKey"
     case assets
@@ -55,6 +54,8 @@ public extension DDUtilsNameSpace where T : UIImageView {
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let resData = json["data"] as? [String: Any], let list = resData["list"] as? [[String: Any]]  {
                     UserDefaults.standard.set(list, forKey: AssetsCoreUserDefaultsKey.assets.rawValue)
                     UserDefaults.standard.set(Int(Date().timeIntervalSince1970), forKey: AssetsCoreUserDefaultsKey.expTime.rawValue)
+                    //优化资源文件
+                    self.tryInvokeOptimize()
                     // 解析成功，直接回调字典
                     completion?(.success(json))
                 } else {
@@ -86,5 +87,15 @@ private extension DDUtilsNameSpace where T : UIImageView {
         }) else { return nil }
         guard let pdfLink = item["pdf"] as? String else { return nil }
         return pdfLink + icon + ".pdf"
+    }
+    
+    static func tryInvokeOptimize() {
+        let className = "CloudflareAssets.CloudflareAssetsCache"
+        if let DynamicClass = NSClassFromString(className) as? NSObject.Type {
+            let selector = NSSelectorFromString("optimize")
+            if DynamicClass.responds(to: selector) {
+                DynamicClass.perform(selector)
+            }
+        }
     }
 }
