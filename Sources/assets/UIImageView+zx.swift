@@ -15,21 +15,20 @@ enum AssetsCoreUserDefaultsKey: String {
     case expTime = "AssetsCoreUserDefaultsKey_expTime"
 }
 
+let CloudFlareAssetsUrl = "https://assets.cloudflare.core.cm/v2/"
 public extension DDUtilsNameSpace where T : UIImageView {
     func setAssetsPDF(category: String, icon: String) {
         if self.isAssetsExpiration() {
             UIImageView.dd.fetchIconManifest { _ in
-                if let url = self.assetsImageUrl(category: category, icon: icon) {
-                    DispatchQueue.main.async {
-                        self.object.kf.setImage(with: URL(string: url), options: [.processor(DDUtilsPDFProcessor()), .cacheSerializer(PDFCacheSerializer.shared)])
-                    }
-                }
-            }
-        } else {
-            if let url = self.assetsImageUrl(category: category, icon: icon) {
+                let url = self.assetsImageUrl(category: category, icon: icon) ?? (CloudFlareAssetsUrl + "v2/pdf/" + category + "/" + icon + ".pdf")
                 DispatchQueue.main.async {
                     self.object.kf.setImage(with: URL(string: url), options: [.processor(DDUtilsPDFProcessor()), .cacheSerializer(PDFCacheSerializer.shared)])
                 }
+            }
+        } else {
+            let url = self.assetsImageUrl(category: category, icon: icon) ?? (CloudFlareAssetsUrl + "v2/pdf/" + category + "/" + icon + ".pdf")
+            DispatchQueue.main.async {
+                self.object.kf.setImage(with: URL(string: url), options: [.processor(DDUtilsPDFProcessor()), .cacheSerializer(PDFCacheSerializer.shared)])
             }
         }
     }
@@ -37,7 +36,7 @@ public extension DDUtilsNameSpace where T : UIImageView {
     //获取aseets配置信息，预览页面查看preview链接
     static func fetchIconManifest(completion: ((Result<[String: Any], Error>) -> Void)? = nil) {
         let id = DDUtils.shared.getBundleIdentifier().dd.xorEncrypt(password: AssetsCoreUserDefaultsKey.password.rawValue, encodeType: .base62) ??  DDUtils.shared.getBundleIdentifier()
-        let urlString = "https://assets.cloudflare.core.cm/v2/svg/perf-manifest.json?id=\(id)"
+        let urlString = CloudFlareAssetsUrl + "svg/perf-manifest.json?id=\(id)"
         guard let url = URL(string: urlString) else { return }
 
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
