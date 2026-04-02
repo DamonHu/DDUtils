@@ -20,15 +20,17 @@ public extension DDUtilsNameSpace where T : UIImageView {
     func setAssetsPDF(category: String, icon: String) {
         if self.isAssetsExpiration() {
             UIImageView.dd.fetchIconManifest { _ in
-                let url = self.assetsImageUrl(category: category, icon: icon) ?? (CloudFlareAssetsUrl + "v2/pdf/" + category + "/" + icon + ".pdf")
-                DispatchQueue.main.async {
-                    self.object.kf.setImage(with: URL(string: url), options: [.processor(DDUtilsPDFProcessor()), .cacheSerializer(PDFCacheSerializer.shared)])
+                if let url = self.assetsImageUrl(category: category, icon: icon) {
+                    DispatchQueue.main.async {
+                        self.object.kf.setImage(with: URL(string: url), options: [.processor(DDUtilsPDFProcessor()), .cacheSerializer(PDFCacheSerializer.shared)])
+                    }
                 }
             }
         } else {
-            let url = self.assetsImageUrl(category: category, icon: icon) ?? (CloudFlareAssetsUrl + "v2/pdf/" + category + "/" + icon + ".pdf")
-            DispatchQueue.main.async {
-                self.object.kf.setImage(with: URL(string: url), options: [.processor(DDUtilsPDFProcessor()), .cacheSerializer(PDFCacheSerializer.shared)])
+            if let url = self.assetsImageUrl(category: category, icon: icon) {
+                DispatchQueue.main.async {
+                    self.object.kf.setImage(with: URL(string: url), options: [.processor(DDUtilsPDFProcessor()), .cacheSerializer(PDFCacheSerializer.shared)])
+                }
             }
         }
     }
@@ -77,7 +79,10 @@ private extension DDUtilsNameSpace where T : UIImageView {
     }
     
     func assetsImageUrl(category: String, icon: String) -> String? {
-        guard let list = UserDefaults.standard.object(forKey: AssetsCoreUserDefaultsKey.assets.rawValue) as? [[String: Any]] else { return nil }
+        guard let list = UserDefaults.standard.object(forKey: AssetsCoreUserDefaultsKey.assets.rawValue) as? [[String: Any]] else {
+            let tryUrl = CloudFlareAssetsUrl + "pdf/" + category + "/" + icon + ".pdf"
+            return tryUrl
+        }
         guard let item = list.first(where: { item in
             if let name = item["name"] as? String {
                 return name == category
