@@ -75,7 +75,7 @@ private extension DDUtilsNameSpace where T : UIImageView {
     func isAssetsExpiration() -> Bool {
         let time = UserDefaults.standard.integer(forKey: AssetsCoreUserDefaultsKey.expTime.rawValue)
         let now = Date().timeIntervalSince1970
-        return Int(now) - time > 48 * 3600
+        return Int(now) - time > 3600
     }
     
     func assetsImageUrl(category: String, icon: String) -> String? {
