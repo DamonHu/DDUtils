@@ -90,7 +90,8 @@ private extension DDUtilsNameSpace where T : UIImageView {
             return false
         }) else { return nil }
         guard let pdfLink = item["pdf"] as? String else { return nil }
-        return pdfLink + icon + ".pdf"
+        let version = item["version"] as? String ?? "1.0"
+        return pdfLink + icon + ".pdf" + "?v=" + version
     }
     
     static func tryInvokeOptimize() {
