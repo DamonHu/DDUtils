@@ -17,19 +17,19 @@ enum AssetsCoreUserDefaultsKey: String {
 
 let CloudFlareAssetsUrl = "https://assets.cloudflare.core.cm/v2/"
 public extension DDUtilsNameSpace where T : UIImageView {
-    func setAssetsPDF(category: String, icon: String) {
+    func setAssetsPDF(category: String, icon: String, size: CGSize? = nil) {
         if self.isAssetsExpiration() {
             UIImageView.dd.fetchIconManifest { _ in
                 if let url = self.assetsImageUrl(category: category, icon: icon) {
                     DispatchQueue.main.async {
-                        self.object.kf.setImage(with: URL(string: url), options: [.processor(DDUtilsPDFProcessor()), .cacheSerializer(PDFCacheSerializer.shared), .keepCurrentImageWhileLoading])
+                        self.object.kf.setImage(with: URL(string: url), options: [.processor(DDUtilsPDFProcessor(targetSize: size)), .cacheSerializer(PDFCacheSerializer.shared), .keepCurrentImageWhileLoading])
                     }
                 }
             }
         } else {
             if let url = self.assetsImageUrl(category: category, icon: icon) {
                 DispatchQueue.main.async {
-                    self.object.kf.setImage(with: URL(string: url), options: [.processor(DDUtilsPDFProcessor()), .cacheSerializer(PDFCacheSerializer.shared), .keepCurrentImageWhileLoading])
+                    self.object.kf.setImage(with: URL(string: url), options: [.processor(DDUtilsPDFProcessor(targetSize: size)), .cacheSerializer(PDFCacheSerializer.shared), .keepCurrentImageWhileLoading])
                 }
             }
         }

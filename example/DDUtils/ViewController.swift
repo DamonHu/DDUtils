@@ -151,9 +151,10 @@ class ViewController: UIViewController {
         
         let imageView = UIImageView(frame: CGRect(x: 100, y: 400, width: 50, height: 50))
 //        imageView.backgroundColor = .red
-        imageView.tintColor = .black
+        imageView.tintColor = .red
+        imageView.contentMode = .scaleAspectFit
         self.view.addSubview(imageView)
-        imageView.dd.setAssetsPDF(category: "editor", icon: "editor-edit-2")
+        imageView.dd.setAssetsPDF(category: "editor", icon: "calendar", size: CGSize(width: 500, height: 500))
         
         
 //        self.view.backgroundColor = .red
