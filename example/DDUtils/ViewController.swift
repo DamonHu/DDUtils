@@ -121,13 +121,16 @@ class ViewController: UIViewController {
         //播放音乐
 //        DDUtils.shared.playMusic(url: URL(string: "https://file-fat.shinningmorning.com/voice/voice_xiongdi.m4a"), repeated: true)
         DispatchQueue.init(label: "other quene").async {
-            ///type设置为async，输出为lll, mmm, ssss, 设置为sync，输出为lll，ssss，mmm
+            ///type设置为async，输出为1,3,2, 设置为sync，输出为1,2,3
+            print("1")
             DDUtils.shared.runInMainThread(type: .sync) {
-                print("ssssssss")
+                //可以同步获取主线程的信息，以便子线程计算
+                print("sssssss", self.view.bounds)
+                print("2")
             }
-            print("mmmm")
+            print("3")
         }
-        print("lllllll")
+        print("4")
 
         self.createUI()
     }
@@ -150,11 +153,9 @@ class ViewController: UIViewController {
         button2.addTarget(self, action: #selector(playMusic), for: UIControl.Event.touchUpInside)
         
         let imageView = UIImageView(frame: CGRect(x: 100, y: 400, width: 50, height: 50))
-//        imageView.backgroundColor = .red
         imageView.tintColor = .red
-        imageView.contentMode = .scaleAspectFit
-        self.view.addSubview(imageView)
         imageView.dd.setAssetsPDF(category: "editor", icon: "calendar", size: CGSize(width: 500, height: 500))
+        self.view.addSubview(imageView)
         
         
 //        self.view.backgroundColor = .red
